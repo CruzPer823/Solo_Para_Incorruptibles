@@ -71,6 +71,7 @@ img {
     background-repeat: no-repeat;
     background-position: center center;
     color: var(--blanco);
+    padding-bottom: 0.5rem;
 }
 .logo{
     height: 5rem;
@@ -175,16 +176,23 @@ img {
     border-radius: 1.5rem;
     border: 1px solid #7D7097;
     font-size: 1.5rem;  
+    appearance: auto;
 }
 .form-label{
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   overflow: hidden; /* Oculta cualquier contenido que desborde del ancho especificado */
   text-overflow: ellipsis; /* Muestra puntos suspensivos (...) si el contenido no cabe dentro del ancho especificado */
-  width: 25rem; /* Ancho máximo del label */
+  width: 30rem; /* Ancho máximo del label */
   font-size: 2rem;
 }
 .entrada{
     margin-bottom: 4rem;
+    display: flex;
+}
+@media (max-width: 768px) {
+    .entrada {
+        display: block; /* Cambia el display de flex a block */
+    }
 }
 
 

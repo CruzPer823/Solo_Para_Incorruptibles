@@ -1,0 +1,134 @@
+html, body{
+    background-color: #E4E5EB;
+}
+.Titulo{
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+.cont{
+    font-family: "Dosis", sans-serif;
+    font-weight: 500;
+    font-size: 1.6em;
+    margin-bottom: 30px;
+}
+.Logo{
+    display: flex;
+    justify-content: center;
+    background-color: #23274C;
+    padding: 5px;
+}
+.nv{
+    display: flex;
+    justify-content: center;
+    flex-shrink: 1;
+}
+.nav-item > a{
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    color: #FFFF;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 5vh;
+
+}
+.misvis{
+    display: grid;
+    grid-template: 1fr/ 1fr 1fr;
+}
+.contenedor{
+    display: flex;
+    justify-content: center;
+    background-color: #E4E5EB;
+}
+.tarjetaPrin{
+    margin-top: 50px;
+    display: flex;
+    background-color: #7D7097;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+}
+.tarjeta{
+    margin-top: 50px;
+    display: flex;
+    background-color: #FFFF;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.contenido{
+    display: grid;
+    grid-template: 300px 150px/450px 450px;
+    gap: 5vh;
+}
+.logoTarjeta{
+    display: flex;
+    justify-content: center;
+    grid-column: span 2;
+}
+.b1{
+    display: flex;
+    justify-content: center;
+}
+.b2{
+    display: flex;
+    justify-content: center;
+}
+.btnGen{
+    border: none;
+    border-radius: 12px;
+    background-color: #23274C;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #FFFF;
+    height: 120px;
+    width: 250px;
+}
+.btnGen:hover{
+    background-color: #353753;
+}
+.icono{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+.footer{
+    clear: both;
+    display: flex;
+    background-color: #7D7097;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+@media (max-width: 1000px) {
+    .nav-item > a{
+        margin: 0%;
+    }
+    .contenedor{
+        background-color: #E4E5EB;
+    }
+    .contenido{
+        grid-template: 280px 280px 280px/280px;
+        gap: 1vh;
+    }
+    .tarjetaPrin{
+        margin: 50px;
+    }
+    .logoTarjeta{
+        height: 20px;
+    }
+    .b1{
+        align-items: center;
+        grid-column: span 2;
+    }
+    .b2{
+        align-items: center;
+    }
+    .misvis{
+        grid-template: 1fr 1fr/ 1fr;
+    }
+  }

@@ -22,7 +22,7 @@ body {
     font-size: 1.6rem;
     line-height: 2;
     color: var(--gris_fuente);
-    
+    min-height: 100vh
 }
 
 /** Globales **/
@@ -137,7 +137,7 @@ img {
     font-weight: 800;
     font-size: 2.5rem;
     text-align: start;
-    padding-left: 5rem;
+    padding-left: 0rem;
     margin-bottom: 2rem;
 }
 .progress__text{
@@ -178,8 +178,10 @@ img {
     font-size: 1.5rem;  
     appearance: auto;
 }
+.conducta{
+    margin-bottom: 4rem;
+}
 .form-label{
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   overflow: hidden; /* Oculta cualquier contenido que desborde del ancho especificado */
   text-overflow: ellipsis; /* Muestra puntos suspensivos (...) si el contenido no cabe dentro del ancho especificado */
   width: 30rem; /* Ancho máximo del label */
@@ -189,9 +191,21 @@ img {
     margin-bottom: 4rem;
     display: flex;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .entrada {
         display: block; /* Cambia el display de flex a block */
+    }
+    .form-label{
+        white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    }
+}
+.contenedor-conductas{
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .contenedor-conductas{
+        display: block;
     }
 }
 
@@ -210,7 +224,7 @@ img {
     border-radius: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 767px) {
     .boton {
         display: inline-block;
 
@@ -224,10 +238,11 @@ img {
     background-color: var(--moradoClaro);
 }
 .boton--secundario {
-    background-color: var(--primario);
+    background-color: var(--moradoOscuro);
 }
 
 .footer {
+    
     background-color: var(--moradoClaro);
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
@@ -252,4 +267,47 @@ img {
     display: inline-block; /* Permite que el enlace se ajuste al tamaño del contenedor */
     width: 3rem; /* Ajusta el ancho según tus necesidades */
     height: 3rem; /* Ajusta la altura según tus necesidades */
+}
+.btn-add{
+    border: none; /* Elimina el borde del botón */
+            background: none; /* Elimina el fondo del botón */
+            padding: 0; /* Elimina el relleno interno del botón */
+            font-size: inherit; /* Utiliza el tamaño de fuente del elemento padre */
+            text-decoration: underline; /* Subraya el texto */
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            color: #828282; /* Color del texto */
+            font-weight: 600;
+}
+.btn-add:hover{
+    color: var(--gris_fuente);
+    cursor: pointer;
+}
+
+.select-conductas-i{
+    display: flex;
+    
+}
+.select-conductas{
+    display: flex;
+    margin-bottom: 4rem;
+    
+}
+.msj-gracias{
+    font-size: 6rem;
+    font-weight: 600;
+    margin-bottom: 6rem;
+}
+
+
+.folio{
+    font-weight: 800;
+    font-size: 4rem;
+    margin-bottom: 6rem;
+}
+.info-consulta{
+    font-size: 4rem;
+    margin-bottom: 3rem;
+}
+.form-6{
+    width: auto;
 }

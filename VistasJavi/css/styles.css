@@ -85,21 +85,22 @@ img {
 .navbar-nav {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Distribuye los elementos de manera equitativa */
+    justify-content: space-between; 
 }
 
 
 .navbar-brand {
-    padding-right: 0rem; /* Ajusta el espacio entre el logo y los enlaces */
+    padding-right: 0rem; 
 }
 
 .nav-link {
     color: var(--gris);
-    text-decoration: none; /* Quita el subrayado de los enlaces */
+    text-decoration: none; 
+    text-align: center;
 }
 
 .nav-link:hover {
-    color: #000; /* Cambia el color del texto al pasar el ratón por encima */
+    color: #000; 
 }
 .selected {
     font-weight: 800;

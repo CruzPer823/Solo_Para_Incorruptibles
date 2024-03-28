@@ -108,6 +108,14 @@ html{
     justify-content: space-evenly;
     padding: 10px;
 }
+.footer svg{
+    width: 45px;
+    height: 43px;
+}
+.footer svg{
+    width: 45px;
+    height: 43px;
+}
 @media (max-width: 1024px) {
     .nav-item > a{
         margin: 0%;

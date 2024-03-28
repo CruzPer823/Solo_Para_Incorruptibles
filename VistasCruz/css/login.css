@@ -57,7 +57,6 @@ html{
 }
     .cont{
     display: flex;
-    flex-shrink: 1;
     font-family: "Dosis", sans-serif;
     justify-content: center;
     text-align: center;
@@ -71,13 +70,13 @@ html{
     justify-content: center;
     margin-bottom: 30px;
 }
-#folioBusq{
+#inp{
     display: flex;
     font-family: "Dosis", sans-serif;
     font-size: 20px;
     font-weight: bolder;
     padding-left: 30px;
-    border: #9CB8BF solid 2px;
+    border: #23274C solid 1px;
     border-radius: 20px;
     height: 50px;
     width: 340px;
@@ -124,6 +123,10 @@ html{
     justify-content: space-evenly;
     padding: 10px;
 }
+.footer svg{
+    width: 45px;
+    height: 43px;
+}
 @media (max-width: 1024px) {
     .nav-item > a{
         margin: 0%;
@@ -138,16 +141,14 @@ html{
     .logoTarjeta{
         height: 20px;
     }
-    .btnGen{
-        width: 230px;
+    .btnGen, .btnGen2{
+        width: 220px;
     }
-    #folioBusq{
+    #inp{
         width: 200px;
     }
     .cont{
-        font-size: 1em;
-        display: flex;
-        align-items: center;
+        justify-content: center;
         width: 60px;
     }
     .b1{

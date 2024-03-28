@@ -124,7 +124,8 @@ img {
     text-align: center;
 }
 .titulo{
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    font-weight: 700;
 }
 .rojo{
     color: red;
@@ -311,4 +312,60 @@ img {
 }
 .form-6{
     width: auto;
+}
+
+/* Recursos */
+
+.icono-recursos {
+    display: block;
+    text-align: center; /* Opcional: alinea el texto en el centro */
+    margin-top: 10px; /* Espacio entre la imagen y el texto */
+    color: var(--gris_fuente);
+    font-weight: 700;
+}
+.icono-recursos img {
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+@media (min-width: 769px) {
+    .recursos-row{
+        margin-top: 10rem;
+        margin-bottom: 15rem;
+    }
+}
+@media (max-width: 768px) {
+    .div-icono-recursos{
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
+    }
+}
+.persona-creditos{
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+.descripcion-persona{
+    text-align: center;
+    font-size: 2rem;
+}
+@media (max-width: 768px) {
+    .persona-creditos{
+        font-size: 3rem;
+    }
+}
+
+/* Registro */
+
+.contenedor-registro{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+@media (min-width: 769px) {
+    .contenedor-registro{
+        display: flex;
+    }
+    .aviso-priv{
+        padding-left: 10rem;
+    }
+    
 }

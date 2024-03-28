@@ -51,53 +51,30 @@
     <main>
         <div class="container formulario">
             <div class="row justify-content-center">
-                <h2 class="text-center titulo">DENUNCIA “ELECCIÓN SIN CORRUPCIÓN”</h2>
-                    <p class="text-center indicaciones">Favor de llenar el siguiente formulario con los datos correspondientes</p>
-                    <p class="text-center no-margin progress__text">Progreso</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 100%;">0%</div>
+                <h2 class="text-center titulo">REGISTRATE</h2>
+                <form class="col-md-6 ps-5 pe-5" onsubmit="return validarFormulario()">
+                    <div class="contenedor-registro">
+                        <div class="col-lg-6 d-flex entrada me-4">
+                            <input class="form-control" type="text" placeholder="Nombre" id="name" required>
+                        </div>
+                        <div class="col-lg-6 entrada d-flex me-4">
+                            <input class="form-control" type="text" placeholder="Correo" id="correo" required>
+                        </div>
                     </div>
-                    <p class="text-center categoria">Información inicial.</p>
-                <form class="col-md-5 ps-5 pe-5">
-                    
-                    <div class="col-12 d-flex entrada">
-                        <label class="form-label prueba" for="CP">Código Postal<span class="rojo">*</span>:</label>
-                        <input class="form-control" type="text" placeholder="ej.92312" id="CP" required>
+                    <div class="contenedor-registro">
+                        <div class="col-lg-6 entrada d-flex me-4">
+                            <input class="form-control" type="text" placeholder="Contraseña" id="contraseña" required>
+                        </div>
+                        <div class="col-lg-6 entrada d-flex me-4">
+                            <input class="form-control" type="text" placeholder="Confirmar contraseña" id="confirmacion-contraseña" required>
+                        </div>
                     </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="seccion_electoral">Sección electoral<span class="rojo">*</span>:</label>
-                        <input class="form-control" type="text" placeholder="" id="seccion_electoral" required>
+                    <div class="d-flex entrada aviso-priv">
+                        <input class="" type="checkbox" id="aviso_privacidad" name="aviso_privacidad">
+                        <label class="form-label" for="aviso_privacidad">Acepto el aviso de privacidad</label>
                     </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="sexo"><p class="no-margin">Sexo<span class="rojo">*</span>:</p></label>
-                        <select class="form-control" id="sexo" name="sexo" required>
-                            <option value="">Seleccionar</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="ocupacion">Ocupación<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="ocupacion" name="ocupacion" required>
-                            <option value="">Seleccionar</option>
-                            <option value="masculino">1</option>
-                            <option value="femenino">2</option>
-                            <option value="otro">3</option>
-                        </select>
-                    </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="escolaridad">Escolaridad<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="escolaridad" name="escolaridad" required>
-                            <option value="">Seleccionar</option>
-                            <option value="primaria">Primaria</option>
-                            <option value="secundaria">Secundaria</option>
-                            <option value="preparatoria">Preparatoria</option>
-                            <option value="universidad">Universidad</option>
-                            <option value="posgrado">Posgrado</option>
-                        </select>
-                    </div>
-                    <a href="Denuncia2.html" class="boton boton--primario">Siguiente</a> 
+
+                    <input class="boton boton--primario" type="submit" value="Enviar">
                 </form>
             </div>
         </div>
@@ -126,5 +103,16 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function validarFormulario() {
+            var checkbox = document.getElementById("aviso_privacidad");
+            if (!checkbox.checked) {
+                alert("Por favor, acepta el aviso de privacidad antes de continuar.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
+
 </html>

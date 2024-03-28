@@ -55,7 +55,7 @@ html{
     margin-bottom: 50px;
     text-align: center;
 }
-    .cont > a{
+    .cont{
     display: flex;
     flex-shrink: 1;
     font-family: "Dosis", sans-serif;

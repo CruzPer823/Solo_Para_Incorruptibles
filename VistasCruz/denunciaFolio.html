@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
-    <link rel="icon" href="Resources/logo.png" type="image/x-icon">
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/DenunciaFolio.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="Logo"> <a href="index.html"> <img src="Resources/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+    <header class="Logo"> <a href="index.html"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
         <div class="container-fluid">
@@ -56,11 +56,36 @@
         <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
             <div class="Titulo"> <h1>Consultar denuncia</h1></div>
             <div class="cont"><p>Introduce el folio de la denuncia a Consultar</p></div>
+            <form class="row g-3 needs-validation" novalidate>
             <div class="inpFolio">
-                <input type="text" name="folio" id="folioBusq" placeholder="Folio">
+                <input type="text" class="form-control" name="folio" id="folioBusq" placeholder="Folio" required>
+            </div>
+            <div class="invalid-feedback">
+              Please choose a username.
             </div>
             <div class="b1"><input type="submit" class="btnGen" value="Buscar"/></div>
-      </div>
+          </form>
+          <script>
+            (() => {
+              'use strict'
+            
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              const forms = document.querySelectorAll('.needs-validation')
+            
+              // Loop over them and prevent submission
+              Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                  if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                  }
+            
+                  form.classList.add('was-validated')
+                }, false)
+              })
+            })()
+          </script>
+        </div>
     </div>
     </div>
 

@@ -357,3 +357,55 @@ img {
     }
     
 }
+
+/* Detalles denunciaß */
+
+.contenedor {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+    height: 80vh;
+}
+.denuncia{
+    margin-top: 2rem;
+    text-align: center;
+}
+@media (min-width: 769px){
+    .tres-columnas{
+        display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 1rem;
+            margin-bottom: 8rem;
+            margin-top: 6rem;
+    }
+}
+@media (min-width: 769px){
+    .tres-columnas2{
+        display: grid;
+            grid-template-columns: 30% 30% 40%;
+            column-gap: 1rem;
+    }
+}
+@media (max-width: 768px){
+   .dato{
+    margin-bottom: 4rem;
+   }
+}
+
+.dos-columnas{
+    display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+        padding: 0rem 0.5rem;
+}
+.datos{
+    font-weight: 600;
+    font-size: 2rem;
+}
+.btn-reporte
+{
+    padding: 0rem 4rem;
+}
+.registro{
+    padding: 0rem 4rem;
+}

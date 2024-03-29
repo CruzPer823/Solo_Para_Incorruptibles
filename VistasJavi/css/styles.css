@@ -64,43 +64,31 @@ img {
 }
 
 /** Header **/
-.header {
-    height: auto;
-    padding-bottom: 0rem;
-    background-color: var(--moradoOscuro);
-    background-repeat: no-repeat;
-    background-position: center center;
-    color: var(--blanco);
-    padding-bottom: 0.5rem;
-}
-.logo{
-    height: 5rem;
-    width: 5rem;
-}
-.navbar{
-    background-color: var(--moradoClaro);
-    padding: 0;
-}
-
-.navbar-nav {
-    width: 100%;
+.Logo{
     display: flex;
-    justify-content: space-between; 
+    justify-content: center;
+    background-color: #23274C;
+    padding: 5px;
 }
-
-
-.navbar-brand {
-    padding-right: 0rem; 
+.nv{
+    display: flex;
+    justify-content: center;
+    flex-shrink: 1;
 }
-
-.nav-link {
-    color: var(--gris);
-    text-decoration: none; 
+.nav-item > a{
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    color: #FFFF;
     text-align: center;
-}
+    font-size: 20px;
+    margin-right: 5vh;
 
-.nav-link:hover {
-    color: #000; 
+}
+@media (max-width: 1024px) {
+    .nav-item > a{
+        margin: 0%;
+    }
 }
 .selected {
     font-weight: 800;

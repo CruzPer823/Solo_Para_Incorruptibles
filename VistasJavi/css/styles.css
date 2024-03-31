@@ -126,7 +126,6 @@ img {
     margin-top: 3rem;
     font-weight: 800;
     font-size: 2.5rem;
-    text-align: start;
     padding-left: 0rem;
     margin-bottom: 2rem;
 }
@@ -169,7 +168,7 @@ img {
     appearance: auto;
 }
 .conducta{
-    margin-bottom: 4rem;
+    margin-bottom: 0rem;
 }
 .form-label{
   overflow: hidden; /* Oculta cualquier contenido que desborde del ancho especificado */
@@ -190,7 +189,8 @@ img {
     }
 }
 .contenedor-conductas{
-    display: flex;
+    display: inline-flex;
+    justify-content: center;
 }
 
 @media (max-width: 767px) {
@@ -275,11 +275,15 @@ img {
 
 .select-conductas-i{
     display: flex;
+    margin-bottom: 2rem;
     
+}
+.form-6{
+    width: auto;
 }
 .select-conductas{
     display: flex;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     
 }
 .msj-gracias{
@@ -297,9 +301,6 @@ img {
 .info-consulta{
     font-size: 4rem;
     margin-bottom: 3rem;
-}
-.form-6{
-    width: auto;
 }
 
 /* Recursos */

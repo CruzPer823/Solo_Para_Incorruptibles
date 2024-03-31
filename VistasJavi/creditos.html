@@ -114,59 +114,5 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        const municipiosPorEstado = {
-            "Aguascalientes": ["Aguascalientes", "Asientos", "Calvillo", "Cosío", "Jesús María", "Pabellón de Arteaga", "Rincón de Romos", "San José de Gracia", "Tepezalá", "El Llano", "San Francisco de los Romo"],
-            "Baja California": ["Ensenada", "Mexicali", "Tijuana", "Tecate", "Playas de Rosarito"],
-            "Baja California Sur": ["La Paz", "Los Cabos", "Comondú", "Loreto", "Mulegé"],
-            "Campeche": ["Campeche", "Calkiní", "Carmen", "Champotón", "Hecelchakán", "Hopelchén", "Palizada", "Tenabo", "Escárcega"],
-            "Chiapas": ["Tuxtla Gutiérrez", "Tapachula", "San Cristóbal de las Casas", "Comitán de Domínguez", "Palenque", "Tonalá", "Villaflores", "Simojovel", "Ocosingo"],
-            "Chihuahua": ["Chihuahua", "Ciudad Juárez", "Cuauhtémoc", "Delicias", "Hidalgo del Parral", "Nuevo Casas Grandes", "Camargo", "Jiménez", "Ojinaga"],
-            "Coahuila": ["Saltillo", "Torreón", "Monclova", "Acuña", "Piedras Negras", "Sabinas", "Matamoros", "San Pedro", "Frontera", "Nueva Rosita"],
-            "Colima": ["Colima", "Manzanillo", "Tecomán", "Armería", "Villa de Álvarez"],
-            "Durango": ["Durango", "Gómez Palacio", "Lerdo", "Ciudad Lerdo", "Canatlán", "Pueblo Nuevo", "Nuevo Ideal", "Tamazula", "Rodeo", "Poanas"],
-            "Guanajuato": ["Guanajuato", "León", "Irapuato", "Celaya", "Salamanca", "Silao", "Dolores Hidalgo", "San Miguel de Allende", "Acámbaro", "Guanajuato"],
-            "Guerrero": ["Chilpancingo", "Acapulco", "Iguala", "Taxco", "Chilapa", "Zihuatanejo", "Tlapa", "Ciudad Altamirano", "Coyuca de Benítez", "Huitzuco"],
-            "Hidalgo": ["Pachuca", "Tulancingo", "Tula", "Ixmiquilpan", "Mineral de la Reforma", "Tepeapulco", "Zimapán", "Actopan", "Tizayuca", "Huichapan"],
-            "Jalisco": ["Guadalajara", "Zapopan", "Tlaquepaque", "Tonalá", "Puerto Vallarta", "Tepatitlán", "Lagos de Moreno", "Ocotlán", "Autlán", "El Salto"],
-            "México": ["Toluca", "Ecatepec", "Nezahualcóyotl", "Naucalpan", "Tlalnepantla", "Chimalhuacán", "Cuautitlán Izcalli", "Atizapán de Zaragoza", "Toluca", "Tultitlán"],
-            "Michoacán": ["Morelia", "Uruapan", "Lázaro Cárdenas", "Zamora", "Pátzcuaro", "Apatzingán", "La Piedad", "Sahuayo", "Los Reyes", "Zitácuaro"],
-            "Morelos": ["Cuernavaca", "Cuautla", "Jiutepec", "Zacatepec", "Temixco", "Yautepec", "Oaxtepec", "Xochitepec", "Tlaquiltenango", "Puente de Ixtla"],
-            "Nayarit": ["Tepic", "Bahía de Banderas", "Tecuala", "Ixtlán del Río", "Compostela", "Acaponeta", "Santiago Ixcuintla", "Jala", "Ruiz", "Rosamorada"],
-            "Nuevo León": ["Monterrey", "Guadalupe", "San Nicolás de los Garza", "Apodaca", "General Escobedo", "Santa Catarina", "San Pedro Garza García", "Juárez", "Cadereyta Jiménez", "Linares"],
-            "Oaxaca": ["Oaxaca", "Salina Cruz", "Juchitán de Zaragoza", "Huajuapan de León", "Tehuantepec", "San Juan Bautista Tuxtepec", "Santa Cruz Xoxocotlán", "Puerto Escondido", "Loma Bonita", "Santiago Pinotepa Nacional"],
-            "Puebla": ["Puebla", "Tehuacán", "Cholula", "San Martín Texmelucan", "Atlixco", "Huauchinango", "Teziutlán", "Acatzingo", "Izúcar de Matamoros", "Chignahuapan"],
-            "Querétaro": ["Querétaro", "San Juan del Río", "Corregidora", "El Marqués", "Jalpan de Serra", "Amealco de Bonfil", "Pedro Escobedo", "Huimilpan", "Ezequiel Montes", "Tequisquiapan"],
-            "Quintana Roo": ["Cancún", "Chetumal", "Playa del Carmen", "Cozumel", "Isla Mujeres", "Felipe Carrillo Puerto", "José María Morelos", "Tulum", "Bacalar", "Puerto Morelos"],
-            "San Luis Potosí": ["San Luis Potosí", "Soledad de Graciano Sánchez", "Matehuala", "Ciudad Valles", "Rioverde", "Tamazunchale", "Xilitla", "Tamuín", "Tancanhuitz", "Tamasopo"],
-            "Sinaloa": ["Culiacán", "Mazatlán", "Los Mochis", "Guasave", "Navolato", "Escuinapa", "El Fuerte", "Mocorito", "Angostura", "Cosalá"],
-            "Sonora": ["Hermosillo", "Cajeme", "Nogales", "San Luis Río Colorado", "Guaymas", "Navojoa", "Empalme", "Huatabampo", "Caborca", "Agua Prieta"],
-            "Tabasco": ["Villahermosa", "Cárdenas", "Comalcalco", "Cunduacán", "Huimanguillo", "Paraíso", "Tenosique", "Centla", "Macuspana", "Jalpa de Méndez"],
-            "Tamaulipas": ["Victoria", "Tampico", "Reynosa", "Matamoros", "Nuevo Laredo", "Ciudad Madero", "Altamira", "Valle Hermoso", "San Fernando", "Río Bravo"],
-            "Tlaxcala": ["Tlaxcala", "Apizaco", "Huamantla", "Chiautempan", "Zacatelco", "San Pablo del Monte", "Santa Ana Chiautempan", "Tlaxco", "Panotla", "Tetla de la Solidaridad"],
-            "Veracruz": ["Xalapa", "Veracruz", "Coatzacoalcos", "Córdoba", "Poza Rica", "Orizaba", "Minatitlán", "Tuxpan", "Papantla", "San Andrés Tuxtla"],
-            "Yucatán": ["Mérida", "Tizimín", "Valladolid", "Umán", "Kanasín", "Progreso", "Motul", "Temozón", "Maxcanú", "Izamal"],
-            "Zacatecas": ["Zacatecas", "Fresnillo", "Guadalupe", "Jerez", "Rio Grande", "Sombrerete", "Ojocaliente", "Villa de Cos", "Calera", "Villanueva"]
-        };
-
-        function cargarMunicipios() {
-            const estadoSeleccionado = document.getElementById("estados").value;
-            const selectMunicipios = document.getElementById("municipios");
-            selectMunicipios.innerHTML = ""; // Limpiar el select de municipios
-
-            if (estadoSeleccionado !== "") {
-                municipiosPorEstado[estadoSeleccionado].forEach(municipio => {
-                    const opcion = document.createElement("option");
-                    opcion.text = municipio;
-                    opcion.value = municipio;
-                    selectMunicipios.add(opcion);
-                });
-            } else {
-                const opcionDefault = document.createElement("option");
-                opcionDefault.text = "Selecciona un municipio";
-                selectMunicipios.add(opcionDefault);
-            }
-        }
-    </script>
 </body>
 </html>

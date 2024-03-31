@@ -1,3 +1,10 @@
+<?php
+require './includes/database.php';
+
+$estados = $mysqli->query("SELECT id, nombre FROM estados");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,44 +66,15 @@
                         <div class="progress-bar" style="width: 40%;">40%</div>
                     </div>
                     <p class="text-center categoria">Diganos ¿Dónde sucedio?</p>
-                <form class="col-md-5 ps-5 pe-5" action="cargar_estados.php" method="post">
+                <form class="col-md-5 ps-5 pe-5" action="" method="post">
                     
                     <div class="col-12 entrada">
                         <label class="form-label prueba" for="estados">Estado<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="estados" onchange="cargarMunicipios()">
+                        <select class="form-control" id="estados" >
                             <option value="">Selecciona un estado</option>
-                            <option value="">Seleccionar</option>
-                            <option value="Aguascalientes">Aguascalientes</option>
-                            <option value="Baja California">Baja California</option>
-                            <option value="Baja California Sur">Baja California Sur</option>
-                            <option value="Campeche">Campeche</option>
-                            <option value="Chiapas">Chiapas</option>
-                            <option value="Chihuahua">Chihuahua</option>
-                            <option value="Coahuila">Coahuila</option>
-                            <option value="Colima">Colima</option>
-                            <option value="Durango">Durango</option>
-                            <option value="Guanajuato">Guanajuato</option>
-                            <option value="Guerrero">Guerrero</option>
-                            <option value="Hidalgo">Hidalgo</option>
-                            <option value="Jalisco">Jalisco</option>
-                            <option value="México">México</option>
-                            <option value="Michoacán">Michoacán</option>
-                            <option value="Morelos">Morelos</option>
-                            <option value="Nayarit">Nayarit</option>
-                            <option value="Nuevo León">Nuevo León</option>
-                            <option value="Oaxaca">Oaxaca</option>
-                            <option value="Puebla">Puebla</option>
-                            <option value="Querétaro">Querétaro</option>
-                            <option value="Quintana Roo">Quintana Roo</option>
-                            <option value="San Luis Potosí">San Luis Potosí</option>
-                            <option value="Sinaloa">Sinaloa</option>
-                            <option value="Sonora">Sonora</option>
-                            <option value="Tabasco">Tabasco</option>
-                            <option value="Tamaulipas">Tamaulipas</option>
-                            <option value="Tlaxcala">Tlaxcala</option>
-                            <option value="Veracruz">Veracruz</option>
-                            <option value="Yucatán">Yucatán</option>
-                            <option value="Zacatecas">Zacatecas</option>
+                            <?php while($row = $estados->fetch_assoc()){ ?>
+                              <option value="<?php echo $row['id'];?>"><?php echo $row['nombre'];?></option>
+                            <?php }  ?>
                         </select>  
                     </div>
 
@@ -132,8 +110,10 @@
                         
                 </div>
             </div>
-        </div>
+        </footer>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/peticiones.js"></script>
 </body>
 </html>

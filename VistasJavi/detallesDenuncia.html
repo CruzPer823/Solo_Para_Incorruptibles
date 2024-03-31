@@ -50,57 +50,76 @@
       </nav>
 
     <main>
-        <div class="container formulario">
-            <div class="row justify-content-center">
-                <h2 class="text-center titulo">DENUNCIA “ELECCIÓN SIN CORRUPCIÓN”</h2>
-                    <p class="text-center indicaciones">Favor de llenar el siguiente formulario con los datos correspondientes</p>
-                    <p class="text-center no-margin progress__text">Progreso</p>
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 100%;">0%</div>
+        
+        <div class="contenedor">
+            <h2 class="titulo denuncia">Denuncia</h2>
+            <div class="tres-columnas">
+                <div class="dato">
+                    <h4 class="titulo">
+                        Ubicación del delito
+                    </h4>
+                    <div class="dos-columnas datos">
+                        <div>
+                            <p>ESTADO</p>
+                            <p><?php echo $denuncia['estadoDenuncia']; ?></p>
+                        
+                        </div>
+                        <div>
+                            <p>MUNICIPIO</p>
+                            <p><?php echo $denuncia['municipioDenuncia']; ?></p>
+                        </div>
                     </div>
-                    <p class="text-center categoria">Información inicial.</p>
-                <form class="col-md-5 ps-5 pe-5">
-                    
-                    <div class="col-12 d-flex entrada">
-                        <label class="form-label prueba" for="CP">Código Postal<span class="rojo">*</span>:</label>
-                        <input class="form-control" type="text" placeholder="ej.92312" id="CP" required>
+                </div>
+                <div class="dato">
+                    <h4 class="titulo">
+                        Temporalidad
+                    </h4>
+                    <div class="dos-columnas datos">
+                        <div>
+                            <p>FECHA</p>
+                            <p><?php echo $denuncia['fechaDenuncia']; ?></p>
+                        </div>
+                        <div>
+                            <p>HORA</p>
+                            <p><?php echo $denuncia['horaDelito']; ?></p>
+                        </div>
+                        
                     </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="seccion_electoral">Sección electoral<span class="rojo">*</span>:</label>
-                        <input class="form-control" type="text" placeholder="" id="seccion_electoral" required>
+                </div>
+                <div class="dato">
+                    <h4 class="titulo">
+                        Personas involucradas
+                    </h4>
+                    <div>
+                        <!-- pendiente -->
                     </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="sexo"><p class="no-margin">Sexo<span class="rojo">*</span>:</p></label>
-                        <select class="form-control" id="sexo" name="sexo" required>
-                            <option value="">Seleccionar</option>
-                            <option value="masculino">Masculino</option>
-                            <option value="femenino">Femenino</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="ocupacion">Ocupación<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="ocupacion" name="ocupacion" required>
-                            <option value="">Seleccionar</option>
-                            <option value="masculino">1</option>
-                            <option value="femenino">2</option>
-                            <option value="otro">3</option>
-                        </select>
-                    </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="escolaridad">Escolaridad<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="escolaridad" name="escolaridad" required>
-                            <option value="">Seleccionar</option>
-                            <option value="primaria">Primaria</option>
-                            <option value="secundaria">Secundaria</option>
-                            <option value="preparatoria">Preparatoria</option>
-                            <option value="universidad">Universidad</option>
-                            <option value="posgrado">Posgrado</option>
-                        </select>
-                    </div>
-                    <a href="Denuncia2.html" class="boton boton--primario">Siguiente</a> 
-                </form>
+                </div>
             </div>
+            <div class="tres-columnas2">
+                <div class="dato">
+                    <h4 class="titulo">
+                        Descripción de los hechos
+                    </h4>
+                    <div class="">
+                    </div>
+                </div>
+                <div class="dato">
+                    <h4 class="titulo">
+                        Conductas cometidas
+                    </h4>
+                    <div class="dos-columnas datos">
+                        
+                    </div>
+                </div>
+                <div class="dato">
+                    <h4 class="titulo">
+                        Evidencia
+                    </h4>
+                    <div class="datos">
+                    </div>
+                </div>
+            </div>
+                    
         </div>
     </main>
     

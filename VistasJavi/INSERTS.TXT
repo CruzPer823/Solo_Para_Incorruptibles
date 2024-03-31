@@ -1,0 +1,65 @@
+
+
+INSERT INTO conducta VALUES (6,"Compra de votos","Cualquier persona");
+INSERT INTO conducta VALUES (7,"Condicionar un servicio público","Cualquier persona");
+INSERT INTO conducta VALUES (8,"Tomar INE sin consentimiento","Cualquier persona");
+INSERT INTO conducta VALUES (9,"Alteración de resultados electorales","Cualquier persona");
+INSERT INTO conducta VALUES (10,"Robo de casillas electorales","Cualquier persona");
+
+
+INSERT INTO conducta VALUES (11,"Abuso de autoridad","Servidor/a público");
+INSERT INTO conducta VALUES (12,"Condicionar un servicio público","Servidor/a público");
+INSERT INTO conducta VALUES (13,"Enfoque ilícito de fondos","Servidor/a público");
+INSERT INTO conducta VALUES (14,"Obstrucción fiscal","Servidor/a público");
+INSERT INTO conducta VALUES (15,"Prestación ilícita de servicios","Servidor/a público");
+
+
+INSERT INTO conducta VALUES (16,"Incumplimiento de labores","Funcionario/a electoral");
+INSERT INTO conducta VALUES (17,"Alteración de documentos","Funcionario/a electoral");
+INSERT INTO conducta VALUES (18,"Obstrucción electoral","Funcionario/a electoral");
+INSERT INTO conducta VALUES (19,"Condicionar votos","Funcionario/a electoral");
+INSERT INTO conducta VALUES (20,"Alteración de casillas","Funcionario/a electoral");
+INSERT INTO conducta VALUES (21,"Negligencia electoral","Funcionario/a electoral");
+INSERT INTO conducta VALUES (22,"Desinformación","Funcionario/a electoral");
+
+
+INSERT INTO conducta VALUES (23,"Condicionar votos","Funcionario/a partidista");
+INSERT INTO conducta VALUES (24,"Obstrucción de casillas","Funcionario/a partidista");
+INSERT INTO conducta VALUES (25,"Obstrucción electoral","Funcionario/a partidista");
+INSERT INTO conducta VALUES (26,"Compra de votos","Funcionario/a partidista");
+INSERT INTO conducta VALUES (27,"Abstención de transparencia","Funcionario/a partidista");
+INSERT INTO conducta VALUES (28,"Desinformación","Funcionario/a partidista");
+INSERT INTO conducta VALUES (29,"Falsificación de documentos","Funcionario/a partidista");
+
+
+INSERT INTO conducta VALUES (30,"Condicionar votos","Ministros/as de culto religioso");
+
+
+INSERT INTO conducta VALUES (31,"Incumplimiento de labores","Diputados/as y Senadores/as electos");
+
+
+INSERT INTO conducta VALUES (32,"Negación de resultados","Fedatarios/as públicos");
+
+
+INSERT INTO conducta VALUES (33,"Asunción ilegal de cargo","Ex Mag E, Con E, Secretario INE");
+
+
+
+> 
+
+
+
+
+
+> 
+
+
+
+
+
+
+
+
+
+
+

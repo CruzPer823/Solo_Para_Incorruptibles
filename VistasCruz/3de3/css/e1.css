@@ -30,20 +30,21 @@ html{
 }
 .contenedor{
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 1;
     flex-grow: 1;
+    padding: 2vh;
     background-color: #E4E5EB;
 }
-
 .tarjetaPrin{
     margin-top: 50px;
     display: flex;
     background-color: #FFFF;
     border-radius: 12px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-grow: 1;
     flex-shrink: 1;
     margin-bottom: 5vh;
@@ -53,21 +54,14 @@ html{
     color: #5B5B5B;
     font-weight: bolder;;
     font-size: 2.5em;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     text-align: center;
 }
 .cont {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
-}
-.cont > a{
-    font-family: "Dosis", sans-serif;
-    font-weight: bolder;
-    font-size: 1em;
-    text-align: center;
-    color: #23274C;
+    margin-bottom: 5vh;
 }
 .inpSesion{
     display: flex;
@@ -88,20 +82,22 @@ html{
 .b1{
     display: flex;
     justify-content: center;
+    flex-grow: 1;
+    margin-bottom: 5vh;
+}
+
+.cont>p{
+    margin-top: 5vh;
+    justify-content: center;
+    font-family: "Dosis", sans-serif;
+    font-weight: bolder;
+    font-size: 1.7em;
+    text-align: center;
+    color: #5B5B5B;
+    margin-bottom: 5vh;
+    width: 50vw;
 }
 .btnGen{
-    border: none;
-    border-radius: 12px;
-    background-color: #23274C;
-    font-family: "Dosis", sans-serif;
-    font-weight: bold;
-    font-size: 1.6rem;
-    color: #FFFF;
-    height: 50px;
-    width: 250px;
-    margin-bottom: 20px;
-}
-.btnGen2{
     border: none;
     border-radius: 12px;
     background-color: #7D7097;
@@ -111,13 +107,10 @@ html{
     color: #FFFF;
     height: 50px;
     width: 250px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 .btnGen:hover{
     background-color: #353753;
-}
-.btnGen2:hover{
-    background-color: #664f93;
 }
 
 .footer{
@@ -135,27 +128,19 @@ html{
     .nav-item > a{
         margin: 0%;
     }
-    .contenedor{
-        padding: 20px;
-        background-color: #E4E5EB;
-    }
-    .tarjetaPrin{
-        margin: 50px;
-    }
+   
     .logoTarjeta{
         height: 20px;
     }
-    .btnGen, .btnGen2{
-        width: 220px;
+    .btnGen{
+        width: 230px;
+        height: 40px;
     }
-    #inp{
-        width: 200px;
-    }
-    .cont > a{
-        text-align: center;
-        
+    .cont>p{
+        font-size: 1em;
     }
     .b1{
         align-items: center;
     }
   }
+ 

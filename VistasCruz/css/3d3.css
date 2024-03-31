@@ -30,21 +30,32 @@ html{
 }
 .contenedor{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     flex-shrink: 1;
-    flex-grow: 1;
     background-color: #E4E5EB;
 }
-.EC{
-    margin-top: 55px;
+.I3{
+    margin-top: 10vh;
     height: 45vh;
-    width: 60vw;
-    margin-bottom: 55px;
+    width: 70vw;
+    margin-bottom: 5vw;
 }
 .b1{
     background-color: #E4E5EB;
     display: flex;
     justify-content: center;
+    flex-grow: 1;
+}
+
+.cont>p{
+    font-family: "Dosis", sans-serif;
+    font-weight: bolder;
+    font-size: 1.7em;
+    text-align: center;
+    color: #23274C;
+    margin-bottom: 5vh;
 }
 .btnGen{
     border: none;
@@ -61,7 +72,29 @@ html{
 .btnGen:hover{
     background-color: #353753;
 }
-
+.contenedord{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4E5EB;
+}
+.contenedord table{
+    width: 70vw;
+    margin-bottom: 10vh;
+    flex-shrink: 1;
+}
+thead{
+    background-color: #7D7097;
+    text-align: center;
+    color: black;
+}
+th > a{
+    color: black;
+}
+tbody{
+    background-color: #b5a9cf;
+    text-align: center;
+}
 .footer{
     clear: both;
     display: flex;
@@ -77,27 +110,23 @@ html{
     .nav-item > a{
         margin: 0%;
     }
-    .contenedor{
-        align-items: center;
-    }
-   .EC{
-    margin-top: 10px;
-    height: 20vh;
-    width: 80vw;
-    margin-bottom: 20px;
+   .I3{
+    margin-top: 5vh;
+    height: 18vh;
+    width: 85vw;
    }
     .logoTarjeta{
         height: 20px;
     }
     .btnGen{
         width: 230px;
-        height: 60px;
+        height: 40px;
     }
-    #folioBusq{
-        width: 200px;
+    .cont>p{
+        font-size: 1em;
     }
-    
     .b1{
         align-items: center;
     }
   }
+ 

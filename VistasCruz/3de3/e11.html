@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="CSS/denuncia.css"/>
+    <link rel="stylesheet" href="CSS/e4.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -36,10 +36,10 @@
                 <a class="nav-link" href="#">Recursos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="3de3.html">Iniciativa 3 de 3</a>
+                <a class="nav-link active" href="3de3.html">Iniciativa 3 de 3</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="denuncia.html">Denunciar</a>
+                <a class="nav-link " aria-current="page" href="denuncia.html">Denunciar</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="login.html">Iniciar Sesión</a>
@@ -50,12 +50,118 @@
       </nav>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Tarjeta denuncia -->
+    <!-- Tarjeta principal -->
     <div class="contenedor">
-        <img class="EC" src="assets/ESC.png" alt=" Elección sin corrupción">
-    </div>
-    <div class="b1"> <a href="/Solo_Para_Incorruptibles/VistasJavi/Denuncia1.html"><button class="btnGen">Denunciar anónimamente</button></a></div>
-    <div class="b1"> <a href="denunciaFolio.html".html"><button class="btnGen">Consultar denuncia</button></a></div>
+        <div class="tarjetaPrin container shadow-lg">
+            <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
+                <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
+                <form class="needs-validation" novalidate>
+                <div class="cont">
+                    <div class="barra">
+                      <p>Progreso</p>
+                      <div class="progress">
+                          <div class="progress-bar loco" style="width: 45%;">45%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="seccion"><p>Inversiones, cuentas bancarias y otro tipo de valores/activos (situación actual)</p></div>
+                  <div class="pregunta">
+                    <div class="pre"><p>Tipo de inversión/activo :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="tipInv" id="inp" placeholder="Tipo..." required>
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Bancaria  :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="banc" id="inp" placeholder="Bancaria..." required>
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Tercero (mancomunada) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="terc" id="inp" placeholder="Tercero..." required>
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Nombre del tercero o terceros con quien tiene cuenta mancomunada :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="nomTer" id="inp" placeholder="Nombre..." required>
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>RFC del tercero o terceros  :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfcTer" id="inp" placeholder="RFC..." required>
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Lugar dónde se localiza la inversión, cuenta bancaria y otro tipo de activos :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="ubiInv" id="inp" placeholder="Ubicación..." required>
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Institución o razón social :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="inst" id="inp" placeholder="Razón social..." required>
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>RFC :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfc" id="inp" placeholder="RFC..." required>
+                </div>
+                </div>
+                <div class="pregunta">
+                  <div class="pre"><p>País donde se localiza :</p></div>
+                <div class="inpSesion">
+                  <input type="text" class="form-control" name="paiLoca" id="inp" placeholder="País..." required>
+              </div>
+              </div>
+
+          <div class="pregunta">
+            <div class="pre"><p>¿Tiene fondos de inversión? </p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="tieFond" id="inp" placeholder="Fondos..." required>
+        </div>
+        </div>
+          <div class="pregunta">
+            <div class="pre"><p>Organizaciones privadas y/o mercantiles :</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="orgProv" id="inp" placeholder="Organizaciones..." required>
+        </div>
+        </div>
+        <div class="pregunta">
+            <div class="pre"><p>¿Tiene posesión de monedas y metales?</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="tiePosMon" id="inp" placeholder="Monedas y metales..." required>
+        </div>
+        </div>
+        <div class="pregunta">
+            <div class="pre"><p>¿Tiene seguros?</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="tieSeg" id="inp" placeholder="Seguros..." required>
+        </div>
+        </div>
+        <div class="pregunta">
+            <div class="pre"><p>¿Tiene valores bursátiles?</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="tieVal" id="inp" placeholder="Valores bursátiles..." required>
+        </div>
+        </div>
+        <div class="pregunta">
+            <div class="pre"><p>¿Tiene afores u otros (sí/no)?</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="tieAfo" id="inp" placeholder="Afores/otros..." required>
+        </div>
+        </div>
+                </div>
+                <div class="b1"> <a href="e12.html"><input type="button" class="btnGen" value="Siguiente"/></a></div>
+              </form>
+            </div>
+        </div>
+        </div>
 
     <!-- Footer -->
 

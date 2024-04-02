@@ -24,7 +24,9 @@ body {
     color: var(--gris_fuente);
     min-height: 100vh
 }
-
+main{
+    min-height: 85vh;
+}
 /** Globales **/
 .contenedor {
     width: min(90%, 120rem);
@@ -122,6 +124,12 @@ img {
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
+@media (max-width: 500px) {
+    .indicaciones{
+        font-size: 2.2rem;
+    }
+}
+
 .categoria{
     margin-top: 3rem;
     font-weight: 800;
@@ -167,25 +175,46 @@ img {
     font-size: 1.5rem;  
     appearance: auto;
 }
+
+.text{
+    height: 4rem;
+}
 .conducta{
     margin-bottom: 0rem;
 }
 .form-label{
   overflow: hidden; /* Oculta cualquier contenido que desborde del ancho especificado */
   text-overflow: ellipsis; /* Muestra puntos suspensivos (...) si el contenido no cabe dentro del ancho especificado */
-  width: 30rem; /* Ancho máximo del label */
+  width: 40rem; /* Ancho máximo del label */
   font-size: 2rem;
+}
+@media (min-width: 769px) {
+    .progress__text{
+        font-size: 2.4rem;
+    }
+    .form-label{
+        font-size: 2.4rem;
+    }
+    .form-control{
+        font-size: 2rem;
+    }
+    .text{
+        height: 4.2rem;
+    }
+}
+@media (max-width: 821px) {
+    .form-label{
+        width: auto;
+    }
 }
 .entrada{
     margin-bottom: 4rem;
     display: flex;
+    align-items: center;
 }
-@media (max-width: 767px) {
+@media (max-width: 821px) {
     .entrada {
-        display: block; /* Cambia el display de flex a block */
-    }
-    .form-label{
-        white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+        display: inline-block; /* Cambia el display de flex a block */
     }
 }
 .contenedor-conductas{
@@ -201,7 +230,7 @@ img {
 
 
 .boton {
-    display: block;
+    display: inline-block;
     font-family: var(--fuenteHeading);
     color: var(--blanco);
     text-align: center;
@@ -214,12 +243,6 @@ img {
     border-radius: 1rem;
 }
 
-@media (min-width: 767px) {
-    .boton {
-        display: inline-block;
-
-    }
-}
 .boton:hover {
     cursor: pointer;
     color: #5B5B5B;
@@ -230,7 +253,11 @@ img {
 .boton--secundario {
     background-color: var(--moradoOscuro);
 }
-
+@media (min-width: 769px) {
+    .boton{
+        font-size: 1.8rem;
+    }
+}
 .footer {
     
     background-color: var(--moradoClaro);
@@ -281,11 +308,7 @@ img {
 .form-6{
     width: auto;
 }
-.select-conductas{
-    display: flex;
-    margin-bottom: 2rem;
-    
-}
+
 .msj-gracias{
     font-size: 6rem;
     font-weight: 600;

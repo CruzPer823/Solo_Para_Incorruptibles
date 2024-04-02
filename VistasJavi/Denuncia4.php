@@ -1,3 +1,25 @@
+<?php
+// Iniciar sesión
+session_start();
+
+// Comprobar si existe el código postal en la sesión
+if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])&& isset($_POST['explicacion'])&&isset($_POST['estados'])&&isset($_POST['municipios'])) {
+    // Si no existe, redirigir a la primera página
+    header('Location: Denuncia3.php');
+    exit();
+}
+
+// Recibir datos del formulario
+if(isset($_POST['nombre'])&&isset($_POST['institucion']) && isset($_POST['rol']) ) {
+    // Guardar los datos en la sesión o hacer lo que necesites
+    $_SESSION['nombre'] = $_POST['nombre'];
+    $_SESSION['institucion'] = $_POST['institucion'];
+    $_SESSION['rol'] = $_POST['rol'];
+    // Redirigir a la siguiente página o hacer lo que necesites
+    header('Location: Denuncia5.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +36,7 @@
 </head>
 <body>
 
-    <header class="Logo"> <a href="/Solo_Para_Incorruptibles/VistasCruz/index.html"> <img src="/Solo_Para_Incorruptibles/VistasCruz/assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
+    <header class="Logo"> <a href="/Solo_Para_Incorruptibles/VistasCruz/index.html"> <img src="/SPI/Solo_Para_Incorruptibles/VistasCruz/assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
     
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
         <div class="container-fluid">
@@ -42,7 +64,7 @@
                 <a class="nav-link active" aria-current="page" href="/Solo_Para_Incorruptibles/VistasCruz/denuncia.html">Denunciar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Solo_Para_Incorruptibles/VistasCruz/login.html">Iniciar Sesión</a>
+                <a class="nav-link"  href="/Solo_Para_Incorruptibles/VistasCruz/login.html">Iniciar Sesión</a>
               </li>
             </ul>
           </div>
@@ -53,60 +75,27 @@
         <div class="container formulario">
             <div class="row justify-content-center">
                 <h2 class="text-center titulo">DENUNCIA “ELECCIÓN SIN CORRUPCIÓN”</h2>
-                <p class="text-center indicaciones">Favor de llenar el siguiente formulario con los datos correspondientes</p>
+                    <p class="text-center indicaciones">Favor de llenar el siguiente formulario con los datos correspondientes</p>
                     <p class="text-center no-margin progress__text">Progreso</p>
                     <div class="progress">
-                        <div class="progress-bar" style="width: 40%;">40%</div>
+                        <div class="progress-bar" style="width: 60%;">60%</div>
                     </div>
-                    <p class="text-center categoria">Diganos ¿Dónde sucedio?</p>
-                <form class="col-md-5 ps-5 pe-5" action="cargar_estados.php" method="post">
+                    <p class="text-center categoria">Información inicial.</p>
+                <form class="col-md-6 ps-5 pe-5" method="post">
                     
-                    <div class="col-12 entrada">
-                        <label class="form-label prueba" for="estados">Estado<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="estados" onchange="cargarMunicipios()">
-                            <option value="">Selecciona un estado</option>
-                            <option value="">Seleccionar</option>
-                            <option value="Aguascalientes">Aguascalientes</option>
-                            <option value="Baja California">Baja California</option>
-                            <option value="Baja California Sur">Baja California Sur</option>
-                            <option value="Campeche">Campeche</option>
-                            <option value="Chiapas">Chiapas</option>
-                            <option value="Chihuahua">Chihuahua</option>
-                            <option value="Coahuila">Coahuila</option>
-                            <option value="Colima">Colima</option>
-                            <option value="Durango">Durango</option>
-                            <option value="Guanajuato">Guanajuato</option>
-                            <option value="Guerrero">Guerrero</option>
-                            <option value="Hidalgo">Hidalgo</option>
-                            <option value="Jalisco">Jalisco</option>
-                            <option value="México">México</option>
-                            <option value="Michoacán">Michoacán</option>
-                            <option value="Morelos">Morelos</option>
-                            <option value="Nayarit">Nayarit</option>
-                            <option value="Nuevo León">Nuevo León</option>
-                            <option value="Oaxaca">Oaxaca</option>
-                            <option value="Puebla">Puebla</option>
-                            <option value="Querétaro">Querétaro</option>
-                            <option value="Quintana Roo">Quintana Roo</option>
-                            <option value="San Luis Potosí">San Luis Potosí</option>
-                            <option value="Sinaloa">Sinaloa</option>
-                            <option value="Sonora">Sonora</option>
-                            <option value="Tabasco">Tabasco</option>
-                            <option value="Tamaulipas">Tamaulipas</option>
-                            <option value="Tlaxcala">Tlaxcala</option>
-                            <option value="Veracruz">Veracruz</option>
-                            <option value="Yucatán">Yucatán</option>
-                            <option value="Zacatecas">Zacatecas</option>
-                        </select>  
+                    <div class="col-12  entrada">
+                        <label class="form-label" for="nombre">Nombre<span class="rojo">*</span>:</label>
+                        <input class="form-control text" type="text" placeholder="ej.92312" id="nombre" name="nombre" required>
                     </div>
-
-                    <div class="col-12 entrada">
-                        <label class="form-label prueba" for="municipios">Municipio<span class="rojo">*</span>:</label>
-                        <select  class="form-control" id="municipios">
-                            <option value="">Selecciona un municipio</option>
-                        </select>
+                    <div class="col-12 entrada ">
+                        <label class="form-label" for="institucion">Institución en la que labora<span class="rojo">*</span>:</label>
+                        <input class="form-control text" type="text" placeholder="" id="institucion" name="institucion" required>
                     </div>
-                    <a href="Denuncia4.html" class="boton boton--primario">Siguiente</a> 
+                    <div class="col-12 entrada ">
+                        <label class="form-label" for="rol">¿Sabe cuál es su rol en la institución?<span class="rojo">*</span>:</label>
+                        <input class="form-control text" type="text" placeholder="" id="rol" name="rol" required>
+                    </div>
+                    <input type="submit" class="boton boton--primario" value="Siguiente">
                 </form>
             </div>
         </div>
@@ -114,7 +103,7 @@
     
 
     <footer class="footer">
-        <footer class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-12 d-flex iconos">
                     <div class="icono-redes">
@@ -135,5 +124,6 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
 </body>
 </html>

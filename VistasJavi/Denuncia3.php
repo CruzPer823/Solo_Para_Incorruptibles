@@ -2,6 +2,26 @@
 require './includes/database.php';
 
 $estados = $mysqli->query("SELECT id, nombre FROM estados");
+
+// Iniciar sesión
+session_start();
+
+// Comprobar si existe el código postal en la sesión
+if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])&& isset($_POST['explicacion'])) {
+    // Si no existe, redirigir a la primera página
+    header('Location: Denuncia2.php');
+    exit();
+}
+
+// Recibir datos del formulario
+if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
+    // Guardar los datos en la sesión o hacer lo que necesites
+    $_SESSION['estados'] = $_POST['estados'];
+    $_SESSION['municipios'] = $_POST['municipios'];
+    // Redirigir a la siguiente página o hacer lo que necesites
+    header('Location: Denuncia4.php');
+    exit();
+}
 ?>
 
 
@@ -66,11 +86,11 @@ $estados = $mysqli->query("SELECT id, nombre FROM estados");
                         <div class="progress-bar" style="width: 40%;">40%</div>
                     </div>
                     <p class="text-center categoria">Diganos ¿Dónde sucedio?</p>
-                <form class="col-md-5 ps-5 pe-5" action="" method="post">
+                <form class="col-md-6 ps-5 pe-5" action="" method="post">
                     
                     <div class="col-12 entrada">
-                        <label class="form-label prueba" for="estados">Estado<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="estados" >
+                        <label class="form-label" for="estados">Estado<span class="rojo">*</span>:</label>
+                        <select class="form-control text" id="estados" name="estados">
                             <option value="">Selecciona un estado</option>
                             <?php while($row = $estados->fetch_assoc()){ ?>
                               <option value="<?php echo $row['id'];?>"><?php echo $row['nombre'];?></option>
@@ -79,12 +99,12 @@ $estados = $mysqli->query("SELECT id, nombre FROM estados");
                     </div>
 
                     <div class="col-12 entrada">
-                        <label class="form-label prueba" for="municipios">Municipio<span class="rojo">*</span>:</label>
-                        <select  class="form-control" id="municipios">
+                        <label class="form-label" for="municipios">Municipio<span class="rojo">*</span>:</label>
+                        <select  class="form-control text" id="municipios" name="municipios">
                             <option value="">Selecciona un municipio</option>
                         </select>
                     </div>
-                    <a href="Denuncia4.html" class="boton boton--primario">Siguiente</a> 
+                    <input type="submit" class="boton boton--primario" value="Siguiente">
                 </form>
             </div>
         </div>
@@ -92,7 +112,7 @@ $estados = $mysqli->query("SELECT id, nombre FROM estados");
     
 
     <footer class="footer">
-        <footer class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-12 d-flex iconos">
                     <div class="icono-redes">
@@ -110,7 +130,7 @@ $estados = $mysqli->query("SELECT id, nombre FROM estados");
                         
                 </div>
             </div>
-        </footer>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

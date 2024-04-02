@@ -9,6 +9,33 @@ $conducta5 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'M
 $conducta6 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Diputados/as y Senadores/as electos'");
 $conducta7 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Fedatarios/as públicos'");
 $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ex Mag E, Con E, Secretario INE'");
+$opciones_conducta1 = array();
+while($row = $conducta1->fetch_assoc()) {
+    $opciones_conducta1[] = array(
+        'id' => $row['id'],
+        'nombreCond' => $row['nombreCond']
+    );
+}
+
+// Iniciar sesión
+session_start();
+
+// Comprobar si existe el código postal en la sesión
+if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])&& isset($_POST['explicacion'])&&isset($_POST['estados'])&&isset($_POST['municipios'])&&isset($_POST['nombre'])&&isset($_POST['institucion']) && isset($_POST['rol'])&&isset($_POST['fecha'])&&isset($_POST['hora'])) {
+    // Si no existe, redirigir a la primera página
+    header('Location: Denuncia4.php');
+    exit();
+}
+
+// Recibir datos del formulario
+if(isset($_POST['campo1'])) {
+    // Guardar los datos en la sesión o hacer lo que necesites
+    $_SESSION['campo1'] = $_POST['campo1'];
+    // Redirigir a la siguiente página o hacer lo que necesites
+    header('Location: DenunciaConfirm.php');
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +96,7 @@ $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'E
                         <div class="progress-bar" style="width: 80%;">80%</div>
                     </div>
                     <p class="categoria">¿Qué conductas considera que se cometieron?</p>
-                <form action="" class="form-6" >
+                <form action="" class="form-6" method="post" >
                     <div class="formu-6">
                         <div class="col-md-10 contenedor-conductas mb-5">
                             
@@ -79,13 +106,13 @@ $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'E
                                     <p class="me-4">1.-</p>
                                     <select class="form-control conducta" id="campo1" name="campo1" required>
                                     <option value="">Seleccionar</option>
-                                    <?php while($row = $conducta1->fetch_assoc()){ ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['nombreCond'];?></option>
-                                    <?php }  ?>
+                                    <?php foreach($opciones_conducta1 as $opcion) { ?>
+                                        <option value="<?php echo $opcion['id']; ?>"><?php echo $opcion['nombreCond']; ?></option>
+                                    <?php } ?>
                                 </select></div>
                                 
                                 <div id="container1"></div>
-                                <button type="button" class="btn-add" onclick="agregarCampo('container1', 'button1')">Agregar Campo</button>
+                                <button type="button" class="btn-add" onclick="agregarCampo('container1', <?php echo json_encode($opciones_conducta1); ?>)">Agregar Campo</button>
                             </div>
                             <div class="col-sm-12 col-md-5 me-md-5">
                                 <label class="form-label" for="campo2">Servidor/a público:</label>
@@ -195,8 +222,9 @@ $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'E
                             <label  class="form-label" for="archivo">Seleccionar archivo:</label>
                             <input  type="file" id="archivo" name="archivo">
                         </div>
-                        <div class="col-md-10">
-                            <a href="DenunciaConfirm.html" class="boton boton--secundario">Enviar</a>
+                        <div class="col-md-12">
+                        <input type="submit" class="boton boton--secundario" value="Enviar">
+
                         </div>
                     </div>
                 </form>
@@ -206,7 +234,7 @@ $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'E
     
 
     <footer class="footer">
-        <footer class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-12 d-flex iconos">
                     <div class="icono-redes">
@@ -228,25 +256,34 @@ $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'E
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-        var contadores = {};
-    
-        function agregarCampo(containerId, buttonId) {
-            var contador = contadores[buttonId] || 2;
-    
-            contadores[buttonId] = contador + 1;
-    
-            var nuevosCampos = document.getElementById(containerId);
-            var nuevoCampo = document.createElement('div');
-            nuevoCampo.className = 'select-conductas';
-            nuevoCampo.innerHTML = '<p class="me-4">' + contador + '.-</p>' +
-                '<select class="form-control" id="' + buttonId + '_campoN' + contador + '" name="' + buttonId + '_campoN' + contador + '" required>' +
-                '<option value="">Seleccionar</option>' +
-                '<option value="masculino">Conducta1</option>' +
-                '<option value="femenino">Conducta2</option>' +
-                '<option value="otro">Conducta3</option>' +
-                '</select>';
-            nuevosCampos.appendChild(nuevoCampo);
-        }
-    </script>
+    // Función para agregar un nuevo campo select
+    function agregarCampo(containerId, opcionesDisponibles) {
+        // Obtener el contenedor y el select
+        var container = document.getElementById(containerId);
+        var select = container.querySelector('select');
+
+        // Crear un nuevo select
+        var nuevoSelect = document.createElement('select');
+        nuevoSelect.className = 'form-control conducta';
+        nuevoSelect.required = true;
+
+        // Agregar la opción por defecto
+        var opcionDefault = document.createElement('option');
+        opcionDefault.value = '';
+        opcionDefault.text = 'Seleccionar';
+        nuevoSelect.appendChild(opcionDefault);
+
+        // Agregar las opciones disponibles al nuevo select
+        opcionesDisponibles.forEach(function(opcion) {
+            var nuevaOpcion = document.createElement('option');
+            nuevaOpcion.value = opcion.id;
+            nuevaOpcion.text = opcion.nombreCond;
+            nuevoSelect.appendChild(nuevaOpcion);
+        });
+
+        // Agregar el nuevo select al contenedor
+        container.appendChild(nuevoSelect);
+    }
+</script>
 </body>
 </html>

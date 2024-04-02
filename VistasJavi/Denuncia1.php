@@ -1,3 +1,19 @@
+<?php
+// Iniciar sesión
+session_start();
+
+// Recibir código postal del formulario
+if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])) {
+    $_SESSION['CP'] = $_POST['CP'];
+    $_SESSION['seccion_electoral'] = $_POST['seccion_electoral'];
+    $_SESSION['sexo'] = $_POST['sexo'];
+    $_SESSION['ocupacion'] = $_POST['ocupacion'];
+    $_SESSION['escolaridad'] = $_POST['escolaridad'];
+    // Redirigir a la siguiente página
+    header('Location: Denuncia2.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +30,7 @@
 </head>
 <body>
 
-    <header class="Logo"> <a href="/Solo_Para_Incorruptibles/VistasCruz/index.html"> <img src="/Solo_Para_Incorruptibles/VistasCruz/assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
+    <header class="Logo"> <a href="/Solo_Para_Incorruptibles/VistasCruz/index.html"> <img src="/SPI/Solo_Para_Incorruptibles/VistasCruz/assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
     
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
         <div class="container-fluid">
@@ -59,46 +75,41 @@
                         <div class="progress-bar" style="width: 100%;">0%</div>
                     </div>
                     <p class="text-center categoria">Información inicial.</p>
-                <form class="col-md-5 ps-5 pe-5">
+                <form action="" method="POST" class="col-md-7 col-lg-6 ps-5 pe-5">
                     
-                    <div class="col-12 d-flex entrada">
-                        <label class="form-label prueba" for="CP">Código Postal<span class="rojo">*</span>:</label>
-                        <input class="form-control" type="text" placeholder="ej.92312" id="CP" required>
+                    <div class="col-12  entrada">
+                        <label class="form-label" for="CP">Código Postal<span class="rojo">*</span>:</label>
+                        <input class="form-control text" type="text" placeholder="Ejemplo. 92312" id="CP" name="CP" required>
                     </div>
-                    <div class="col-12 entrada d-flex">
+                    <div class="col-12 entrada ">
                         <label class="form-label" for="seccion_electoral">Sección electoral<span class="rojo">*</span>:</label>
-                        <input class="form-control" type="text" placeholder="" id="seccion_electoral" required>
+                        <input class="form-control text" type="text" placeholder="" id="seccion_electoral" name="seccion_electoral" required>
                     </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="sexo"><p class="no-margin">Sexo<span class="rojo">*</span>:</p></label>
-                        <select class="form-control" id="sexo" name="sexo" required>
+                    <div class="col-12 entrada ">
+                        <label class="form-label" for="sexo">Sexo<span class="rojo">*</span>:</label>
+                        <select class="form-control text" id="sexo" name="sexo" required>
                             <option value="">Seleccionar</option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>
                             <option value="otro">Otro</option>
                         </select>
                     </div>
-                    <div class="col-12 entrada d-flex">
-                        <label class="form-label" for="ocupacion">Ocupación<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="ocupacion" name="ocupacion" required>
-                            <option value="">Seleccionar</option>
-                            <option value="masculino">1</option>
-                            <option value="femenino">2</option>
-                            <option value="otro">3</option>
-                        </select>
+                    <div class="col-12 entrada ">
+                        <label class="form-label" for="ocupacion">Ocupacion<span class="rojo">*</span>:</label>
+                        <input class="form-control text" type="text" placeholder="" id="ocupacion" name="ocupacion" required>
                     </div>
-                    <div class="col-12 entrada d-flex">
+                    <div class="col-12 entrada ">
                         <label class="form-label" for="escolaridad">Escolaridad<span class="rojo">*</span>:</label>
-                        <select class="form-control" id="escolaridad" name="escolaridad" required>
+                        <select class="form-control text" id="escolaridad" name="escolaridad" required>
                             <option value="">Seleccionar</option>
-                            <option value="primaria">Primaria</option>
-                            <option value="secundaria">Secundaria</option>
-                            <option value="preparatoria">Preparatoria</option>
-                            <option value="universidad">Universidad</option>
-                            <option value="posgrado">Posgrado</option>
+                            <option value="1">Primaria</option>
+                            <option value="2">Secundaria</option>
+                            <option value="3">Preparatoria</option>
+                            <option value="4">Universidad</option>
+                            <option value="5">Posgrado</option>
                         </select>
                     </div>
-                    <a href="Denuncia2.html" class="boton boton--primario">Siguiente</a> 
+                    <input type="submit" class="boton boton--primario" value="Siguiente">
                 </form>
             </div>
         </div>
@@ -106,7 +117,7 @@
     
 
     <footer class="footer">
-        <footer class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-12 d-flex iconos">
                     <div class="icono-redes">

@@ -108,22 +108,22 @@ html, body{
     width: 45px;
     height: 43px;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
     .nav-item > a{
         margin: 0%;
     }
     .contenedor{
         background-color: #E4E5EB;
     }
-    .contenido{
-        grid-template: 280px 280px 280px/280px;
-        gap: 1vh;
-    }
     .tarjetaPrin{
         margin: 50px;
     }
-    .logoTarjeta{
-        height: 20px;
+    .contenido{
+        grid-template: 280px 280px 280px/200px;
+        gap: 1vh;
+    }
+    .logoTarjeta > img{
+        height: 150px;
     }
     .b1{
         align-items: center;
@@ -131,8 +131,15 @@ html, body{
     }
     .b2{
         align-items: center;
+        grid-column: span 2;
+    }
+    .btnGen{
+        font-size: 1.2em;
+        width: 230px;
+        height: 80px;
     }
     .misvis{
-        grid-template: 1fr 1fr/ 1fr;
+        display: flex;
+        flex-direction: column;
     }
   }

@@ -30,77 +30,86 @@ html{
 }
 .contenedor{
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     flex-shrink: 1;
-    flex-grow: 1;
     background-color: #E4E5EB;
 }
-
-.tarjetaPrin{
-    margin-top: 50px;
+.I3{
+    margin-top: 10vh;
+    height: 45vh;
+    width: 70vw;
+    margin-bottom: 5vw;
+}
+.b1{
+    background-color: #E4E5EB;
     display: flex;
-    background-color: #FFFF;
-    border-radius: 12px;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.cont>p{
+    margin-top: 5vh;
+    font-family: "Dosis", sans-serif;
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    color: #23274C;
+    margin-bottom: 5vh;
+}
+.btnPub{
+    border: none;
+    border-radius: 10px;
+    background-color: #104E06;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #FFFF;
+    height: 30px;
+    width:100px;
+}
+.btnPub:hover{
+    background-color: #0a3504;
+}
+.btnEra{
+    border: none;
+    border-radius: 10px;
+    background-color: #FD0B0B;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #FFFF;
+    height: 30px;
+    width:100px;
+}
+.btnEra:hover{
+    background-color: #8b0505;
+}
+.contenedord{
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    flex-shrink: 1;
-    margin-bottom: 5vh;
+    background-color: #E4E5EB;
 }
-.Titulo h1{
-    font-family: "Dosis", sans-serif;
-    color: #5B5B5B;
-    font-weight: bolder;;
-    font-size: 2.5em;
-    margin-bottom: 50px;
+.contenedord table{
+    width: 70vw;
+    margin-bottom: 10vh;
+    flex-shrink: 1;
+}
+thead{
+    background-color: #abaaaa;
+    text-align: center;
+    color: black;
+}
+th > a{
+    color: black;
+}
+tbody{
+    background-color: #F5F5F5;
     text-align: center;
 }
-.cont,p{
-    display: flex;
-    flex-shrink: 1;
-    font-family: "Dosis", sans-serif;
-    justify-content: center;
-    text-align: center;
-    font-weight: bolder;
-    font-size: 1.4em;
-    margin-bottom: 30px;
-    
-}
-.inpFolio{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 80px;
-}
-#folioBusq{
-    display: flex;
-    font-family: "Dosis", sans-serif;
-    font-weight: bold;
-    padding-left: 30px;
-    border: #9CB8BF solid 2px;
-    border-radius: 20px;
-    height: 50px;
-    width: 340px;
-}
-.b1{
-    display: flex;
-    justify-content: center;
-}
-.btnGen{
-    border: none;
-    border-radius: 12px;
-    background-color: #23274C;
-    font-family: "Dosis", sans-serif;
-    font-weight: bold;
-    font-size: 1.6rem;
-    color: #FFFF;
-    height: 50px;
-    width: 250px;
-    margin-bottom: 50px;
-}
-.btnGen:hover{
-    background-color: #353753;
-}
-
 .footer{
     clear: both;
     display: flex;
@@ -112,34 +121,23 @@ html{
     width: 45px;
     height: 43px;
 }
-
 @media (max-width: 1024px) {
     .nav-item > a{
         margin: 0%;
     }
-    .contenedor{
-        padding: 20px;
-        background-color: #E4E5EB;
-    }
-    .tarjetaPrin{
-        margin: 50px;
-    }
+   .I3{
+    margin-top: 5vh;
+    height: 18vh;
+    width: 85vw;
+   }
     .logoTarjeta{
         height: 20px;
     }
-    .btnGen{
-        width: 230px;
-    }
-    #folioBusq{
-        width: 200px;
-    }
-    .cont{
+    .cont>p{
         font-size: 1em;
-        display: flex;
-        align-items: center;
-        width: 60px;
     }
     .b1{
         align-items: center;
     }
   }
+ 

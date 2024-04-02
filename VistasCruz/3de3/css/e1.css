@@ -54,7 +54,7 @@ html{
     color: #5B5B5B;
     font-weight: bolder;;
     font-size: 2.5em;
-    margin-bottom: 10px;
+    margin-bottom: 3vh;
     text-align: center;
 }
 .cont {
@@ -87,14 +87,13 @@ html{
 }
 
 .cont>p{
-    margin-top: 5vh;
     justify-content: center;
     font-family: "Dosis", sans-serif;
     font-weight: bolder;
-    font-size: 1.7em;
+    font-size: 2.5rem;
     text-align: center;
     color: #5B5B5B;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
     width: 50vw;
 }
 .btnGen{
@@ -137,7 +136,7 @@ html{
         height: 40px;
     }
     .cont>p{
-        font-size: 1em;
+        font-size: 2em;
     }
     .b1{
         align-items: center;

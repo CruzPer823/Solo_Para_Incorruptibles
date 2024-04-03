@@ -9,13 +9,8 @@ $conducta5 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'M
 $conducta6 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Diputados/as y Senadores/as electos'");
 $conducta7 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Fedatarios/as públicos'");
 $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ex Mag E, Con E, Secretario INE'");
-$opciones_conducta1 = array();
-while($row = $conducta1->fetch_assoc()) {
-    $opciones_conducta1[] = array(
-        'id' => $row['id'],
-        'nombreCond' => $row['nombreCond']
-    );
-}
+$conducta9 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Candidato/a'");
+$conducta10 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a de casilla'");
 
 // Iniciar sesión
 session_start();
@@ -31,6 +26,7 @@ if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sex
 if(isset($_POST['campo1'])) {
     // Guardar los datos en la sesión o hacer lo que necesites
     $_SESSION['campo1'] = $_POST['campo1'];
+    $_SESSION['archivo'] = $_POST['archivo'];
     // Redirigir a la siguiente página o hacer lo que necesites
     header('Location: DenunciaConfirm.php');
     exit();
@@ -100,124 +96,199 @@ if(isset($_POST['campo1'])) {
                     <p class="categoria">¿Qué conductas considera que se cometieron?</p>
                 <form action="" class="form-6" method="post" >
                     <div class="formu-6">
+                        <div class="col-md-10 contenedor-conductas mb-5">   
+                            <div class="col-sm-12 col-md-5 me-md-5">
+                                <label class="form-label">Cualquier persona:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta1->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta1->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-5 me-md-5">
+                                <label class="form-label">Servidor/a público:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta2->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta2->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
+                                </div>
+                            </div>
+                            
+                        </div>
                         <div class="col-md-10 contenedor-conductas mb-5">
                             
                             <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label" for="campo1">Cualquier persona:</label>
-                                <div class="select-conductas-i">
-                                    <p class="me-4">1.-</p>
-                                    <select class="form-control conducta" id="campo1" name="campo1" required>
-                                    <option value="">Seleccionar</option>
-                                    <?php foreach($opciones_conducta1 as $opcion) { ?>
-                                        <option value="<?php echo $opcion['id']; ?>"><?php echo $opcion['nombreCond']; ?></option>
-                                    <?php } ?>
-                                </select></div>
-                                
-                                <div id="container1"></div>
-                                <button type="button" class="btn-add" onclick="agregarCampo('container1', <?php echo json_encode($opciones_conducta1); ?>)">Agregar Campo</button>
+                            <label class="form-label">Funcionario/a electoral:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta3->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta3->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
+                                </div>
                             </div>
                             <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label" for="campo2">Servidor/a público:</label>
-                                <div class="select-conductas-i">
-                                    <p class="me-4">1.-</p>
-                                    <select class="form-control conducta" id="campo2" name="campo2" required>
-                                    <option value="">Seleccionar</option>
-                                    <?php while($row = $conducta2->fetch_assoc()){ ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['nombreCond'];?></option>
-                                    <?php }  ?>
-                                </select></div>
-                                
-                                <div id="container2"></div>
-                                <button type="button" class="btn-add" onclick="agregarCampo('container2', 'button2')">Agregar Campo</button>  
+                                <label class="form-label">Funcionario/a partidista:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta4->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta4->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-10 contenedor-conductas mb-5">
-                            <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label" for="campo3">Funcionario/a electoral:</label>
-                                <div class="select-conductas-i">
-                                    <p class="me-4">1.-</p>
-                                    <select class="form-control conducta" id="campo3" name="campo3" required>
-                                    <option value="">Seleccionar</option>
-                                    <?php while($row = $conducta3->fetch_assoc()){ ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['nombreCond'];?></option>
-                                    <?php }  ?>
-                                </select></div>
-                                
-                                <div id="container3"></div>
-                                <button type="button" class="btn-add" onclick="agregarCampo('container3', 'button3')">Agregar Campo</button>
-                                
-                            </div>
-                            <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label" for="campo4">Funcionario/a partidista:</label>
-                                <div class="select-conductas-i">
-                                    <p class="me-4">1.-</p>
-                                    <select class="form-control conducta" id="campo4" name="campo4" required>
-                                    <option value="">Seleccionar</option>
-                                    <?php while($row = $conducta4->fetch_assoc()){ ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['nombreCond'];?></option>
-                                    <?php }  ?>
-                                </select></div>
-                                
-                                <div id="container4"></div>
-                                <button type="button" class="btn-add" onclick="agregarCampo('container4', 'button4')">Agregar Campo</button>
-                            </div>
+                           
                         </div>
                         <div class="col-md-10 contenedor-conductas mb-5">      
+                            <div class="col-sm-12 col-md-5 me-md-5">
+                                <label class="form-label">Ministros/as de culto religioso:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta5->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta5->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-5 me-md-5">
+                                <label class="form-label">Diputados/as y Senadores/as electos:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta6->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta6->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
+                                </div>
+                            </div>
                             
-                            <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label" for="campo5">Ministros/as de culto religioso:</label>
-                                <div class="select-conductas-i">
-                                    <p class="me-4">1.-</p>
-                                    <select class="form-control conducta" id="campo5" name="campo5" required>
-                                    <option value="">Seleccionar</option>
-                                    <?php while($row = $conducta5->fetch_assoc()){ ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['nombreCond'];?></option>
-                                    <?php }  ?>
-                                </select></div>
-                                
-                                
-                            </div>
-                            <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label" for="campo6">Diputados/as y Senadores/as electos:</label>
-                                <div class="select-conductas-i">
-                                    <p class="me-4">1.-</p>
-                                    <select class="form-control conducta" id="campo6" name="campo6" required>
-                                        <option value="">Seleccionar</option>
-                                        <?php while($row = $conducta6->fetch_assoc()){ ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['nombreCond'];?></option>
-                                    <?php }  ?>
-                                    </select>
-                                </div>        
-                            </div>
-                        
-                                
-                                
+                             
                         </div> 
                         <div class="col-md-10 contenedor-conductas mb-5" > 
                             <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label" for="campo7">Fedatarios/as públicos:</label>
-                                <div class="select-conductas-i">
-                                    <p class="me-4">1.-</p>
-                                    <select class="form-control conducta" id="campo7" name="campo7" required>
-                                        <option value="">Seleccionar</option>
-                                        <?php while($row = $conducta7->fetch_assoc()){ ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['nombreCond'];?></option>
-                                    <?php }  ?>
-                                    </select>
+                                <label class="form-label">Fedatarios/as públicos:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta7->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta7->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label" for="campo8">Ex magistrados electorales, Consejeros Electorales, Secretario Ejecutivo del INE:</label>
-                                <div class="select-conductas-i">
-                                    <p class="me-4">1.-</p>
-                                    <select class="form-control conducta" id="campo8" name="campo8" required>
-                                        <option value="">Seleccionar</option>
-                                        <?php while($row = $conducta8->fetch_assoc()){ ?>
-                                        <option value="<?php echo $row['id'];?>"><?php echo $row['nombreCond'];?></option>
-                                    <?php }  ?>
-                                    </select>
+                                <label class="form-label">Ex magistrados electorales, Consejeros Electorales, Secretario Ejecutivo del INE:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta8->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta8->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
                                 </div>
-            
+                            </div>
+                        </div> 
+                        <div class="col-md-10 contenedor-conductas mb-5" > 
+                            <div class="col-sm-12 col-md-5 me-md-5">
+                                <label class="form-label">Candidato/a:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta9->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta9->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-5 me-md-5">
+                                <label class="form-label">Funcionario/a de casilla:</label>
+                                <div>
+                                    <?php 
+                                        if ($conducta10->num_rows > 0) {
+                                                // Mostrar cada resultado como un checkbox
+                                                while ($row = $conducta10->fetch_assoc()) {
+                                                    $id = $row['id'];
+                                                    $nombreCond = $row['nombreCond'];
+                                                    echo '<div>';
+                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '</div>';
+                                                }
+                                            }
+                                        ?>
+                                </div>
                             </div>
                         </div> 
                         <div class="col-md-10 contenedor-conductas mb-5">
@@ -265,35 +336,5 @@ if(isset($_POST['campo1'])) {
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-    // Función para agregar un nuevo campo select
-    function agregarCampo(containerId, opcionesDisponibles) {
-        // Obtener el contenedor y el select
-        var container = document.getElementById(containerId);
-        var select = container.querySelector('select');
-
-        // Crear un nuevo select
-        var nuevoSelect = document.createElement('select');
-        nuevoSelect.className = 'form-control conducta';
-        nuevoSelect.required = true;
-
-        // Agregar la opción por defecto
-        var opcionDefault = document.createElement('option');
-        opcionDefault.value = '';
-        opcionDefault.text = 'Seleccionar';
-        nuevoSelect.appendChild(opcionDefault);
-
-        // Agregar las opciones disponibles al nuevo select
-        opcionesDisponibles.forEach(function(opcion) {
-            var nuevaOpcion = document.createElement('option');
-            nuevaOpcion.value = opcion.id;
-            nuevaOpcion.text = opcion.nombreCond;
-            nuevoSelect.appendChild(nuevaOpcion);
-        });
-
-        // Agregar el nuevo select al contenedor
-        container.appendChild(nuevoSelect);
-    }
-</script>
 </body>
 </html>

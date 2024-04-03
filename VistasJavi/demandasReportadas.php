@@ -50,24 +50,54 @@
       </nav>
 
     <main>
+    <div class="contenedor formulario mt-5 pe-5 ps-5">
+    <h2 class="titulo ">Denuncias reportadas</h2>
+    <div class="table-responsive">
+        <table class="table table-hover border-black tabla">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Municipio</thd>
+                    <th scope="col">hola</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+            // Establece la conexión a la base de datos
+            require './includes/database.php';
         
-        <div class="contenedor">
-            <h2 class="titulo denuncia">Demandas reportadas</h2>
-            <div class="tres-columnas registro">
-                <h3>ESTADO</h3>
-                <h3>MUNICIPIO</h3>
-                <h3></h3>   
-            </div>
-            <div class="tres-columnas registro">
-                <p>ESTADO</p>
-                <p>MUNICIPIO</p>
-                <div class="btn-reporte">
-                    <button class="boton boton--secundario">Reportar</button>
-                </div>
-                
-            </div>
-                    
-        </div>
+            // Verifica la conexión
+            
+        
+            // // Realiza la consulta
+            $consulta = "SELECT denuncia.id AS denuncia_id, estados.nombre AS nombre_estado, municipios.nombre AS nombre_municipio FROM denuncia INNER JOIN municipios ON denuncia.ubicacion = municipios.id INNER JOIN estados ON municipios.estado = estados.id;";
+            
+            if ($resultado = mysqli_query($mysqli, $consulta)) {
+                // Itera sobre los resultados y muestra cada fila en la tabla
+                while ($fila = mysqli_fetch_array($resultado)) {
+                    echo "<tr>";
+                    echo "<td><a href='detallesDenuncia.php?id=" . $fila['denuncia_id'] . "'>" . $fila['denuncia_id'] . "</a></td>";
+                    echo "<td>" . $fila['nombre_estado'] . "</td>";
+                    echo "<td>". $fila["nombre_municipio"] . "</td>";
+                    echo "<td> <input type='button' name='pub' class='boton-tabla boton--secundario no-margin' value='Publicar'></td>";
+                    // Agrega más columnas según sea necesario
+                    echo "</tr>";
+                }
+                // Libera el resultado
+                mysqli_free_result($resultado);
+            } else {
+                echo "ERROR: No se pudo ejecutar $consulta. " . mysqli_error($mysqli);
+            }
+        
+            // Cierra la conexión
+            mysqli_close($mysqli);
+            ?>
+            </tbody>
+        </table>
+    </div>
+</div>
     </main>
     
 

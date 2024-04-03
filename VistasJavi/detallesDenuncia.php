@@ -51,6 +51,7 @@
 
     <main>
         
+        
         <div class="contenedor">
             <h2 class="titulo denuncia">Denuncia</h2>
             <div class="tres-columnas">
@@ -58,40 +59,113 @@
                     <h4 class="titulo">
                         Ubicación del delito
                     </h4>
-                    <div class="dos-columnas datos">
-                        <div>
-                            <p>ESTADO</p>
-                            <p><?php echo $denuncia['estadoDenuncia']; ?></p>
-                        
-                        </div>
-                        <div>
-                            <p>MUNICIPIO</p>
-                            <p><?php echo $denuncia['municipioDenuncia']; ?></p>
-                        </div>
+                    <div class="dos-columnas">
+                        <?php
+                        // Verifica si se ha proporcionado un ID en la URL
+                        if(isset($_GET['id'])) {
+                            // Obtiene el ID del registro de la URL y lo limpia
+                            $id = htmlspecialchars($_GET['id']);
+                            
+                            // Establece la conexión a la base de datos
+                            require './includes/database.php';
+                            
+                            // Verifica la conexión
+                            if (!$mysqli ) {
+                                echo 'Error de conexión';
+                            }
+                            
+                            // Realiza la consulta para obtener los detalles del registro con el ID proporcionado
+                            $consulta = "SELECT 
+                            d.*,
+                            estados.nombre AS nombre_estado,
+                            municipios.nombre AS nombre_municipio
+                        FROM 
+                            (SELECT * FROM denuncia WHERE id = $id) AS d
+                        INNER JOIN 
+                            municipios ON d.ubicacion = municipios.id
+                        INNER JOIN 
+                            estados ON municipios.estado = estados.id;";
+                            if ($resultado = mysqli_query($mysqli, $consulta)) {
+                                // Verifica si se encontraron resultados
+                                if (mysqli_num_rows($resultado) > 0) {
+                                    // Muestra los detalles del registro
+                                    $fila = mysqli_fetch_assoc($resultado);
+                                    echo "<div>";
+                                    echo "<p class='datos'>ESTADO</p>";
+                                    echo "<p>" . $fila['nombre_estado'] . "</p>";
+                                    echo "</div>";
+                                    echo "<div>";
+                                    echo "<p class='datos'>MUNICIPIO</p>";
+                                    echo "<p>" . $fila['nombre_municipio'] . "</p>";
+                                    echo "</div>";
+                                } else {
+                                    // No se encontraron registros con el ID proporcionado
+                                    echo "No se encontraron detalles para el ID proporcionado.";
+                                }
+                                // Libera el resultado
+                                mysqli_free_result($resultado);
+                            } else {
+                                echo "ERROR: No se pudo ejecutar $consulta. " . mysqli_error($mysqli);
+                            }
+                            
+                            // Cierra la conexión
+                            mysqli_close($mysqli);
+                        } else {
+                            // No se proporcionó un ID en la URL
+                            echo "ID no proporcionado.";
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="dato">
                     <h4 class="titulo">
                         Temporalidad
                     </h4>
-                    <div class="dos-columnas datos">
-                        <div>
-                            <p>FECHA</p>
-                            <p><?php echo $denuncia['fechaDenuncia']; ?></p>
-                        </div>
-                        <div>
-                            <p>HORA</p>
-                            <p><?php echo $denuncia['horaDelito']; ?></p>
-                        </div>
-                        
+                    <div class="dos-columnas ">
+                        <?php
+                        // Muestra la temporalidad solo si se encontró un registro con el ID proporcionado
+                        if(isset($fila)) {
+                            echo "<div>";
+                            echo "<p class='datos'>FECHA</p>";
+                            echo "<p>" . $fila['fecha'] . "</p>";
+                            echo "</div>";
+                            echo "<div>";
+                            echo "<p class='datos'>HORA</p>";
+                            echo "<p>" . $fila['hora'] . "</p>";
+                            echo "</div>";
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="dato">
                     <h4 class="titulo">
-                        Personas involucradas
+                        Persona involucrada
                     </h4>
-                    <div>
-                        <!-- pendiente -->
+                    <div class="columnas3 x">
+                        <div>
+                            <p class="datos">NOMBRE</p>
+                        <?php
+                            if(isset($fila)) {
+                                echo "<p>" . $fila['nombreSosp'] . "</p>";
+                            }
+                            ?>
+                        </div>
+                        <div>
+                        <p class="datos">ROL</p>
+                        <?php
+                            if(isset($fila)) {
+                                echo "<p>" . $fila['rolSosp'] . "</p>";
+                            }
+                            ?>
+                        </div>
+                        <div>
+                            <p class="datos">INSTITUCIÓN</p>
+                            <?php
+                            if(isset($fila)) {
+                                echo "<p>" . $fila['instSosp'] . "</p>";
+                            }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -101,6 +175,12 @@
                         Descripción de los hechos
                     </h4>
                     <div class="">
+                    <?php
+                        // Muestra la temporalidad solo si se encontró un registro con el ID proporcionado
+                        if(isset($fila)) {
+                            echo "<p>" . $fila['descripcion'] . "</p>";
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="dato">

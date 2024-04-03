@@ -95,12 +95,12 @@ if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sex
                         </select>
                     </div>
                     <div class="col-12 entrada ">
-                        <label class="form-label" for="ocupacion">Ocupacion<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="" id="ocupacion" name="ocupacion" required>
+                        <label class="form-label" for="ocupacion">Ocupacion:</label>
+                        <input class="form-control text" type="text" placeholder="" id="ocupacion" name="ocupacion">
                     </div>
                     <div class="col-12 entrada ">
                         <label class="form-label" for="escolaridad">Escolaridad<span class="rojo">*</span>:</label>
-                        <select class="form-control text" id="escolaridad" name="escolaridad" required>
+                        <select class="form-control text" id="escolaridad" name="escolaridad">
                             <option value="">Seleccionar</option>
                             <option value="1">Primaria</option>
                             <option value="2">Secundaria</option>

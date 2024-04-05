@@ -1,3 +1,8 @@
+<?php
+   require_once 'includes/config_session.inc.php';
+   require_once 'includes/login_view.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,7 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-  <header class="Logo"> <a href="index.html"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+  <header class="Logo"> <a href="index.php"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
   <!-- Barra de navegacion -->
   <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
@@ -26,7 +31,7 @@
               <a class="nav-link " href="creditos.html">Créditos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active"  href="index.html">Acerca de</a>
+              <a class="nav-link active"  href="index.php">Acerca de</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Estadísticas</a>
@@ -49,6 +54,10 @@
     </nav>
   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+              <?php
+                check_login_errors();
+                ?>
     <!-- Tarjeta denuncia -->
     <div class="contenedor">
     <div class="tarjetaPrin container shadow-lg">

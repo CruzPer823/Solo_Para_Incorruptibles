@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    require_once 'includes/config_session.inc.php';
+    require_once 'includes/registro_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@
 </head>
 <body>
 
-    <header class="Logo"> <a href="index.html"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+    <header class="Logo"> <a href="index.php"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
     
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
@@ -31,7 +32,7 @@
               <a class="nav-link " href="creditos.html">Créditos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="index.html">Acerca de</a>
+              <a class="nav-link"  href="index.php">Acerca de</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Estadísticas</a>
@@ -58,30 +59,23 @@
             <div class="row justify-content-center">
                 <h2 class="text-center titulo">REGÍSTRATE</h2>
                 <?php
-                if(isset($_SESSION['status'])){
-                    ?>
-                    <div class="alert alert-danger" style="width: 50vw; height: 5vh; display:flex; flex-direction:column; justify-content:center;" role="alert">
-                        <div><?php echo $_SESSION['status']; ?></div>
-                    </div>
-                    <?php
-                    unset($_SESSION['status']);
-                }
+                    check_registro_errors();
                 ?>
-                <form class="col-md-6 ps-5 pe-5" action="includes/formhandler.inc.php" method="post"  onsubmit="return validarFormulario()">
+                <form class="col-md-6 ps-5 pe-5" action="includes/registro.inc.php" method="post"  onsubmit="return validarFormulario()">
                     <div class="contenedor-registro">
                         <div class="col-lg-6 d-flex entrada me-4">
-                            <input class="form-control" type="text" name="nombre" placeholder="Nombre" id="name" required>
+                            <input class="form-control" type="text" name="nombre" placeholder="Nombre" id="name">
                         </div>
                         <div class="col-lg-6 entrada d-flex me-4">
-                            <input class="form-control" type="text" name="correo" placeholder="Correo" id="correo" required>
+                            <input class="form-control" type="text" name="correo" placeholder="Correo" id="correo">
                         </div>
                     </div>
                     <div class="contenedor-registro">
                         <div class="col-lg-6 entrada d-flex me-4">
-                            <input class="form-control" type="password" name="pass" placeholder="Contraseña" id="contraseña" required>
+                            <input class="form-control" type="password" name="pass" placeholder="Contraseña" id="contraseña">
                         </div>
                         <div class="col-lg-6 entrada d-flex me-4">
-                            <input class="form-control" type="password" name="passc" id="confirmacion-contraseña" placeholder="Confirmar contraseña" required>
+                            <input class="form-control" type="password" name="passc" id="confirmacion-contraseña" placeholder="Confirmar contraseña">
                         </div>
                     </div>
                     <div class="d-flex entrada aviso-priv">
@@ -118,16 +112,6 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        function validarFormulario() {
-            var checkbox = document.getElementById("aviso_privacidad");
-            if (!checkbox.checked) {
-                alert("Por favor, acepta el aviso de privacidad antes de continuar.");
-                return false;
-            }
-            return true;
-        }
-    </script>
 </body>
 
 </html>

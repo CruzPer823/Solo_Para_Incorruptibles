@@ -1,5 +1,7 @@
 <?php
-  session_start();
+   require_once 'includes/config_session.inc.php';
+   require_once 'includes/registro_view.inc.php';
+   require_once 'includes/login_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +18,9 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
+
     <!-- Header -->
-    <header class="Logo"> <a href="index.html"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+    <header class="Logo"> <a href="index.php"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
@@ -30,7 +33,7 @@
               <a class="nav-link " href="creditos.html">Créditos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="index.html">Acerca de</a>
+              <a class="nav-link"  href="index.php">Acerca de</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Estadísticas</a>
@@ -60,23 +63,16 @@
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIA SESIÓN</h1></div>
                 <?php
-                if(isset($_SESSION['status'])){
-                    ?>
-                    <div style="display: flex; justify-content:center;" >
-                    <div class="alert alert-success" style="width: 50vw; height: 5vh; display:flex; align-items:center; justify-content:center;" role="alert">
-                        <div><?php echo $_SESSION['status']; ?></div>
-                    </div>
-                    </div>
-                    <?php
-                    unset($_SESSION['status']);
-                }
+                check_login_errors();
+                check_registro_errors();
+                change3d3();
                 ?>
-                <form action="includes/formhandler.inc.php" method="post">
+                <form action="includes/login.inc.php" method="post">
                 <div class="inpSesion">
-                    <input type="email" class="form-control" name="correo" id="inp" placeholder="Correo" required>
+                    <input type="text" class="form-control" name="correo" id="inp" placeholder="Correo" >
                 </div>
                 <div class="inpSesion">
-                    <input type="password" class="form-control" name="pass" id="inp" placeholder="Contraseña" required>
+                    <input type="password" class="form-control" name="pass" id="inp" placeholder="Contraseña" >
                 </div>
                 <div class="cont"><a href="#">¿Olvidaste tu Contraseña?</a></div>
                 <div class="b1"><input type="submit" class="btnGen" value="Iniciar Sesión"/></div>

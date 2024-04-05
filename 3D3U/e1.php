@@ -1,3 +1,7 @@
+<?php
+   require_once '../includes/config_session.inc.php';
+   require_once '../includes/login_view.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +17,9 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
+  <?php is_logged(); ?>
     <!-- Header -->
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+    <header class="Logo"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></header>
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
@@ -24,25 +29,10 @@
         <div class="nv collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link " href="../creditos.html">Créditos</a>
+              <a class="nav-link active" href="e1.php">Iniciativa 3 de 3</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="../index.html">Acerca de</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../recursos.html">Recursos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="e1.html">Iniciativa 3 de 3</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="../denuncia.html">Denuncias</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Cerrar Sesión</a>
+            <li class="nav-item cerrar">
+              <a class="nav-link"><form action="../includes/logout.inc.php" method="post"> <button class="btnCS" >Cerrar Sesión</button></form></a>
             </li>
           </ul>
         </div>
@@ -55,12 +45,15 @@
         <div class="tarjetaPrin container shadow-lg">
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
+                <?php
+                  change3d3();
+                ?>
                 <div class="cont">
                     <p>Se le informa a las y los candidatos que en el siguiente formulario podrá llenar la información que se solicita, y hacer las modificaciones que requieran conforme van avanzando en el llenado. Sin embargo, una vez enviado el formulario ya no está permitido hacer cambios. Por favor rellene los siguientes campos:
                     </p>
                 </div>
                 <div class="b1">
-                    <a href="e2.html"><button class="btnGen">Siguiente</button></a>
+                    <a href="e2.php"><button class="btnGen">Siguiente</button></a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 <?php
 // Iniciar sesión
-session_start();
+// Conexión a la base de datos (asumiendo que tienes un archivo database.php con esta configuración)
+require './includes/database.php';
 
 // Comprobar si existen todos los datos necesarios en la sesión
 // if(!isset($_SESSION['CP']) || !isset($_SESSION['otro_dato'])) {
@@ -9,28 +10,6 @@ session_start();
 //     exit();
 // }
 
-// Conexión a la base de datos (asumiendo que tienes un archivo database.php con esta configuración)
-require './includes/database.php';
-
-// Recuperar los datos de la sesión
-$cp = $_SESSION['CP']; 
-$s_e = $_SESSION['seccion_electoral'] ;
-$sexo = $_SESSION['sexo']; 
-$ocupacion = $_SESSION['ocupacion']; 
-$escolaridad = $_SESSION['escolaridad'] ;
-$explicacion = $_SESSION['explicacion'];
-$estado = $_SESSION['estados'];
-$municipio = $_SESSION['municipios'];
-$nombre = $_SESSION['nombre'] ;
-$institucion = $_SESSION['institucion'] ;
-$rol = $_SESSION['rol'];
-$fecha = $_SESSION['fecha'] ;
-$hora = $_SESSION['hora'];
-$conducta = $_SESSION['campo1'];
-
-// // Preparar la consulta SQL para insertar los datos en la base de datos
-$sql = "INSERT INTO denuncia (cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, nombreSosp, instSosp, rolSosp, fecha, hora, conducta) VALUES ($cp, $s_e,'$sexo','$ocupacion', $escolaridad, '$explicacion', $municipio, '$nombre', '$institucion','$rol', '$fecha', '$hora', 1)";
-$result = mysqli_query($mysqli,$sql);
 
 // // Ejecutar la consulta
 // if ($stmt->execute()) {

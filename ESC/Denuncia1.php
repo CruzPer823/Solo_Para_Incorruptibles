@@ -1,14 +1,23 @@
 <?php
 // Iniciar sesión
 session_start();
+session_unset();
 
 // Recibir código postal del formulario
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])) {
+if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])) {
     $_SESSION['CP'] = $_POST['CP'];
     $_SESSION['seccion_electoral'] = $_POST['seccion_electoral'];
     $_SESSION['sexo'] = $_POST['sexo'];
+   if(!empty($_POST['ocupacion']) && !empty($_POST['escolaridad'])) {
     $_SESSION['ocupacion'] = $_POST['ocupacion'];
     $_SESSION['escolaridad'] = $_POST['escolaridad'];
+   }
+   if(!empty($_POST['ocupacion']) && empty($_POST['escolaridad'])){
+    $_SESSION['ocupacion'] = $_POST['ocupacion'];
+   }
+   if(!empty($_POST['escolaridad']) && empty($_POST['ocupacion'])){
+    $_SESSION['escolaridad'] = $_POST['escolaridad'];
+   }
     // Redirigir a la siguiente página
     header('Location: Denuncia2.php');
     exit();

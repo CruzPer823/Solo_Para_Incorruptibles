@@ -15,22 +15,237 @@ $conducta10 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = '
 // Iniciar sesión
 session_start();
 
-// Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])&& isset($_POST['explicacion'])&&isset($_POST['estados'])&&isset($_POST['municipios'])&&isset($_POST['nombre'])&&isset($_POST['institucion']) && isset($_POST['rol'])&&isset($_POST['fecha'])&&isset($_POST['hora'])) {
-    // Si no existe, redirigir a la primera página
-    header('Location: Denuncia4.php');
-    exit();
+if(!isset($_SESSION['CP'])&& !isset($_SESSION['seccion_electoral']) && !isset($_SESSION['sexo'])&& !isset($_SESSION['explicacion'])&& !isset($_SESSION['estados'])&& !isset($_SESSION['municipios'])&& !isset($_SESSION['direccion'])&& !isset($_SESSION['nombre'])&& !isset($_SESSION['institucion']) && !isset($_SESSION['rol']) && !isset($_SESSION['fecha']) && !isset($_SESSION['hora']) ) {
+    echo "Falta uno o más datos. Los datos faltantes son:\n";
+    if (!isset($_SESSION['CP'])) {
+        echo "CP\n";
+    }
+    if (!isset($_SESSION['seccion_electoral'])) {
+        echo "seccion_electoral\n";
+    }
+    if (!isset($_SESSION['sexo'])) {
+        echo "sexo\n";
+    }
+    if (!isset($_SESSION['explicacion'])) {
+        echo "explicacion\n";
+    }
+    if (!isset($_SESSION['estados'])) {
+        echo "estados\n";
+    }
+    if (!isset($_SESSION['municipios'])) {
+        echo "municipios\n";
+    }
+    if (!isset($_SESSION['direccion'])) {
+        echo "direccion\n";
+    }
+    if (!isset($_SESSION['nombre'])) {
+        echo "nombre\n";
+    }
+    if (!isset($_SESSION['institucion'])) {
+        echo "institucion\n";
+    }
+    if (!isset($_SESSION['rol'])) {
+        echo "rol\n";
+    }
+    if (!isset($_SESSION['fecha'])) {
+        echo "fecha\n";
+    }
+    if (!isset($_SESSION['hora'])) {
+        echo "hora\n";
+    }
+  
+  // Si no existe, redirigir a la primera página
+  // header('Location: error.php');
+  // exit();
 }
 
-// Recibir datos del formulario
-if(isset($_POST['campo1'])) {
-    // Guardar los datos en la sesión o hacer lo que necesites
-    $_SESSION['campo1'] = $_POST['campo1'];
-    $_SESSION['archivo'] = $_POST['archivo'];
-    // Redirigir a la siguiente página o hacer lo que necesites
-    header('Location: DenunciaConfirm.php');
-    exit();
-}
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     // Verifica si al menos una casilla de verificación de cada conjunto está seleccionada
+//     if ((isset($_POST['conductas1']) && !empty($_POST['conductas1'])) ||
+//         (isset($_POST['conductas2']) && !empty($_POST['conductas2'])) ||
+//         (isset($_POST['conductas3']) && !empty($_POST['conductas3'])) ||
+//         (isset($_POST['conductas4']) && !empty($_POST['conductas4'])) ||
+//         (isset($_POST['conductas5']) && !empty($_POST['conductas5'])) ||
+//         (isset($_POST['conductas6']) && !empty($_POST['conductas6'])) ||
+//         (isset($_POST['conductas7']) && !empty($_POST['conductas7'])) ||
+//         (isset($_POST['conductas8']) && !empty($_POST['conductas8']))) {
+
+//         // Almacena solo las selecciones que estén marcadas
+//         $_SESSION['conductas_seleccionadas1'] = isset($_POST['conductas1']) ? $_POST['conductas1'] : array();
+//         $_SESSION['conductas_seleccionadas2'] = isset($_POST['conductas2']) ? $_POST['conductas2'] : array();
+//         $_SESSION['conductas_seleccionadas3'] = isset($_POST['conductas3']) ? $_POST['conductas3'] : array();
+//         $_SESSION['conductas_seleccionadas4'] = isset($_POST['conductas4']) ? $_POST['conductas4'] : array();
+//         $_SESSION['conductas_seleccionadas5'] = isset($_POST['conductas5']) ? $_POST['conductas5'] : array();
+//         $_SESSION['conductas_seleccionadas6'] = isset($_POST['conductas6']) ? $_POST['conductas6'] : array();
+//         $_SESSION['conductas_seleccionadas7'] = isset($_POST['conductas7']) ? $_POST['conductas7'] : array();
+//         $_SESSION['conductas_seleccionadas8'] = isset($_POST['conductas8']) ? $_POST['conductas8'] : array();
+//     }
+//     // header('Location: DenunciaConfirm.php');
+//     // exit();
+// }
+
+
+// Recuperar los datos de la sesión
+$id = $ubicacion = $_SESSION['seccion_electoral'] . $_SESSION['municipios'];
+$cp = $_SESSION['CP']; 
+$s_e = $_SESSION['seccion_electoral'];
+$sexo = $_SESSION['sexo']; 
+$explicacion = $_SESSION['explicacion'];
+$municipio = $_SESSION['municipios'];
+$direccion = $_SESSION['direccion'];
+$nombre = $_SESSION['nombre']; 
+$institucion = $_SESSION['institucion']; 
+$rol = $_SESSION['rol'];
+$fecha = $_SESSION['fecha']; 
+$hora = $_SESSION['hora'];
+
+
+echo "ID y Ubicación: $id <br>";
+echo "Código Postal: $cp <br>";
+echo "Sección Electoral: $s_e <br>";
+echo "Sexo: $sexo <br>";
+echo "Explicación: $explicacion <br>";
+echo "Municipio: $municipio <br>";
+echo "Dirección: $direccion <br>";
+echo "Nombre: $nombre <br>";
+echo "Institución: $institucion <br>";
+echo "Rol: $rol <br>";
+echo "Fecha: $fecha <br>";
+echo "Hora: $hora <br>";
+echo "Ocupacion: $ocupacion <br>";
+echo "esco: $escolaridad <br>";
+echo $_SESSION['escolaridad'];
+echo $_SESSION['ocupacion'];
+
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    // echo "<pre>";
+    // var_dump($_FILES);
+    // echo "</pre>";
+    $imagen = $_FILES['imagen'];
+    //Validacion por tamaño.
+
+    $medida = 1000*2000;
+    if($imagen['size']>$medida){
+        echo '<script>';
+        echo 'alert("La imagen seleccionada es demasiado grande. Por favor, seleccione una imagen más pequeña.");';
+        echo '</script>';
+    }
+    if(isset($_SESSION['escolaridad'])&& !isset($_SESSION['ocupacion'])){
+        echo'1';
+        $escolaridad = $_SESSION['escolaridad'];
+        $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+        VALUES ($id, $cp, $s_e, '$sexo', null, $escolaridad, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+        
+        echo'falta ocupacion';
+        $result1 = mysqli_query($mysqli, $sql1);
+        
+        if ($result1){
+            $sql1 = "";
+            // Limpiar todas las variables de sesión
+            session_unset();
+
+            // Destruir la sesión
+            session_destroy();
+            header('Location: DenunciaConfirm.php');
+        }
+        
+        
+    }
+    else if(isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
+        echo'<br>2';
+        $ocupacion = $_SESSION['ocupacion'];
+        echo $ocupacion;
+        $sql2 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+        VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+        
+    $result2 = mysqli_query($mysqli, $sql2);
+    echo'falta escolaridad';
+    if ($result2){
+        $sql2 = "";
+        $result2="";
+        // Limpiar todas las variables de sesión
+        session_unset();
+
+        // Destruir la sesión
+        session_destroy();
+        header('Location: DenunciaConfirm.php');
+    }
+    
+        
+    }
+
+    else if(isset($_SESSION['ocupacion']) && isset($_SESSION['escolaridad'])){
+        echo'3';
+        $ocupacion = $_SESSION['ocupacion'];
+        $escolaridad = $_SESSION['escolaridad'];
+        $sql3 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+        VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',$escolaridad  , '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+        echo'estan ambos';
+        $result3 = mysqli_query($mysqli, $sql3);
+        
+        if ($result3){
+            $sql3 = "";
+            $result3="";
+            // Limpiar todas las variables de sesión
+            session_unset();
+
+            // Destruir la sesión
+            session_destroy();
+            header('Location: DenunciaConfirm.php');
+        }
+        
+        
+    }
+    else if(!isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
+        echo'4';
+        $sql4 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+        VALUES ($id, $cp, $s_e, '$sexo', null, null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+        $result4 = mysqli_query($mysqli, $sql4);
+        
+        if ($result4){
+            $sql4 = "";
+            session_unset();
+
+            // Destruir la sesión
+            session_destroy();
+            header('Location: DenunciaConfirm.php');
+        }
+        
+        
+    }
+    
+    
+    // // Agregar ocupación si está definida
+    // if ($ocupacion !== null) {
+    //     $sql .= "'$ocupacion', ";
+    // } else {
+    //     $sql .= "NULL, ";
+    // }
+    
+    // // Agregar escolaridad si está definida
+    // if ($escolaridad !== null) {
+    //     $sql .= "$escolaridad, ";
+    // } else {
+    //     $sql .= "NULL, ";
+    // }
+    
+
+
+    
+    }
+// // Preparar la consulta SQL para insertar los datos en la base de datos
+
+
+// // Comprobar si existe el código postal en la sesión
+// if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['explicacion'])&& isset($_POST['estados'])&& isset($_POST['municipios'])&& isset($_POST['direccion'])&& isset($_POST['nombre'])&& isset($_POST['institucion']) && isset($_POST['rol']) && isset($_POST['fecha']) && isset($_POST['hora'])) {
+//     // Si no existe, redirigir a la primera página
+//     header('Location: error.php.php');
+//     exit();
+// }
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -94,39 +309,39 @@ if(isset($_POST['campo1'])) {
                         <div class="progress-bar" style="width: 80%;">80%</div>
                     </div>
                     <p class="categoria">¿Qué conductas considera que se cometieron?</p>
-                <form action="" class="form-6" method="post" >
+                <form action="" class="form-6" method="post" onsubmit="return validarFormulario();" enctype="multipart/form-data">
                     <div class="formu-6">
                         <div class="col-md-10 contenedor-conductas mb-5">   
-                            <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label">Cualquier persona:</label>
-                                <div>
+                            <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
+                                <label class="form-label fw-800">Cualquier persona:</label>
+                                <div class="opciones-select-conductas">
                                     <?php 
                                         if ($conducta1->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox
                                                 while ($row = $conducta1->fetch_assoc()) {
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '<div class="d-flex option-conducta">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
                                             }
                                         ?>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-5 me-md-5">
+                            <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Servidor/a público:</label>
-                                <div>
+                                <div class="opciones-select-conductas">
                                     <?php 
                                         if ($conducta2->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox
                                                 while ($row = $conducta2->fetch_assoc()) {
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '<div class="d-flex option-conducta">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
                                             }
@@ -135,38 +350,38 @@ if(isset($_POST['campo1'])) {
                             </div>
                             
                         </div>
-                        <div class="col-md-10 contenedor-conductas mb-5">
+                        <div class="col-md-10 contenedor-conductas mb-5 ">
                             
-                            <div class="col-sm-12 col-md-5 me-md-5">
+                            <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                             <label class="form-label">Funcionario/a electoral:</label>
-                                <div>
+                                <div class="opciones-select-conductas">
                                     <?php 
                                         if ($conducta3->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox
                                                 while ($row = $conducta3->fetch_assoc()) {
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '<div class="d-flex option-conducta">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
                                             }
                                         ?>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-5 me-md-5">
+                            <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Funcionario/a partidista:</label>
-                                <div>
+                                <div class="opciones-select-conductas">
                                     <?php 
                                         if ($conducta4->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox
                                                 while ($row = $conducta4->fetch_assoc()) {
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '<div class="d-flex option-conducta">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
                                             }
@@ -176,36 +391,36 @@ if(isset($_POST['campo1'])) {
                            
                         </div>
                         <div class="col-md-10 contenedor-conductas mb-5">      
-                            <div class="col-sm-12 col-md-5 me-md-5">
+                            <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Ministros/as de culto religioso:</label>
-                                <div>
+                                <div class="opciones-select-conductas">
                                     <?php 
                                         if ($conducta5->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox
                                                 while ($row = $conducta5->fetch_assoc()) {
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '<div class="d-flex option-conducta">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
                                             }
                                         ?>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-5 me-md-5">
+                            <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Diputados/as y Senadores/as electos:</label>
-                                <div>
+                                <div class="opciones-select-conductas">
                                     <?php 
                                         if ($conducta6->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox
                                                 while ($row = $conducta6->fetch_assoc()) {
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '<div class="d-flex option-conducta">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
                                             }
@@ -216,36 +431,36 @@ if(isset($_POST['campo1'])) {
                              
                         </div> 
                         <div class="col-md-10 contenedor-conductas mb-5" > 
-                            <div class="col-sm-12 col-md-5 me-md-5">
+                            <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Fedatarios/as públicos:</label>
-                                <div>
+                                <div class="opciones-select-conductas">
                                     <?php 
                                         if ($conducta7->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox
                                                 while ($row = $conducta7->fetch_assoc()) {
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '<div class="d-flex option-conducta">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
                                             }
                                         ?>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-5 me-md-5">
+                            <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Ex magistrados electorales, Consejeros Electorales, Secretario Ejecutivo del INE:</label>
-                                <div>
+                                <div class="opciones-select-conductas">
                                     <?php 
                                         if ($conducta8->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox
                                                 while ($row = $conducta8->fetch_assoc()) {
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                                    echo '<div class="d-flex option-conducta">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
                                             }
@@ -253,50 +468,50 @@ if(isset($_POST['campo1'])) {
                                 </div>
                             </div>
                         </div> 
-                        <div class="col-md-10 contenedor-conductas mb-5" > 
+                        <!-- <div class="col-md-10 contenedor-conductas mb-5" > 
                             <div class="col-sm-12 col-md-5 me-md-5">
                                 <label class="form-label">Candidato/a:</label>
                                 <div>
                                     <?php 
-                                        if ($conducta9->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta9->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
-                                            }
+                                        // if ($conducta9->num_rows > 0) {
+                                        //         // Mostrar cada resultado como un checkbox
+                                        //         while ($row = $conducta9->fetch_assoc()) {
+                                        //             $id = $row['id'];
+                                        //             $nombreCond = $row['nombreCond'];
+                                        //             echo '<div>';
+                                        //             echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                        //             echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                        //             echo '</div>';
+                                        //         }
+                                        //     }
                                         ?>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-5 me-md-5">
                                 <label class="form-label">Funcionario/a de casilla:</label>
                                 <div>
-                                    <?php 
-                                        if ($conducta10->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta10->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div>';
-                                                    echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
-                                            }
+                                    //<?php 
+                                        // if ($conducta10->num_rows > 0) {
+                                        //         // Mostrar cada resultado como un checkbox
+                                        //         while ($row = $conducta10->fetch_assoc()) {
+                                        //             $id = $row['id'];
+                                        //             $nombreCond = $row['nombreCond'];
+                                        //             echo '<div>';
+                                        //             echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                        //             echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
+                                        //             echo '</div>';
+                                        //         }
+                                        //     }
                                         ?>
                                 </div>
                             </div>
-                        </div> 
+                        </div>  -->
                         <div class="col-md-10 contenedor-conductas mb-5">
-                            <label  class="form-label" for="archivo">Seleccionar archivo:</label>
-                            <input  type="file" id="archivo" name="archivo">
+                            <label  class="form-label" for="imagen">Seleccionar imagen:</label>
+                            <input  type="file" id="imagen" name="imagen" accept="image/jpg , image/png , image/jpeg">
                         </div>
                         <div class="col-md-12">
-                        <input type="submit" class="boton boton--secundario" value="Enviar">
+                        <input type="submit" class="boton boton--secundario" name="validate" value="Enviar">
 
                         </div>
                     </div>
@@ -336,5 +551,23 @@ if(isset($_POST['campo1'])) {
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function validarFormulario() {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var alMenosUnoSeleccionado = false;
+
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    alMenosUnoSeleccionado = true;
+                }
+            });
+
+            if (!alMenosUnoSeleccionado) {
+                alert("Debes seleccionar al menos una opción.");
+                return false; 
+            }
+            return true; 
+        }
+    </script>
 </body>
 </html>

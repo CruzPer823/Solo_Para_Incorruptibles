@@ -3,12 +3,12 @@
 session_start();
 
 // Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])) {
+if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])) {
     // Si no existe, redirigir a la primera página
     header('Location: Denuncia1.php');
     exit();
 }
-
+    
 // Recibir datos del formulario
 if(isset($_POST['explicacion'])) {
     // Guardar los datos en la sesión o hacer lo que necesites
@@ -69,7 +69,12 @@ if(isset($_POST['explicacion'])) {
         </div>
       </div>
     </nav>
-
+    <?php
+    $ocupacion = $_SESSION['ocupacion'];
+    $escolaridad = $_SESSION['escolaridad'];
+    echo $ocupacion;
+    echo $escolaridad;
+    ?>
     <main>
         <div class="container formulario">
             <div class="row justify-content-center">

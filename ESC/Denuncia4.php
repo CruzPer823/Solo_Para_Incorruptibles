@@ -3,7 +3,7 @@
 session_start();
 
 // Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])&& isset($_POST['explicacion'])&&isset($_POST['estados'])&&isset($_POST['municipios'])) {
+if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['explicacion'])&& isset($_POST['estados'])&& isset($_POST['municipios'])&&isset($_POST['direccion'])) {
     // Si no existe, redirigir a la primera página
     header('Location: Denuncia3.php');
     exit();

@@ -478,3 +478,25 @@ th:nth-child(4), td:nth-child(4) {
 th,td{
     align-items: center;
 }
+.opciones-select-conductas{
+    width: 90%;
+    margin: 0 auto;
+}
+.option-conducta{
+    font-size: 1.8rem;
+    align-items: center;
+}
+@media(min-width: 769px){
+
+    .option-conducta{
+        font-size: 1.9rem;
+}
+}
+
+
+@media(max-width: 768px){
+
+    .contenedor-conducta{
+        margin-bottom: 3rem;
+    }
+}

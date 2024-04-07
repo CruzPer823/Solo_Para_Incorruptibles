@@ -7,7 +7,7 @@ $estados = $mysqli->query("SELECT id, nombre FROM estados");
 session_start();
 
 // Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])&& isset($_POST['explicacion'])) {
+if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['explicacion'])) {
     // Si no existe, redirigir a la primera página
     header('Location: Denuncia2.php');
     exit();
@@ -18,6 +18,7 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
     // Guardar los datos en la sesión o hacer lo que necesites
     $_SESSION['estados'] = $_POST['estados'];
     $_SESSION['municipios'] = $_POST['municipios'];
+    $_SESSION['direccion'] = $_POST['direccion'];
     // Redirigir a la siguiente página o hacer lo que necesites
     header('Location: Denuncia4.php');
     exit();
@@ -104,6 +105,10 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
                         <select  class="form-control text" id="municipios" name="municipios">
                             <option value="">Selecciona un municipio</option>
                         </select>
+                    </div>
+                    <div class="col-12  entrada">
+                        <label class="form-label" for="CP">Dirección<span class="rojo">*</span>:</label>
+                        <input class="form-control text" type="text" placeholder="Ejemplo. Av. 16 de septiembre" id="direccion" name="direccion" required>
                     </div>
                     <input type="submit" class="boton boton--primario" value="Siguiente">
                 </form>

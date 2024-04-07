@@ -46,7 +46,7 @@
         <div class="tarjetaPrin container shadow-lg">
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
-                <form class="needs-validation" novalidate>
+                <form action "include/e2.inc.php" >
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>
@@ -85,7 +85,7 @@
               </div>
               </div>
                 </div>
-                <div class="b1"> <a href="e3.html"><input type="button" class="btnGen" value="Siguiente"/></a></div>
+                <div class="b1"><input type="submit" class="btnGen" value="Siguiente"/></a></div>
               </form>
             </div>
         </div>

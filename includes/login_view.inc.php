@@ -7,6 +7,11 @@ function change3d3(){
     }
 }
 function is_logged(){
+    if(isset($_SESSION["user_id"])){
+        header("Location: ./3D3U/e1.php");
+    }
+}
+function is_not_logged(){
     if(!isset($_SESSION["user_id"])){
         header('Location: ../index.php');
     }

@@ -1,6 +1,6 @@
 <?php
 // Iniciar sesión
-session_start();
+require_once '../includes/config_session.inc.php';
 
 // Comprobar si existe el código postal en la sesión
 if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['explicacion'])&& isset($_POST['estados'])&& isset($_POST['municipios'])&&isset($_POST['direccion'])) {

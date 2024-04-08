@@ -1,3 +1,31 @@
+<?php
+require './includes/database.php';
+require_once '../includes/config_session.inc.php';
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  if(isset($_POST['folioBusq'])) {
+    $id =$_POST['folioBusq'];
+    echo $id;
+
+    $consulta = "SELECT id FROM denuncia WHERE id = $id";
+    $result1 = mysqli_query($mysqli, $consulta);
+
+    // Verificar si se encontró algún resultado
+    if ($result1->num_rows > 0) {
+        // Guardar el ID en la sesión
+        $_SESSION['folioBusq'] = $_POST['folioBusq'];
+        // Redirigir a la siguiente página
+        header('Location: folioResul.php');
+        exit();
+    } else {
+        // Mostrar una alerta JavaScript si el ID no existe
+        echo "<script>alert('El folio no existe en la base de datos') </script>";
+        echo " window.location.reload();";
+    }
+}
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,14 +84,11 @@
         <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
             <div class="Titulo"> <h1>Consultar denuncia</h1></div>
             <div class="cont"><p>Introduce el folio de la denuncia a Consultar</p></div>
-            <form class="row g-3 needs-validation" novalidate>
-            <div class="inpFolio">
-                <input type="text" class="form-control" name="folio" id="folioBusq" placeholder="Folio" required>
-            </div>
-            <div class="invalid-feedback">
-              Please choose a username.
-            </div>
-            <div class="b1"><input type="submit" class="btnGen" value="Buscar"/></div>
+            <form class="row g-3" method="POST" >
+              <div class="inpFolio">
+                  <input type="text" class="form-control" name="folioBusq" id="folioBusq" placeholder="Folio" required>
+              </div>
+              <div class="b1"><input type="submit" class="btnGen" value="Buscar" onclick="validarFolio()"/></div>
           </form>
         </div>
     </div>
@@ -100,6 +125,15 @@
                                             
       </div>
   </footer>
-
+  
+  <script>
+    function validarFolio() {
+        var folio = document.getElementById("folioBusq").value;
+        if (folio === "") {
+            alert("El campo de folio está vacío. Por favor, introdúcelo.");
+            event.preventDefault(); // Evitar que se envíe el formulario
+        }
+    }
+</script>
 </body>
 </html>

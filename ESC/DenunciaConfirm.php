@@ -3,6 +3,8 @@
 // Conexión a la base de datos (asumiendo que tienes un archivo database.php con esta configuración)
 require './includes/database.php';
 
+require_once '../includes/config_session.inc.php';
+
 // Comprobar si existen todos los datos necesarios en la sesión
 // if(!isset($_SESSION['CP']) || !isset($_SESSION['otro_dato'])) {
 //     // Si falta algún dato, redirigir a la página correspondiente para completarlo

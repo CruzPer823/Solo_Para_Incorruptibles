@@ -13,7 +13,7 @@ $conducta9 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'C
 $conducta10 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a de casilla'");
 
 // Iniciar sesión
-session_start();
+require_once '../includes/config_session.inc.php';
 
 if(!isset($_SESSION['CP'])&& !isset($_SESSION['seccion_electoral']) && !isset($_SESSION['sexo'])&& !isset($_SESSION['explicacion'])&& !isset($_SESSION['estados'])&& !isset($_SESSION['municipios'])&& !isset($_SESSION['direccion'])&& !isset($_SESSION['nombre'])&& !isset($_SESSION['institucion']) && !isset($_SESSION['rol']) && !isset($_SESSION['fecha']) && !isset($_SESSION['hora']) ) {
     echo "Falta uno o más datos. Los datos faltantes son:\n";
@@ -59,34 +59,7 @@ if(!isset($_SESSION['CP'])&& !isset($_SESSION['seccion_electoral']) && !isset($_
   // exit();
 }
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     // Verifica si al menos una casilla de verificación de cada conjunto está seleccionada
-//     if ((isset($_POST['conductas1']) && !empty($_POST['conductas1'])) ||
-//         (isset($_POST['conductas2']) && !empty($_POST['conductas2'])) ||
-//         (isset($_POST['conductas3']) && !empty($_POST['conductas3'])) ||
-//         (isset($_POST['conductas4']) && !empty($_POST['conductas4'])) ||
-//         (isset($_POST['conductas5']) && !empty($_POST['conductas5'])) ||
-//         (isset($_POST['conductas6']) && !empty($_POST['conductas6'])) ||
-//         (isset($_POST['conductas7']) && !empty($_POST['conductas7'])) ||
-//         (isset($_POST['conductas8']) && !empty($_POST['conductas8']))) {
-
-//         // Almacena solo las selecciones que estén marcadas
-//         $_SESSION['conductas_seleccionadas1'] = isset($_POST['conductas1']) ? $_POST['conductas1'] : array();
-//         $_SESSION['conductas_seleccionadas2'] = isset($_POST['conductas2']) ? $_POST['conductas2'] : array();
-//         $_SESSION['conductas_seleccionadas3'] = isset($_POST['conductas3']) ? $_POST['conductas3'] : array();
-//         $_SESSION['conductas_seleccionadas4'] = isset($_POST['conductas4']) ? $_POST['conductas4'] : array();
-//         $_SESSION['conductas_seleccionadas5'] = isset($_POST['conductas5']) ? $_POST['conductas5'] : array();
-//         $_SESSION['conductas_seleccionadas6'] = isset($_POST['conductas6']) ? $_POST['conductas6'] : array();
-//         $_SESSION['conductas_seleccionadas7'] = isset($_POST['conductas7']) ? $_POST['conductas7'] : array();
-//         $_SESSION['conductas_seleccionadas8'] = isset($_POST['conductas8']) ? $_POST['conductas8'] : array();
-//     }
-//     // header('Location: DenunciaConfirm.php');
-//     // exit();
-// }
-
-
-// Recuperar los datos de la sesión
-$id = $ubicacion = $_SESSION['seccion_electoral'] . $_SESSION['municipios'];
+$id = $_SESSION['seccion_electoral'] . $_SESSION['municipios'];
 $cp = $_SESSION['CP']; 
 $s_e = $_SESSION['seccion_electoral'];
 $sexo = $_SESSION['sexo']; 
@@ -123,6 +96,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     // var_dump($_FILES);
     // echo "</pre>";
     $imagen = $_FILES['imagen'];
+    var_dump($imagen);
     //Validacion por tamaño.
 
     $medida = 1000*2000;
@@ -131,109 +105,107 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         echo 'alert("La imagen seleccionada es demasiado grande. Por favor, seleccione una imagen más pequeña.");';
         echo '</script>';
     }
+    //Subida de archivos 
+    $carpetaImagenes = __DIR__ .'../../imagenes/';
+    
+    if(!is_dir($carpetaImagenes)){
+        echo'a';
+         mkdir($carpetaImagenes);
+    }
+    // echo $imagen['tmp_name'];
+    if(move_uploaded_file($imagen['tmp_name'],$carpetaImagenes."archivo.jpg")){
+        chmod($carpetaImagenes,0777);
+        echo "movido";
+    };
     if(isset($_SESSION['escolaridad'])&& !isset($_SESSION['ocupacion'])){
         echo'1';
         $escolaridad = $_SESSION['escolaridad'];
         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
         VALUES ($id, $cp, $s_e, '$sexo', null, $escolaridad, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
         
-        echo'falta ocupacion';
-        $result1 = mysqli_query($mysqli, $sql1);
-        
-        if ($result1){
-            $sql1 = "";
-            // Limpiar todas las variables de sesión
-            session_unset();
-
-            // Destruir la sesión
-            session_destroy();
-            header('Location: DenunciaConfirm.php');
-        }
-        
-        
     }
     else if(isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
         echo'<br>2';
-        $ocupacion = $_SESSION['ocupacion'];
-        echo $ocupacion;
-        $sql2 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+        $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
         VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-        
-    $result2 = mysqli_query($mysqli, $sql2);
-    echo'falta escolaridad';
-    if ($result2){
-        $sql2 = "";
-        $result2="";
-        // Limpiar todas las variables de sesión
-        session_unset();
-
-        // Destruir la sesión
-        session_destroy();
-        header('Location: DenunciaConfirm.php');
     }
-    
-        
-    }
-
     else if(isset($_SESSION['ocupacion']) && isset($_SESSION['escolaridad'])){
         echo'3';
         $ocupacion = $_SESSION['ocupacion'];
         $escolaridad = $_SESSION['escolaridad'];
-        $sql3 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+        $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
         VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',$escolaridad  , '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-        echo'estan ambos';
-        $result3 = mysqli_query($mysqli, $sql3);
-        
-        if ($result3){
-            $sql3 = "";
-            $result3="";
-            // Limpiar todas las variables de sesión
-            session_unset();
 
-            // Destruir la sesión
-            session_destroy();
-            header('Location: DenunciaConfirm.php');
-        }
-        
-        
     }
     else if(!isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
         echo'4';
-        $sql4 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+        $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
         VALUES ($id, $cp, $s_e, '$sexo', null, null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-        $result4 = mysqli_query($mysqli, $sql4);
         
-        if ($result4){
-            $sql4 = "";
-            session_unset();
-
-            // Destruir la sesión
-            session_destroy();
-            header('Location: DenunciaConfirm.php');
+    }
+     $result1 = mysqli_query($mysqli, $sql1);
+        
+    if ($result1){
+        $sql1 = "";
+        if(isset($_POST['conductas1'])){
+            $c1 = $_POST['conductas1'];
+            foreach ($c1 as $valor) {
+                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+                $result2 = mysqli_query($mysqli, $sql2);           
+            }
+            unset($c1);
+        }
+        if(isset($_POST['conductas2'])){
+            $c2 = $_POST['conductas2'];
+            foreach ($c2 as $valor) {
+                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+                $result2 = mysqli_query($mysqli, $sql2);
+            }
+            unset($c2);
+        }
+        if(isset($_POST['conductas3'])){
+            $c3 = $_POST['conductas3'];
+            foreach ($c3 as $valor) {
+                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+                $result2 = mysqli_query($mysqli, $sql2);
+            }
+            unset($c3);
+        }
+        if(isset($_POST['conductas4'])){
+            $c4 = $_POST['conductas4'];
+            foreach ($c4 as $valor) {
+                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+                $result2 = mysqli_query($mysqli, $sql2);
+            }
+            unset($c4);
+        }
+        if(isset($_POST['conductas5'])){
+            $c5 = $_POST['conductas5'];
+            foreach ($c5 as $valor) {
+                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+                $result2 = mysqli_query($mysqli, $sql2);
+            }
+            unset($c5);
+        }
+        if(isset($_POST['conductas6'])){
+            $c6 = $_POST['conductas6'];
+            foreach ($c6 as $valor) {
+                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+                $result2 = mysqli_query($mysqli, $sql2);
+            }
+            unset($c6);
         }
         
+
         
-    }
-    
-    
-    // // Agregar ocupación si está definida
-    // if ($ocupacion !== null) {
-    //     $sql .= "'$ocupacion', ";
-    // } else {
-    //     $sql .= "NULL, ";
-    // }
-    
-    // // Agregar escolaridad si está definida
-    // if ($escolaridad !== null) {
-    //     $sql .= "$escolaridad, ";
-    // } else {
-    //     $sql .= "NULL, ";
-    // }
-    
+    // //     // Verificar si se han seleccionado conductas para cada campo
+    // //    
+        
+    header('Location: DenunciaConfirm.php');
+        
 
+ }
 
-    
-    }
 // // Preparar la consulta SQL para insertar los datos en la base de datos
 
 
@@ -245,8 +217,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 // }
 
 
-
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -340,7 +311,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
                                                     echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas2[]" value="' . $id . '">';
                                                     echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
@@ -380,7 +351,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
                                                     echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas3[]" value="' . $id . '">';
                                                     echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
@@ -419,7 +390,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
                                                     echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas4[]" value="' . $id . '">';
                                                     echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
@@ -441,7 +412,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
                                                     echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas5[]" value="' . $id . '">';
                                                     echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }
@@ -459,7 +430,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                                     $id = $row['id'];
                                                     $nombreCond = $row['nombreCond'];
                                                     echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
+                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas6[]" value="' . $id . '">';
                                                     echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                     echo '</div>';
                                                 }

@@ -1,3 +1,6 @@
+<?php
+   require_once '../includes/config_session.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,8 +16,11 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
+<?php if(!isset($_SESSION["user_id"])){
+        header('Location: ../index.php');
+    } ?>
     <!-- Header -->
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+    <header class="Logo"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></header>
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
@@ -24,25 +30,10 @@
         <div class="nv collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link " href="../creditos.html">Créditos</a>
+              <a class="nav-link active" href="e1.php">Iniciativa 3 de 3</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="../index.html">Acerca de</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../recursos.html">Recursos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="e1.html">Iniciativa 3 de 3</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="../denuncia.html">Denuncias</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Cerrar Sesión</a>
+            <li class="nav-item cerrar">
+              <a class="nav-link"><form action="../includes/logout.inc.php" method="post"> <button class="btnCS" >Cerrar Sesión</button></form></a>
             </li>
           </ul>
         </div>

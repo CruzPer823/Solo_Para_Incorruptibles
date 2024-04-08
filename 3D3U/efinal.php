@@ -1,6 +1,5 @@
 <?php
    require_once '../includes/config_session.inc.php';
-   require_once 'include/e2_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/e2.css"/>
+    <link rel="stylesheet" href="../CSS/e4.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -47,48 +46,16 @@
         <div class="tarjetaPrin container shadow-lg">
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
-                <?php check_form_errors(); ?>
-                <form action="include/e2.inc.php" method="post" enctype="multipart/form-data">
-                <div class="cont">
-                    <div class="barra">
-                      <p>Progreso</p>
-                      <div class="progress">
-                          <div class="progress-bar " style="width: 0%;">5%</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="seccion"><p>Datos generales</p></div>
-                    <div class="pregunta">
-                        <div class="pre"><p>Nombre completo<span>*</span>:</p></div>
-                      <div class="inp"></div>
-                      <div class="inpSesion">
-                        <input type="text" class="form-control" name="nombre" id="inp" placeholder="Nombre...">
-                    </div>
-                    </div>
-                    <div class="pregunta">
-                      <div class="pre"><p>Partido/Coalición<span>*</span>:</p></div>
-                    <div class="inp"></div>
-                    <div class="inpSesion">
-                      <input type="text" class="form-control" name="partido" id="inp" placeholder="Partido o coalición...">
-                  </div>
-                  </div>
-                  <div class="pregunta">
-                    <div class="pre"><p>Correo de contacto<span>*</span>:</p></div>
-                  <div class="inp"></div>
-                  <div class="inpSesion">
-                    <input type="text" class="form-control" name="correo" id="inp" placeholder="correo...">
+                <div class="cont" style="margin-top: 5vh;">
+                    <div class="Titulo"><h1>¡Muchas gracias por compartir su 3 de 3!</h1></div>
                 </div>
+                <div style="display: flex; justify-content:center">
+                <div class="cont" style="width: 25vw; margin-top:5vh;">
+                  <p>Agradecemos que haya aportado con su 3 de 3, en los próximos días se 
+                    publicará la información compartida.
+                  </p>
                 </div>
-                <div class="pregunta">
-                  <div class="pre"><p>Fotografía reciente<br>(Máximo 3MB)<span>*</span>:</p></div>
-                <div class="inp"></div>
-                <div class="inpSesion">
-                  <input type="file" class="form-control" name="foto" id="inp" accept=".jpg,.jpeg, .png">
               </div>
-              </div>
-                </div>
-                <div class="b1"><input type="submit" class="btnGen" value="Siguiente"/></div>
-              </form>
             </div>
         </div>
         </div>

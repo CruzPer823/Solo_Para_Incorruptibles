@@ -1,6 +1,6 @@
 <?php
    require_once '../includes/config_session.inc.php';
-   require_once 'include/e2_view.inc.php';
+   require_once 'include/e7_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/e2.css"/>
+    <link rel="stylesheet" href="../CSS/e4.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -17,7 +17,8 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-<?php if(!isset($_SESSION["user_id"])){
+     <!-- Header -->
+   <?php if(!isset($_SESSION["user_id"])){
         header('Location: ../index.php');
     } ?>
     <!-- Header -->
@@ -48,46 +49,85 @@
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
                 <?php check_form_errors(); ?>
-                <form action="include/e2.inc.php" method="post" enctype="multipart/form-data">
+                <form  action="include/e18.inc.php" method="post">
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>
                       <div class="progress">
-                          <div class="progress-bar " style="width: 0%;">5%</div>
+                          <div class="progress-bar loco" style="width: 80%;">80%</div>
                       </div>
                     </div>
                   </div>
-                  <div class="seccion"><p>Datos generales</p></div>
-                    <div class="pregunta">
-                        <div class="pre"><p>Nombre completo<span>*</span>:</p></div>
-                      <div class="inp"></div>
-                      <div class="inpSesion">
-                        <input type="text" class="form-control" name="nombre" id="inp" placeholder="Nombre...">
-                    </div>
-                    </div>
-                    <div class="pregunta">
-                      <div class="pre"><p>Partido/Coalición<span>*</span>:</p></div>
-                    <div class="inp"></div>
-                    <div class="inpSesion">
-                      <input type="text" class="form-control" name="partido" id="inp" placeholder="Partido o coalición...">
-                  </div>
-                  </div>
+                  <div class="seccion"><p>Clientes principales (hasta los últimos 2 años)</p></div>
                   <div class="pregunta">
-                    <div class="pre"><p>Correo de contacto<span>*</span>:</p></div>
-                  <div class="inp"></div>
+                    <div class="pre"><p>¿Realiza alguna actividad lucrativa independiente al empleo, cargo o comisión?</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="correo" id="inp" placeholder="correo...">
+                    <input type="text" class="form-control" name="actLuc" id="inp" placeholder="Actividad..."  >
                 </div>
                 </div>
                 <div class="pregunta">
-                  <div class="pre"><p>Fotografía reciente<br>(Máximo 3MB)<span>*</span>:</p></div>
-                <div class="inp"></div>
+                    <div class="pre"><p>Declarante  :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="dec" id="inp" placeholder="Declarante..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Nombre de la empresa o servicio que proporciona :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="nomEmp" id="inp" placeholder="Nombre..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>RFC :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfc" id="inp" placeholder="RFC.."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Cliente principal :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="cliPrin" id="inp" placeholder="Cliente..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Razón social del cliente principal :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="razSoc" id="inp" placeholder="Razón social..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>RFC del cliente principal :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfcCli" id="inp" placeholder="RFC..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Sector productivo al que pertenece :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="sectProd" id="inp" placeholder="Sector..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                  <div class="pre"><p>Monto aproximado del beneficio o ganancia mensual que obtiene del cliente principal :</p></div>
                 <div class="inpSesion">
-                  <input type="file" class="form-control" name="foto" id="inp" accept=".jpg,.jpeg, .png">
+                  <input type="text" class="form-control" name="montApro" id="inp" placeholder="Monto..."  >
+              </div>
+              </div>
+                <div class="pregunta">
+                  <div class="pre"><p>Lugar donde se ubica (México o el extranjero) :</p></div>
+                <div class="inpSesion">
+                  <input type="text" class="form-control" name="ubi" id="inp" placeholder="Ubicación..."  >
+              </div>
+              </div>
+                <div class="pregunta">
+                  <div class="pre"><p>Entidad federativa :</p></div>
+                <div class="inpSesion">
+                  <input type="text" class="form-control" name="entFed" id="inp" placeholder="Entidad..."  >
               </div>
               </div>
                 </div>
                 <div class="b1"><input type="submit" class="btnGen" value="Siguiente"/></div>
+              </form>
               </form>
             </div>
         </div>

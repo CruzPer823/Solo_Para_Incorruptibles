@@ -1,6 +1,6 @@
 <?php
    require_once '../includes/config_session.inc.php';
-   require_once 'include/e2_view.inc.php';
+   require_once 'include/e7_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/e2.css"/>
+    <link rel="stylesheet" href="../CSS/e4.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -17,7 +17,8 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-<?php if(!isset($_SESSION["user_id"])){
+    <!-- Header -->
+   <?php if(!isset($_SESSION["user_id"])){
         header('Location: ../index.php');
     } ?>
     <!-- Header -->
@@ -48,44 +49,100 @@
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
                 <?php check_form_errors(); ?>
-                <form action="include/e2.inc.php" method="post" enctype="multipart/form-data">
+                <form  action="include/e20.inc.php" method="post">
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>
                       <div class="progress">
-                          <div class="progress-bar " style="width: 0%;">5%</div>
+                          <div class="progress-bar loco" style="width: 90%;">90%</div>
                       </div>
                     </div>
                   </div>
-                  <div class="seccion"><p>Datos generales</p></div>
-                    <div class="pregunta">
-                        <div class="pre"><p>Nombre completo<span>*</span>:</p></div>
-                      <div class="inp"></div>
-                      <div class="inpSesion">
-                        <input type="text" class="form-control" name="nombre" id="inp" placeholder="Nombre...">
-                    </div>
-                    </div>
-                    <div class="pregunta">
-                      <div class="pre"><p>Partido/Coalición<span>*</span>:</p></div>
-                    <div class="inp"></div>
-                    <div class="inpSesion">
-                      <input type="text" class="form-control" name="partido" id="inp" placeholder="Partido o coalición...">
-                  </div>
-                  </div>
+                  <div class="seccion"><p>Fideicomisos (hasta los últimos 2 años)</p></div>
                   <div class="pregunta">
-                    <div class="pre"><p>Correo de contacto<span>*</span>:</p></div>
-                  <div class="inp"></div>
+                    <div class="pre"><p>Participación en fideicomisos (Declarante, otro) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="correo" id="inp" placeholder="correo...">
+                    <input type="text" class="form-control" name="partFide" id="inp" placeholder="Participación..."  >
                 </div>
                 </div>
                 <div class="pregunta">
-                  <div class="pre"><p>Fotografía reciente<br>(Máximo 3MB)<span>*</span>:</p></div>
-                <div class="inp"></div>
+                    <div class="pre"><p>Tipo de fideicomiso (Público, Privado, Otro) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="tipo" id="inp" placeholder="Tipo..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Tipo de participación (Fideicomitente, Fiduciario, Fideicomisario, Comité Técnico) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="tipPart" id="inp" placeholder="Tipo..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>RFC del fideicomiso :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfc" id="inp" placeholder="RFC..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Fideicomitente (Persona física / persona moral) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="fide" id="inp" placeholder="Fideicomitente..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Razón social del fideicomitente :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="razSocfide" id="inp" placeholder="Razón social..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Nombre o razón social del fiduciario :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="razSocfidu" id="inp" placeholder="Razón social..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>RFC del fideicomitente :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfcFide" id="inp" placeholder="RFC..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                  <div class="pre"><p>Razón social del fiduciario :</p></div>
                 <div class="inpSesion">
-                  <input type="file" class="form-control" name="foto" id="inp" accept=".jpg,.jpeg, .png">
+                  <input type="text" class="form-control" name="razFidu" id="inp" placeholder="Razón social..."  >
               </div>
               </div>
+                  <div class="pregunta">
+                    <div class="pre"><p>RFC del fiduciario :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfcFidu" id="inp" placeholder="RFC..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                  <div class="pre"><p>Razón social del fideicomisario :</p></div>
+                <div class="inpSesion">
+                  <input type="text" class="form-control" name="razSocFide" id="inp" placeholder="Razón social..."  >
+              </div>
+              </div>
+              <div class="pregunta">
+                <div class="pre"><p>RFC del fideicomisario :</p></div>
+              <div class="inpSesion">
+                <input type="text" class="form-control" name="rfcFidei" id="inp" placeholder="RFC..."  >
+            </div>
+            </div> 
+            <div class="pregunta">
+              <div class="pre"><p>Sector productivo al que pertenece :</p></div>
+            <div class="inpSesion">
+              <input type="text" class="form-control" name="secProd" id="inp" placeholder="Sector..."  >
+          </div>
+          </div> 
+          <div class="pregunta">
+            <div class="pre"><p>¿Dónde se localiza el fideicomiso? (México o en el extranjero)</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="ubiFide" id="inp" placeholder="Ubicación..."  >
+        </div>
+        </div>
                 </div>
                 <div class="b1"><input type="submit" class="btnGen" value="Siguiente"/></div>
               </form>

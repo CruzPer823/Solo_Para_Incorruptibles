@@ -10,13 +10,9 @@ function get_name(object $pdo, string $name){
     $results = $stmt->fetch(PDO::FETCH_ASSOC);
     return $results;
 }
-
-function get_email(object $pdo, string $email){
-    $query = "SELECT email FROM users WHERE email= :email;;";
+function almacenarInformacion(object $pdo){
+    $query = "SELECT nombre FROM users WHERE nombre= :nombre;";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":email",$email);
+    $stmt->bindParam(":nombre",);
     $stmt->execute();
-
-    $results = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $results;
 }

@@ -61,15 +61,15 @@ if ($resultado->num_rows > 0) {
     try {
         // Configuración del servidor SMTP
         $mail->isSMTP();
-        $mail->Host       = 'mail.spincorruptibles.com';  // Dirección del servidor SMTP
+        $mail->Host       = 'smtp-mail.outlook.com';  // Dirección del servidor SMTP
         $mail->SMTPAuth   = true;                   // Habilita la autenticación SMTP
-        $mail->Username   = 'denuncias@spincorruptibles.com';          // Nombre de usuario SMTP
-        $mail->Password   = 'Spincorruptibles1@';        // Contraseña SMTP
-        $mail->SMTPSecure = 'ssl';                  // Tipo de encriptación (tls o ssl)
-        $mail->Port       = 465;                    // Puerto SMTP
+        $mail->Username   = 'javicuatehdez@hotmail.com';          // Nombre de usuario SMTP
+        $mail->Password   = 'Javi$Cuate@0811';        // Contraseña SMTP
+        $mail->SMTPSecure = 'tls';                  // Tipo de encriptación (tls o ssl)
+        $mail->Port       = 587;                    // Puerto SMTP
 
         // Configuración del remitente y destinatario
-        $mail->setFrom('denuncias@spincorruptibles.com', 'Solo Para Incorruptibles');
+        $mail->setFrom('javicuatehdez@hotmail.com', 'Remitente');
         $mail->addAddress('jcuatepotzo58@gmail.com', 'Destinatario');
         $mail->addAddress('dani.quique.bryan@gmail.com', 'Destinatario2');
 

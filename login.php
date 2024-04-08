@@ -18,7 +18,7 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-
+<?php  is_logged();?>
     <!-- Header -->
     <header class="Logo"> <a href="index.php"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
     <!-- Barra de navegacion -->

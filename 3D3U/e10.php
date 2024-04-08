@@ -1,6 +1,6 @@
 <?php
    require_once '../includes/config_session.inc.php';
-   require_once 'include/e2_view.inc.php';
+   require_once 'include/e7_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/e2.css"/>
+    <link rel="stylesheet" href="../CSS/e4.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
+<!-- Header -->
 <?php if(!isset($_SESSION["user_id"])){
         header('Location: ../index.php');
     } ?>
@@ -48,44 +49,70 @@
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
                 <?php check_form_errors(); ?>
-                <form action="include/e2.inc.php" method="post" enctype="multipart/form-data">
+                <form  action="include/e10.inc.php" method="post">
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>
                       <div class="progress">
-                          <div class="progress-bar " style="width: 0%;">5%</div>
+                          <div class="progress-bar loco" style="width: 40%;">40%</div>
                       </div>
                     </div>
                   </div>
-                  <div class="seccion"><p>Datos generales</p></div>
-                    <div class="pregunta">
-                        <div class="pre"><p>Nombre completo<span>*</span>:</p></div>
-                      <div class="inp"></div>
-                      <div class="inpSesion">
-                        <input type="text" class="form-control" name="nombre" id="inp" placeholder="Nombre...">
-                    </div>
-                    </div>
-                    <div class="pregunta">
-                      <div class="pre"><p>Partido/Coalición<span>*</span>:</p></div>
-                    <div class="inp"></div>
-                    <div class="inpSesion">
-                      <input type="text" class="form-control" name="partido" id="inp" placeholder="Partido o coalición...">
-                  </div>
-                  </div>
+                  <div class="seccion"><p>Bienes muebles (situación actual)</p></div>
                   <div class="pregunta">
-                    <div class="pre"><p>Correo de contacto<span>*</span>:</p></div>
-                  <div class="inp"></div>
+                    <div class="pre"><p>Tipo del bien :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="correo" id="inp" placeholder="correo...">
+                    <input type="text" class="form-control" name="tipBie" id="inp" placeholder="Tipo..."   >
                 </div>
                 </div>
                 <div class="pregunta">
-                  <div class="pre"><p>Fotografía reciente<br>(Máximo 3MB)<span>*</span>:</p></div>
-                <div class="inp"></div>
-                <div class="inpSesion">
-                  <input type="file" class="form-control" name="foto" id="inp" accept=".jpg,.jpeg, .png">
-              </div>
-              </div>
+                    <div class="pre"><p>Razon social del transmisor :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="razSoc" id="inp" placeholder="Razón..."   >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Tercero (en copropiedad) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="terc" id="inp" placeholder="Tercero..."   >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Nombre del tercero o terceros :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="nomTer" id="inp" placeholder="Nombre del tercero..."   >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>RFC del tercero en copropiedad :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfcTer" id="inp" placeholder="RFC..."   >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Descripcion general del bien :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="descGen" id="inp" placeholder="Descripción..."   >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Forma de adquisicion (Crédito, contado, no aplica) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="formAdq" id="inp" placeholder="Forma..."   >
+                </div>
+                </div>
+        <div class="pregunta">
+            <div class="pre"><p>Tipo de moneda :</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="tipMo" id="inp" placeholder="Tipo de moneda..."   >
+        </div>
+        </div>
+        <div class="pregunta">
+            <div class="pre"><p>Fecha de adquisición :</p></div>
+          <div class="inpSesion">
+            <input type="date" class="form-control" name="adqBie" id="inp" placeholder="dd/mm/yyyy"   >
+        </div>
+        </div>
                 </div>
                 <div class="b1"><input type="submit" class="btnGen" value="Siguiente"/></div>
               </form>

@@ -1,6 +1,6 @@
 <?php
    require_once '../includes/config_session.inc.php';
-   require_once 'include/e2_view.inc.php';
+   require_once 'include/e7_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/e2.css"/>
+    <link rel="stylesheet" href="../CSS/e4.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -17,7 +17,8 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-<?php if(!isset($_SESSION["user_id"])){
+    <!-- Header -->
+   <?php if(!isset($_SESSION["user_id"])){
         header('Location: ../index.php');
     } ?>
     <!-- Header -->
@@ -48,42 +49,74 @@
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
                 <?php check_form_errors(); ?>
-                <form action="include/e2.inc.php" method="post" enctype="multipart/form-data">
+                <form  action="include/e19.inc.php" method="post">
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>
                       <div class="progress">
-                          <div class="progress-bar " style="width: 0%;">5%</div>
+                          <div class="progress-bar loco" style="width: 85%;">85%</div>
                       </div>
                     </div>
                   </div>
-                  <div class="seccion"><p>Datos generales</p></div>
-                    <div class="pregunta">
-                        <div class="pre"><p>Nombre completo<span>*</span>:</p></div>
-                      <div class="inp"></div>
-                      <div class="inpSesion">
-                        <input type="text" class="form-control" name="nombre" id="inp" placeholder="Nombre...">
-                    </div>
-                    </div>
-                    <div class="pregunta">
-                      <div class="pre"><p>Partido/Coalición<span>*</span>:</p></div>
-                    <div class="inp"></div>
-                    <div class="inpSesion">
-                      <input type="text" class="form-control" name="partido" id="inp" placeholder="Partido o coalición...">
-                  </div>
-                  </div>
+                  <div class="seccion"><p>Beneficios privados (hasta los últimos 2 años)</p></div>
                   <div class="pregunta">
-                    <div class="pre"><p>Correo de contacto<span>*</span>:</p></div>
-                  <div class="inp"></div>
+                    <div class="pre"><p>Tipo de beneficio (Sorteo, Concurso, Donación, Otro) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="correo" id="inp" placeholder="correo...">
+                    <input type="text" class="form-control" name="tipBen" id="inp" placeholder="Tipo..."  >
                 </div>
                 </div>
                 <div class="pregunta">
-                  <div class="pre"><p>Fotografía reciente<br>(Máximo 3MB)<span>*</span>:</p></div>
-                <div class="inp"></div>
+                    <div class="pre"><p>Beneficiario (Declarante, otro)  :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="benef" id="inp" placeholder="Beneficiario..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Otorgante :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="oto" id="inp" placeholder="Otorgante..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Razón social del otorgante :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="razSoc" id="inp" placeholder="Razón social..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>RFC del otorgante :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="rfc" id="inp" placeholder="RFC..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Forma de recepción del beneficio (Monetario, especie) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="formRece" id="inp" placeholder="Forma de recepción..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Especifique el beneficio :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="espBen" id="inp" placeholder="Beneficiario..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Monto mensual aproximado del beneficio :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="montMnes" id="inp" placeholder="Monto..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                  <div class="pre"><p>Tipo de moneda :</p></div>
                 <div class="inpSesion">
-                  <input type="file" class="form-control" name="foto" id="inp" accept=".jpg,.jpeg, .png">
+                  <input type="text" class="form-control" name="tipMon" id="inp" placeholder="Tipo..."  >
+              </div>
+              </div>
+                <div class="pregunta">
+                  <div class="pre"><p>Sector productivo al que pertenece :</p></div>
+                <div class="inpSesion">
+                  <input type="text" class="form-control" name="sectProd" id="inp" placeholder="Sector..."  >
               </div>
               </div>
                 </div>

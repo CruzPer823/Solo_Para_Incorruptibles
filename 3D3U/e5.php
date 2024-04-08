@@ -1,7 +1,8 @@
 <?php
    require_once '../includes/config_session.inc.php';
-   require_once 'include/e2_view.inc.php';
+   require_once 'include/e5_view.inc.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/e2.css"/>
+    <link rel="stylesheet" href="../CSS/e4.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -17,7 +18,8 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-<?php if(!isset($_SESSION["user_id"])){
+      <!-- Header -->
+      <?php if(!isset($_SESSION["user_id"])){
         header('Location: ../index.php');
     } ?>
     <!-- Header -->
@@ -48,44 +50,100 @@
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
                 <?php check_form_errors(); ?>
-                <form action="include/e2.inc.php" method="post" enctype="multipart/form-data">
+                <form  action="include/e5.inc.php" method="post">
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>
                       <div class="progress">
-                          <div class="progress-bar " style="width: 0%;">5%</div>
+                          <div class="progress-bar loco" style="width: 15%;">15%</div>
                       </div>
                     </div>
                   </div>
-                  <div class="seccion"><p>Datos generales</p></div>
+                  <div class="seccion"><p>¿Te desmpeñaste como servidor público en el año inmediato anterior?</p></div>
                     <div class="pregunta">
-                        <div class="pre"><p>Nombre completo<span>*</span>:</p></div>
-                      <div class="inp"></div>
+                        <div class="pre"><p>Fecha de inicio :</p></div>
                       <div class="inpSesion">
-                        <input type="text" class="form-control" name="nombre" id="inp" placeholder="Nombre...">
+                        <input type="date" class="form-control" name="RemAct" id="inp" placeholder="dd/mm/yyyy">
                     </div>
                     </div>
                     <div class="pregunta">
-                      <div class="pre"><p>Partido/Coalición<span>*</span>:</p></div>
-                    <div class="inp"></div>
+                      <div class="pre"><p>Fecha de conclusión :</p></div>
                     <div class="inpSesion">
-                      <input type="text" class="form-control" name="partido" id="inp" placeholder="Partido o coalición...">
+                      <input type="date" class="form-control" name="inActInd" id="inp" placeholder="dd/mm/yyyy"  >
                   </div>
                   </div>
                   <div class="pregunta">
-                    <div class="pre"><p>Correo de contacto<span>*</span>:</p></div>
-                  <div class="inp"></div>
+                    <div class="pre"><p>Remuneración neta del declarante, recibida durante el tiempo en el que se desempeñó como servidor público en el año inmediato anterior (por concepto de sueldos, honorarios, compensaciones, bonos, aguinaldos y otras prestaciones) (cantidades netas después de impuestos) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="correo" id="inp" placeholder="correo...">
+                    <input type="text" class="form-control" name="remNet" id="inp" placeholder="Remuneración Neta..."  >
                 </div>
                 </div>
                 <div class="pregunta">
-                  <div class="pre"><p>Fotografía reciente<br>(Máximo 3MB)<span>*</span>:</p></div>
-                <div class="inp"></div>
+                    <div class="pre"><p>Ingresos por actividad industrial, comercial y/o empresarial (después de impuestos) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="ingInd" id="inp" placeholder="Ingresos industriales..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Nombre o razón social :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="razSoc" id="inp" placeholder="Razón Social..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Tipo de negocio :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="tipNeg" id="inp" placeholder="Tipo negocio..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Ingresos por actividad financiera (rendimientos o ganancias) (después de impuestos) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="ingFin" id="inp" placeholder="Ingresos Financieros..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Tipo de instrumento que generó el rendimiento o ganancia (capital, fondos de inversión, org. privadas, seguro de separación individualizado, valores bursátiles, bonos, otros.) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="insGan" id="inp" placeholder="Instrumento..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Ingresos por servicios profesionales, consejos, consultorías y/o asesorías (después de impuestos) :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="ingProf" id="inp" placeholder="Ingresos profesionales..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                    <div class="pre"><p>Tipo de servicio prestado :</p></div>
+                  <div class="inpSesion">
+                    <input type="text" class="form-control" name="tipSer" id="inp" placeholder="Tipo servicio..."  >
+                </div>
+                </div>
+                <div class="pregunta">
+                  <div class="pre"><p>Ingresos por enajenación de bienes (después de impuestos) :</p></div>
                 <div class="inpSesion">
-                  <input type="file" class="form-control" name="foto" id="inp" accept=".jpg,.jpeg, .png">
+                  <input type="text" class="form-control" name="ingEnaj" id="inp" placeholder="Ingresos..."  >
               </div>
               </div>
+              <div class="pregunta">
+                <div class="pre"><p>Tipo de bien enajenado (mueble, inmueble, vehículo) :</p></div>
+              <div class="inpSesion">
+                <input type="text" class="form-control" name="tipBienEnaj" id="inp" placeholder="Tipo de bien..."  >
+            </div>
+            </div>
+            <div class="pregunta">
+              <div class="pre"><p>Otros ingresos no considerados a los anteriores (después de impuestos) :</p></div>
+            <div class="inpSesion">
+              <input type="text" class="form-control" name="otrIng" id="inp" placeholder="Otros Ingresos..."  >
+          </div>
+          </div>
+          <div class="pregunta">
+            <div class="pre"><p>Especificar tipo de ingreso (arrendamiento, regalía, sorteos, concursos, donaciones, seguro de vida, etc) :</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="espIng" id="inp" placeholder="Tipo Ingreso..."  >
+        </div>
+        </div>
                 </div>
                 <div class="b1"><input type="submit" class="btnGen" value="Siguiente"/></div>
               </form>

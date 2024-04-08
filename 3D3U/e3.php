@@ -1,7 +1,8 @@
 <?php
    require_once '../includes/config_session.inc.php';
-   require_once 'include/e2_view.inc.php';
+   require_once 'include/e3_view.inc.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/e2.css"/>
+    <link rel="stylesheet" href="../CSS/e3.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -17,7 +18,8 @@
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-<?php if(!isset($_SESSION["user_id"])){
+    <!-- Header -->
+    <?php if(!isset($_SESSION["user_id"])){
         header('Location: ../index.php');
     } ?>
     <!-- Header -->
@@ -48,46 +50,61 @@
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
                 <?php check_form_errors(); ?>
-                <form action="include/e2.inc.php" method="post" enctype="multipart/form-data">
+                <form action="include/e3.inc.php" method="post" enctype="multipart/form-data">
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>
                       <div class="progress">
-                          <div class="progress-bar " style="width: 0%;">5%</div>
+                          <div class="progress-bar loco" style="width: 5%;">5%</div>
                       </div>
                     </div>
                   </div>
-                  <div class="seccion"><p>Datos generales</p></div>
+                  <div class="seccion"><p>Datos curriculares del declarante</p></div>
                     <div class="pregunta">
-                        <div class="pre"><p>Nombre completo<span>*</span>:</p></div>
-                      <div class="inp"></div>
+                        <div class="pre"><p>Último grado de estudios completado<span>*</span>:</p></div>
                       <div class="inpSesion">
-                        <input type="text" class="form-control" name="nombre" id="inp" placeholder="Nombre...">
+                        <input type="text" class="form-control" name="ulgrado" id="inp" placeholder="Grado de estudios..." >
                     </div>
                     </div>
                     <div class="pregunta">
-                      <div class="pre"><p>Partido/Coalición<span>*</span>:</p></div>
-                    <div class="inp"></div>
+                      <div class="pre"><p>Institución educativa<span>*</span>:</p></div>
                     <div class="inpSesion">
-                      <input type="text" class="form-control" name="partido" id="inp" placeholder="Partido o coalición...">
+                      <input type="text" class="form-control" name="insEdu" id="inp" placeholder="Institución..." >
                   </div>
                   </div>
                   <div class="pregunta">
-                    <div class="pre"><p>Correo de contacto<span>*</span>:</p></div>
-                  <div class="inp"></div>
+                    <div class="pre"><p>Carrera o área de conocimiento<span>*</span>:</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="correo" id="inp" placeholder="correo...">
+                    <input type="text" class="form-control" name="carrera" id="inp" placeholder="Carrera..." >
                 </div>
                 </div>
                 <div class="pregunta">
-                  <div class="pre"><p>Fotografía reciente<br>(Máximo 3MB)<span>*</span>:</p></div>
-                <div class="inp"></div>
+                  <div class="pre"><p>Estatus<br>(Cursando, finalizado, trunco)<span>*</span>:</p></div>
                 <div class="inpSesion">
-                  <input type="file" class="form-control" name="foto" id="inp" accept=".jpg,.jpeg, .png">
+                  <input type="text" class="form-control" name="estatus" id="inp" placeholder="Estatus..." >
               </div>
               </div>
+              <div class="pregunta">
+                <div class="pre"><p>Documento obtenido<br>(Boleta, Certificado, Constancia, Título)<span>*</span>:</p></div>
+
+              <div class="inpSesion">
+                <input type="file" class="form-control" name="docEdu" id="inp" placeholder="Documento..." required>
+            </div>
+            </div>
+            <div class="pregunta">
+              <div class="pre"><p>Fecha de obtención del documento:<span>*</span>:</p></div>
+            <div class="inpSesion">
+              <input type="date" class="form-control" name="fecha" id="inp" placeholder="mm/dd/yyyy" >
+        </div>
+          </div>
+          <div class="pregunta">
+            <div class="pre"><p>Ubicación de la Institución Educativa<br>(México/Extranjero)<span>*</span>:</p></div>
+          <div class="inpSesion">
+            <input type="text" class="form-control" name="ubiIns" id="inp" placeholder="México/Extranjero..." >
+        </div>
+        </div>
                 </div>
-                <div class="b1"><input type="submit" class="btnGen" value="Siguiente"/></div>
+                <div class="b1"><input type="submit" class="btnGen" value="Siguiente"/></a></div>
               </form>
             </div>
         </div>

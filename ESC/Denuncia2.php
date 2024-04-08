@@ -72,8 +72,6 @@ if(isset($_POST['explicacion'])) {
     <?php
     $ocupacion = $_SESSION['ocupacion'];
     $escolaridad = $_SESSION['escolaridad'];
-    echo $ocupacion;
-    echo $escolaridad;
     ?>
     <main>
         <div class="container formulario">

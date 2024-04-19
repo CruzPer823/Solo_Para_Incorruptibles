@@ -1,27 +1,7 @@
 <?php
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
-session_unset();
-
-// Recibir código postal del formulario
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])) {
-    $_SESSION['CP'] = $_POST['CP'];
-    $_SESSION['seccion_electoral'] = $_POST['seccion_electoral'];
-    $_SESSION['sexo'] = $_POST['sexo'];
-   if(!empty($_POST['ocupacion']) && !empty($_POST['escolaridad'])) {
-    $_SESSION['ocupacion'] = $_POST['ocupacion'];
-    $_SESSION['escolaridad'] = $_POST['escolaridad'];
-   }
-   if(!empty($_POST['ocupacion']) && empty($_POST['escolaridad'])){
-    $_SESSION['ocupacion'] = $_POST['ocupacion'];
-   }
-   if(!empty($_POST['escolaridad']) && empty($_POST['ocupacion'])){
-    $_SESSION['escolaridad'] = $_POST['escolaridad'];
-   }
-    // Redirigir a la siguiente página
-    header('Location: Denuncia2.php');
-    exit();
-}
+require_once './includes/denuncia1_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +64,8 @@ if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sex
                         <div class="progress-bar" style="width: 100%;">0%</div>
                     </div>
                     <p class="text-center categoria">Información inicial.</p>
-                <form action="" method="POST" class="col-md-7 col-lg-6 ps-5 pe-5">
+                    <?php check_form_errorsd1();?>
+                <form action="./includes/denuncia1.inc.php" method="POST" class="col-md-7 col-lg-6 ps-5 pe-5">
                     
                     <div class="col-12  entrada">
                         <label class="form-label" for="CP">Código Postal<span class="rojo">*</span>:</label>

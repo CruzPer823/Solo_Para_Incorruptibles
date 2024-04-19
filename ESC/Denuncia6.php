@@ -1,5 +1,7 @@
 <?php
-require './includes/database.php';
+
+require './../includes/dbh.inc.javier.php';
+
 
 $conducta1 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Cualquier persona'");
 $conducta2 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Servidor/a público'");
@@ -11,7 +13,7 @@ $conducta7 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'F
 $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ex Mag E, Con E, Secretario INE'");
 $conducta9 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Candidato/a'");
 $conducta10 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a de casilla'");
-
+ECHO 'ADAD';
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
 
@@ -73,22 +75,22 @@ $fecha = $_SESSION['fecha'];
 $hora = $_SESSION['hora'];
 
 
-echo "ID y Ubicación: $id <br>";
-echo "Código Postal: $cp <br>";
-echo "Sección Electoral: $s_e <br>";
-echo "Sexo: $sexo <br>";
-echo "Explicación: $explicacion <br>";
-echo "Municipio: $municipio <br>";
-echo "Dirección: $direccion <br>";
-echo "Nombre: $nombre <br>";
-echo "Institución: $institucion <br>";
-echo "Rol: $rol <br>";
-echo "Fecha: $fecha <br>";
-echo "Hora: $hora <br>";
-echo "Ocupacion: $ocupacion <br>";
-echo "esco: $escolaridad <br>";
-echo $_SESSION['escolaridad'];
-echo $_SESSION['ocupacion'];
+// echo "ID y Ubicación: $id <br>";
+// echo "Código Postal: $cp <br>";
+// echo "Sección Electoral: $s_e <br>";
+// echo "Sexo: $sexo <br>";
+// echo "Explicación: $explicacion <br>";
+// echo "Municipio: $municipio <br>";
+// echo "Dirección: $direccion <br>";
+// echo "Nombre: $nombre <br>";
+// echo "Institución: $institucion <br>";
+// echo "Rol: $rol <br>";
+// echo "Fecha: $fecha <br>";
+// echo "Hora: $hora <br>";
+// echo "Ocupacion: $ocupacion <br>";
+// echo "esco: $escolaridad <br>";
+// echo $_SESSION['escolaridad'];
+// echo $_SESSION['ocupacion'];
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -121,13 +123,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         echo'1';
         $escolaridad = $_SESSION['escolaridad'];
         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-        VALUES ($id, $cp, $s_e, '$sexo', null, $escolaridad, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-        
+        VALUES (:id, :cp, :seccionElectoral, :sexo, NULL, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora)";
+        $stmt = $pdo->prepare($sql1);
+        $stmt->bindParam(':escolaridad', $escolaridad);
     }
     else if(isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
         echo'<br>2';
+        $ocupacion = $_SESSION['ocupacion'];
         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
         VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+        $stmt = $pdo->prepare($sql1);
+        $stmt->bindParam(':ocupacion', $ocupacion);
     }
     else if(isset($_SESSION['ocupacion']) && isset($_SESSION['escolaridad'])){
         echo'3';
@@ -135,18 +141,42 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $escolaridad = $_SESSION['escolaridad'];
         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
         VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',$escolaridad  , '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+        $stmt = $pdo->prepare($sql1);
+        $stmt->bindParam(':ocupacion', $ocupacion);
+        $stmt->bindParam(':escolaridad', $escolaridad);
 
     }
     else if(!isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
         echo'4';
         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
         VALUES ($id, $cp, $s_e, '$sexo', null, null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+        $stmt = $pdo->prepare($sql1);
         
     }
-     $result1 = mysqli_query($mysqli, $sql1);
-        
-    if ($result1){
+    
+
+    // Asignar valores a los parámetros
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':cp', $cp);
+    $stmt->bindParam(':seccionElectoral', $s_e);
+    $stmt->bindParam(':sexo', $sexo);  
+    $stmt->bindParam(':descripcion', $explicacion);
+    $stmt->bindParam(':ubicacion', $municipio);
+    $stmt->bindParam(':direccion', $direccion);
+    $stmt->bindParam(':nombreSosp', $nombre);
+    $stmt->bindParam(':instSosp', $institucion);
+    $stmt->bindParam(':rolSosp', $rol);
+    $stmt->bindParam(':fecha', $fecha);
+    $stmt->bindParam(':hora', $hora);
+    try {
+        $stmt->execute();
         $sql1 = "";
+        echo "Inserción exitosa.";
+    } catch (PDOException $e) {
+        echo "Error al ejecutar la consulta: " . $e->getMessage();
+    }   
+    if ($result1){
+        
         if(isset($_POST['conductas1'])){
             $c1 = $_POST['conductas1'];
             foreach ($c1 as $valor) {
@@ -286,6 +316,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label fw-800">Cualquier persona:</label>
                                 <div class="opciones-select-conductas">
+
+                                <?php
+                                $pdo = 
+							   					$pdo = Database::connect();
+							   					$query = 'SELECT * FROM marca';
+			 				   					foreach ($pdo->query($query) as $row) {
+		                      	if ($row['idmarca']==$marc)
+		                        	echo "<option selected value='" . $row['idmarca'] . "'>" . $row['nombrem'] . "</option>";
+		                        else
+		                        	echo "<option value='" . $row['idmarca'] . "'>" . $row['nombrem'] . "</option>";
+			   									}
+			   									Database::disconnect();
+			  								?>
                                     <?php 
                                         if ($conducta1->num_rows > 0) {
                                                 // Mostrar cada resultado como un checkbox

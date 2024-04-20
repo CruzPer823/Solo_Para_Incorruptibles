@@ -1,22 +1,7 @@
 <?php
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
-
-// Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])) {
-    // Si no existe, redirigir a la primera página
-    header('Location: Denuncia1.php');
-    exit();
-}
-    
-// Recibir datos del formulario
-if(isset($_POST['explicacion'])) {
-    // Guardar los datos en la sesión o hacer lo que necesites
-    $_SESSION['explicacion'] = $_POST['explicacion'];
-    // Redirigir a la siguiente página o hacer lo que necesites
-    header('Location: Denuncia3.php');
-    exit();
-}
+require_once './includes/denuncia2_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +69,8 @@ if(isset($_POST['explicacion'])) {
                         <div class="progress-bar" style="width: 20%;">20%</div>
                     </div>
                     <p class="text-center categoria">Evento a denunciar.</p>
-                <form class="col-md-7 col-lg-6 ps-5 pe-5" method="POST">
+                    <?php check_form_errorsd2();?>
+                <form action="./includes/denuncia2.inc.php" class="col-md-7 col-lg-6 ps-5 pe-5" method="POST">
                     
                     <div class="col-12 entrada">
                         <label class="form-label " for="explicacion">¿Qué sucedío?<span class="rojo">*</span>:</label>

@@ -75,13 +75,13 @@
                   <div class="pregunta">
                     <div class="pre"><p>Remuneración neta del declarante, recibida durante el tiempo en el que se desempeñó como servidor público en el año inmediato anterior (por concepto de sueldos, honorarios, compensaciones, bonos, aguinaldos y otras prestaciones) (cantidades netas después de impuestos) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="remNet" id="inp" placeholder="Remuneración Neta..."  >
+                    <input type="number" class="form-control" name="remNet" id="inp" placeholder="Remuneración Neta..."  >
                 </div>
                 </div>
                 <div class="pregunta">
                     <div class="pre"><p>Ingresos por actividad industrial, comercial y/o empresarial (después de impuestos) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="ingInd" id="inp" placeholder="Ingresos industriales..."  >
+                    <input type="number" class="form-control" name="ingInd" id="inp" placeholder="Ingresos industriales..."  >
                 </div>
                 </div>
                 <div class="pregunta">
@@ -99,7 +99,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Ingresos por actividad financiera (rendimientos o ganancias) (después de impuestos) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="ingFin" id="inp" placeholder="Ingresos Financieros..."  >
+                    <input type="number" class="form-control" name="ingFin" id="inp" placeholder="Ingresos Financieros..."  >
                 </div>
                 </div>
                 <div class="pregunta">
@@ -111,7 +111,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Ingresos por servicios profesionales, consejos, consultorías y/o asesorías (después de impuestos) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="ingProf" id="inp" placeholder="Ingresos profesionales..."  >
+                    <input type="number" class="form-control" name="ingProf" id="inp" placeholder="Ingresos profesionales..."  >
                 </div>
                 </div>
                 <div class="pregunta">
@@ -123,7 +123,7 @@
                 <div class="pregunta">
                   <div class="pre"><p>Ingresos por enajenación de bienes (después de impuestos) :</p></div>
                 <div class="inpSesion">
-                  <input type="text" class="form-control" name="ingEnaj" id="inp" placeholder="Ingresos..."  >
+                  <input type="number" class="form-control" name="ingEnaj" id="inp" placeholder="Ingresos..."  >
               </div>
               </div>
               <div class="pregunta">
@@ -135,7 +135,7 @@
             <div class="pregunta">
               <div class="pre"><p>Otros ingresos no considerados a los anteriores (después de impuestos) :</p></div>
             <div class="inpSesion">
-              <input type="text" class="form-control" name="otrIng" id="inp" placeholder="Otros Ingresos..."  >
+              <input type="number" class="form-control" name="otrIng" id="inp" placeholder="Otros Ingresos..."  >
           </div>
           </div>
           <div class="pregunta">

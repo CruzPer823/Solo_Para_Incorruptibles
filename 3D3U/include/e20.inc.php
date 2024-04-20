@@ -36,7 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("Location: ../e20.php");
                 die();
            }
-           $datos["partFide"]=$actpartFideuc;
+           $datos["partFide"]=$partFide;
            $datos["tipo"]=$tipo;
            $datos["tipPart"]=$tipPart;
            $datos["rfc"]=$rfc;
@@ -51,6 +51,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            $datos["secProd"]=$secProd;
            $datos["ubiFide"]=$ubiFide;
            $_SESSION["fideicomisos"] = $datos;
+        //    pruebas para subir datos, ahora recuerda eliminar lo de default null, loco
+    //        require_once "formulario_contr.inc.php";
+    //         require_once "formulario_mod.inc.php";
+            
+    //        if(isset($_SESSION)){ 
+    //         isUploaded($pdo,$_SESSION["datos iniciales"]);
+    //    }
            header("Location: ../e21.php");
            $pdo=null;
            $stmt=null;

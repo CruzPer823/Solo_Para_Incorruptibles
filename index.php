@@ -69,7 +69,7 @@
                 <a href="ESC/Denuncia1.php"><button type="button" class="btnGen" >Comienza tu denuncia aquí</button></a>
             </div>
             <div class="b2">
-                <a href="ESC/DenunciaFolio.html"><button type="button" class="btnGen">Conoce el status de tu denuncia aquí</button></a>
+                <a href="ESC/DenunciaFolio.php"><button type="button" class="btnGen">Conoce el status de tu denuncia aquí</button></a>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
         <!-- Mision y vision -->
     <div class="misvis">
         <!-- Tarjeta 1 -->
-        <div class="contenedor">
+        <div class="contenedor mv">
             <div class="tarjeta container shadow-lg" style="margin: 20px; margin-bottom:150px;">
                 <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                     <div class="icono">
@@ -125,7 +125,7 @@
               </div>
             </div>
         <!-- Tarjeta 2 -->
-        <div class="contenedor">
+        <div class="contenedor mv">
             <div class="tarjeta container shadow-lg" style="margin: 20px; margin-bottom:150px;">
                 <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="icono">

@@ -43,6 +43,9 @@ html, body{
     justify-content: center;
     background-color: #E4E5EB;
 }
+.mv{
+    height: 70vh;
+}
 .tarjetaPrin{
     margin-top: 50px;
     display: flex;

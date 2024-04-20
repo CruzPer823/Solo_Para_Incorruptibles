@@ -129,7 +129,7 @@
         <div class="pregunta">
             <div class="pre"><p>Valor de adquisicion del vehiculo :</p></div>
           <div class="inpSesion">
-            <input type="text" class="form-control" name="valAdq" id="inp" placeholder="valor de aquisición..."  >
+            <input type="number" class="form-control" name="valAdq" id="inp" placeholder="valor de aquisición..."  >
         </div>
         </div>
         <div class="pregunta">

@@ -74,13 +74,13 @@
                 <div class="pregunta">
                     <div class="pre"><p>Superficie del terreno :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="sup" id="inp" placeholder="Superficie..."  >
+                    <input type="number" class="form-control" name="sup" id="inp" placeholder="Superficie..."  >
                 </div>
                 </div>
                 <div class="pregunta">
                     <div class="pre"><p>Superficie de construcción :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="supCons" id="inp" placeholder="Superficie..."  >
+                    <input type="number" class="form-control" name="supCons" id="inp" placeholder="Superficie..."  >
                 </div>
                 </div>
                 <div class="pregunta">
@@ -129,7 +129,7 @@
         <div class="pregunta">
             <div class="pre"><p>Valor de adquisición :</p></div>
           <div class="inpSesion">
-            <input type="text" class="form-control" name="valAdq" id="inp" placeholder="Adquisición..."  >
+            <input type="number" class="form-control" name="valAdqTer" id="inp" placeholder="Adquisición..."  >
         </div>
         </div>
         <div class="pregunta">
@@ -153,7 +153,7 @@
         <div class="pregunta">
             <div class="pre"><p>¿El valor de adquisición del inmueble es conforme a?</p></div>
           <div class="inpSesion">
-            <input type="text" class="form-control" name="valAdq" id="inp" placeholder="valor..."  >
+            <input type="number" class="form-control" name="valAdq" id="inp" placeholder="valor..."  >
         </div>
         </div>
                 </div>

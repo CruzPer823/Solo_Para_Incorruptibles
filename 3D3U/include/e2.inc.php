@@ -4,14 +4,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name=$_POST["nombre"];
         $partido = $_POST["partido"];
         $correo=$_POST["correo"];
+        $docEdu=$_FILES['foto'];
         $fileName=$_FILES['foto']['name'];
         $fileTmp=$_FILES['foto']['tmp_name'];
         $fileSize=$_FILES['foto']['size'];
-        $fileError=$_FILES['foto']['error'];     
+        $fileError=$_FILES['foto']['error'];
+        $fileExt=explode('.',$fileName);
+        $fileActualExt=strtolower(end($fileExt));
+        $allowed=array('jpg','jpeg','png');     
         try{
             require_once "../../includes/dbh.inc.php";
             require_once "e2_mod.inc.php";
             require_once "e2_contr.inc.php";
+
+            $picFinalName=uploadImage( $fileName,  $fileTmp,  $fileSize,  $fileError,  $fileActualExt, $allowed );
             //manejo de errores
 
             $error=[];
@@ -32,6 +38,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             require_once '../../includes/config_session.inc.php';
            if($error){
                 $_SESSION["errors_e2"] = $error;
+                //agregar funcion que elimina la imagen subida
+                deleteImage($picFinalName);
                 header("Location: ../e2.php");
                 die();
            }
@@ -39,17 +47,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            $datos["nombre"]=$name;
            $datos["partido"]=$partido;
            $datos["correo"]=$correo;
-           $datos["fileName"]=$fileName;
-           $datos["fileTmp"]=$fileTmp;
-           $datos["fileSize"]=$fileSize;
-           $datos["fileError"]=$fileError;
+           $datos["picName"]=$picFinalName;
            $_SESSION["datos iniciales"] = $datos;
            header("Location: ../e3.php");
            $pdo=null;
            $stmt=null;
            die();
         }catch(PDOException $e){
-            die("Process failed: ".$e->getMessage());
+          deleteImage($picFinalName);
+          die("Process failed: ".$e->getMessage());
         }
 }else{
     header("Location: ../login.php");

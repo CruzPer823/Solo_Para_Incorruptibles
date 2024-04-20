@@ -98,7 +98,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Monto aproximado del apoyo mensual :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="montApro" id="inp" placeholder="Monto..."  >
+                    <input type="number" class="form-control" name="montApro" id="inp" placeholder="Monto..."  >
                 </div>
                 </div>
                 <div class="pregunta">

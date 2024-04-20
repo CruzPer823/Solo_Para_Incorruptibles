@@ -1,24 +1,10 @@
 <?php
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
-
+require_once '../includes/denuncia4_view.inc.php';
 // Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['explicacion'])&& isset($_POST['estados'])&& isset($_POST['municipios'])&&isset($_POST['direccion'])) {
-    // Si no existe, redirigir a la primera página
-    header('Location: Denuncia3.php');
-    exit();
-}
 
-// Recibir datos del formulario
-if(isset($_POST['nombre'])&&isset($_POST['institucion']) && isset($_POST['rol']) ) {
-    // Guardar los datos en la sesión o hacer lo que necesites
-    $_SESSION['nombre'] = $_POST['nombre'];
-    $_SESSION['institucion'] = $_POST['institucion'];
-    $_SESSION['rol'] = $_POST['rol'];
-    // Redirigir a la siguiente página o hacer lo que necesites
-    header('Location: Denuncia5.php');
-    exit();
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,19 +68,22 @@ if(isset($_POST['nombre'])&&isset($_POST['institucion']) && isset($_POST['rol'])
                         <div class="progress-bar" style="width: 60%;">60%</div>
                     </div>
                     <p class="text-center categoria">Información inicial.</p>
-                <form class="col-md-6 ps-5 pe-5" method="post">
+                    <?php 
+                      check_form_errorsd4();
+                    ?>
+                <form class="col-md-6 ps-5 pe-5" action="../includes/denuncia4.inc.php" method="post">
                     
                     <div class="col-12  entrada">
                         <label class="form-label" for="nombre">Nombre<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="ej.92312" id="nombre" name="nombre" required>
+                        <input class="form-control text" type="text" placeholder="ej.92312" id="nombre" name="nombre">
                     </div>
                     <div class="col-12 entrada ">
                         <label class="form-label" for="institucion">Institución en la que labora<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="" id="institucion" name="institucion" required>
+                        <input class="form-control text" type="text" placeholder="" id="institucion" name="institucion">
                     </div>
                     <div class="col-12 entrada ">
                         <label class="form-label" for="rol">¿Sabe cuál es su rol en la institución?<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="" id="rol" name="rol" required>
+                        <input class="form-control text" type="text" placeholder="" id="rol" name="rol">
                     </div>
                     <input type="submit" class="boton boton--primario" value="Siguiente">
                 </form>

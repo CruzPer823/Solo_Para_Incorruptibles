@@ -1,253 +1,205 @@
 <?php
 
-require './../includes/dbh.inc.javier.php';
-
-
-$conducta1 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Cualquier persona'");
-$conducta2 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Servidor/a público'");
-$conducta3 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a electoral'");
-$conducta4 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a partidista'");
-$conducta5 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ministros/as de culto religioso'");
-$conducta6 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Diputados/as y Senadores/as electos'");
-$conducta7 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Fedatarios/as públicos'");
-$conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ex Mag E, Con E, Secretario INE'");
-$conducta9 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Candidato/a'");
-$conducta10 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a de casilla'");
-ECHO 'ADAD';
-// Iniciar sesión
 require_once '../includes/config_session.inc.php';
-
-if(!isset($_SESSION['CP'])&& !isset($_SESSION['seccion_electoral']) && !isset($_SESSION['sexo'])&& !isset($_SESSION['explicacion'])&& !isset($_SESSION['estados'])&& !isset($_SESSION['municipios'])&& !isset($_SESSION['direccion'])&& !isset($_SESSION['nombre'])&& !isset($_SESSION['institucion']) && !isset($_SESSION['rol']) && !isset($_SESSION['fecha']) && !isset($_SESSION['hora']) ) {
-    echo "Falta uno o más datos. Los datos faltantes son:\n";
-    if (!isset($_SESSION['CP'])) {
-        echo "CP\n";
-    }
-    if (!isset($_SESSION['seccion_electoral'])) {
-        echo "seccion_electoral\n";
-    }
-    if (!isset($_SESSION['sexo'])) {
-        echo "sexo\n";
-    }
-    if (!isset($_SESSION['explicacion'])) {
-        echo "explicacion\n";
-    }
-    if (!isset($_SESSION['estados'])) {
-        echo "estados\n";
-    }
-    if (!isset($_SESSION['municipios'])) {
-        echo "municipios\n";
-    }
-    if (!isset($_SESSION['direccion'])) {
-        echo "direccion\n";
-    }
-    if (!isset($_SESSION['nombre'])) {
-        echo "nombre\n";
-    }
-    if (!isset($_SESSION['institucion'])) {
-        echo "institucion\n";
-    }
-    if (!isset($_SESSION['rol'])) {
-        echo "rol\n";
-    }
-    if (!isset($_SESSION['fecha'])) {
-        echo "fecha\n";
-    }
-    if (!isset($_SESSION['hora'])) {
-        echo "hora\n";
-    }
-  
-  // Si no existe, redirigir a la primera página
-  // header('Location: error.php');
-  // exit();
-}
-
-$id = $_SESSION['seccion_electoral'] . $_SESSION['municipios'];
-$cp = $_SESSION['CP']; 
-$s_e = $_SESSION['seccion_electoral'];
-$sexo = $_SESSION['sexo']; 
-$explicacion = $_SESSION['explicacion'];
-$municipio = $_SESSION['municipios'];
-$direccion = $_SESSION['direccion'];
-$nombre = $_SESSION['nombre']; 
-$institucion = $_SESSION['institucion']; 
-$rol = $_SESSION['rol'];
-$fecha = $_SESSION['fecha']; 
-$hora = $_SESSION['hora'];
+require_once '../includes/denuncia5_view.inc.php';
 
 
-// echo "ID y Ubicación: $id <br>";
-// echo "Código Postal: $cp <br>";
-// echo "Sección Electoral: $s_e <br>";
-// echo "Sexo: $sexo <br>";
-// echo "Explicación: $explicacion <br>";
-// echo "Municipio: $municipio <br>";
-// echo "Dirección: $direccion <br>";
-// echo "Nombre: $nombre <br>";
-// echo "Institución: $institucion <br>";
-// echo "Rol: $rol <br>";
-// echo "Fecha: $fecha <br>";
-// echo "Hora: $hora <br>";
-// echo "Ocupacion: $ocupacion <br>";
-// echo "esco: $escolaridad <br>";
-// echo $_SESSION['escolaridad'];
-// echo $_SESSION['ocupacion'];
+// $conducta1 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Cualquier persona';");
+// $conducta2 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Servidor/a público';");
+// $conducta3 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a electoral'");
+// $conducta4 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a partidista';");
+// $conducta5 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ministros/as de culto religioso'");
+// $conducta6 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Diputados/as y Senadores/as electos'");
+// $conducta7 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Fedatarios/as públicos'");
+// $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ex Mag E, Con E, Secretario INE'");
+// $conducta9 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Candidato/a'");
+// $conducta10 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a de casilla'");
+// ECHO 'ADAD';
+// // Iniciar sesión
+// require_once '../includes/config_session.inc.php';
+//   // Si no existe, redirigir a la primera página
+//   // header('Location: error.php');
+//   // exit();
 
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    // echo "<pre>";
-    // var_dump($_FILES);
-    // echo "</pre>";
-    $imagen = $_FILES['imagen'];
-    var_dump($imagen);
-    //Validacion por tamaño.
+// $id = $_SESSION['seccion_electoral'] . $_SESSION['municipios'];
+// $cp = $_SESSION['CP']; 
+// $s_e = $_SESSION['seccion_electoral'];
+// $sexo = $_SESSION['sexo']; 
+// $explicacion = $_SESSION['explicacion'];
+// $municipio = $_SESSION['municipios'];
+// $direccion = $_SESSION['direccion'];
+// $nombre = $_SESSION['nombre']; 
+// $institucion = $_SESSION['institucion']; 
+// $rol = $_SESSION['rol'];
+// $fecha = $_SESSION['fecha']; 
+// $hora = $_SESSION['hora'];
 
-    $medida = 1000*2000;
-    if($imagen['size']>$medida){
-        echo '<script>';
-        echo 'alert("La imagen seleccionada es demasiado grande. Por favor, seleccione una imagen más pequeña.");';
-        echo '</script>';
-    }
-    //Subida de archivos 
-    $carpetaImagenes = __DIR__ .'../../imagenes/';
+
+// // echo "ID y Ubicación: $id <br>";
+// // echo "Código Postal: $cp <br>";
+// // echo "Sección Electoral: $s_e <br>";
+// // echo "Sexo: $sexo <br>";
+// // echo "Explicación: $explicacion <br>";
+// // echo "Municipio: $municipio <br>";
+// // echo "Dirección: $direccion <br>";
+// // echo "Nombre: $nombre <br>";
+// // echo "Institución: $institucion <br>";
+// // echo "Rol: $rol <br>";
+// // echo "Fecha: $fecha <br>";
+// // echo "Hora: $hora <br>";
+// // echo "Ocupacion: $ocupacion <br>";
+// // echo "esco: $escolaridad <br>";
+// // echo $_SESSION['escolaridad'];
+// // echo $_SESSION['ocupacion'];
+
+
+// if($_SERVER['REQUEST_METHOD'] === 'POST'){
+//     // echo "<pre>";
+//     // var_dump($_FILES);
+//     // echo "</pre>";
+//     $imagen = $_FILES['imagen'];
+//     var_dump($imagen);
+//     //Validacion por tamaño.
+
+//     $medida = 1000*2000;
+//     if($imagen['size']>$medida){
+//         echo '<script>';
+//         echo 'alert("La imagen seleccionada es demasiado grande. Por favor, seleccione una imagen más pequeña.");';
+//         echo '</script>';
+//     }
+//     //Subida de archivos 
+//     $carpetaImagenes = __DIR__ .'../../imagenes/';
     
-    if(!is_dir($carpetaImagenes)){
-        echo'a';
-         mkdir($carpetaImagenes);
-    }
-    // echo $imagen['tmp_name'];
-    if(move_uploaded_file($imagen['tmp_name'],$carpetaImagenes."archivo.jpg")){
-        chmod($carpetaImagenes,0777);
-        echo "movido";
-    };
-    if(isset($_SESSION['escolaridad'])&& !isset($_SESSION['ocupacion'])){
-        echo'1';
-        $escolaridad = $_SESSION['escolaridad'];
-        $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-        VALUES (:id, :cp, :seccionElectoral, :sexo, NULL, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora)";
-        $stmt = $pdo->prepare($sql1);
-        $stmt->bindParam(':escolaridad', $escolaridad);
-    }
-    else if(isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
-        echo'<br>2';
-        $ocupacion = $_SESSION['ocupacion'];
-        $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-        VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-        $stmt = $pdo->prepare($sql1);
-        $stmt->bindParam(':ocupacion', $ocupacion);
-    }
-    else if(isset($_SESSION['ocupacion']) && isset($_SESSION['escolaridad'])){
-        echo'3';
-        $ocupacion = $_SESSION['ocupacion'];
-        $escolaridad = $_SESSION['escolaridad'];
-        $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-        VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',$escolaridad  , '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-        $stmt = $pdo->prepare($sql1);
-        $stmt->bindParam(':ocupacion', $ocupacion);
-        $stmt->bindParam(':escolaridad', $escolaridad);
+//     if(!is_dir($carpetaImagenes)){
+//         echo'a';
+//          mkdir($carpetaImagenes);
+//     }
+//     // echo $imagen['tmp_name'];
+//     if(move_uploaded_file($imagen['tmp_name'],$carpetaImagenes."archivo.jpg")){
+//         chmod($carpetaImagenes,0777);
+//         echo "movido";
+//     };
+//     if(isset($_SESSION['escolaridad'])&& !isset($_SESSION['ocupacion'])){
+//         echo'1';
+//         $escolaridad = $_SESSION['escolaridad'];
+//         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+//         VALUES (:id, :cp, :seccionElectoral, :sexo, NULL, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora)";
+//         $stmt = $pdo->prepare($sql1);
+//         $stmt->bindParam(':escolaridad', $escolaridad);
+//     }
+//     else if(isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
+//         echo'<br>2';
+//         $ocupacion = $_SESSION['ocupacion'];
+//         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+//         VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+//         $stmt = $pdo->prepare($sql1);
+//         $stmt->bindParam(':ocupacion', $ocupacion);
+//     }
+//     else if(isset($_SESSION['ocupacion']) && isset($_SESSION['escolaridad'])){
+//         echo'3';
+//         $ocupacion = $_SESSION['ocupacion'];
+//         $escolaridad = $_SESSION['escolaridad'];
+//         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+//         VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',$escolaridad  , '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+//         $stmt = $pdo->prepare($sql1);
+//         $stmt->bindParam(':ocupacion', $ocupacion);
+//         $stmt->bindParam(':escolaridad', $escolaridad);
 
-    }
-    else if(!isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
-        echo'4';
-        $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-        VALUES ($id, $cp, $s_e, '$sexo', null, null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-        $stmt = $pdo->prepare($sql1);
+//     }
+//     else if(!isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
+//         echo'4';
+//         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
+//         VALUES ($id, $cp, $s_e, '$sexo', null, null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
+//         $stmt = $pdo->prepare($sql1);
         
-    }
+//     }
     
 
-    // Asignar valores a los parámetros
-    $stmt->bindParam(':id', $id);
-    $stmt->bindParam(':cp', $cp);
-    $stmt->bindParam(':seccionElectoral', $s_e);
-    $stmt->bindParam(':sexo', $sexo);  
-    $stmt->bindParam(':descripcion', $explicacion);
-    $stmt->bindParam(':ubicacion', $municipio);
-    $stmt->bindParam(':direccion', $direccion);
-    $stmt->bindParam(':nombreSosp', $nombre);
-    $stmt->bindParam(':instSosp', $institucion);
-    $stmt->bindParam(':rolSosp', $rol);
-    $stmt->bindParam(':fecha', $fecha);
-    $stmt->bindParam(':hora', $hora);
-    try {
-        $stmt->execute();
-        $sql1 = "";
-        echo "Inserción exitosa.";
-    } catch (PDOException $e) {
-        echo "Error al ejecutar la consulta: " . $e->getMessage();
-    }   
-    if ($result1){
+//     // Asignar valores a los parámetros
+//     $stmt->bindParam(':id', $id);
+//     $stmt->bindParam(':cp', $cp);
+//     $stmt->bindParam(':seccionElectoral', $s_e);
+//     $stmt->bindParam(':sexo', $sexo);  
+//     $stmt->bindParam(':descripcion', $explicacion);
+//     $stmt->bindParam(':ubicacion', $municipio);
+//     $stmt->bindParam(':direccion', $direccion);
+//     $stmt->bindParam(':nombreSosp', $nombre);
+//     $stmt->bindParam(':instSosp', $institucion);
+//     $stmt->bindParam(':rolSosp', $rol);
+//     $stmt->bindParam(':fecha', $fecha);
+//     $stmt->bindParam(':hora', $hora);
+//     try {
+//         $stmt->execute();
+//         $sql1 = "";
+//         echo "Inserción exitosa.";
+//     } catch (PDOException $e) {
+//         echo "Error al ejecutar la consulta: " . $e->getMessage();
+//     }   
+//     if ($result1){
         
-        if(isset($_POST['conductas1'])){
-            $c1 = $_POST['conductas1'];
-            foreach ($c1 as $valor) {
-                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
-                $result2 = mysqli_query($mysqli, $sql2);           
-            }
-            unset($c1);
-        }
-        if(isset($_POST['conductas2'])){
-            $c2 = $_POST['conductas2'];
-            foreach ($c2 as $valor) {
-                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
-                $result2 = mysqli_query($mysqli, $sql2);
-            }
-            unset($c2);
-        }
-        if(isset($_POST['conductas3'])){
-            $c3 = $_POST['conductas3'];
-            foreach ($c3 as $valor) {
-                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
-                $result2 = mysqli_query($mysqli, $sql2);
-            }
-            unset($c3);
-        }
-        if(isset($_POST['conductas4'])){
-            $c4 = $_POST['conductas4'];
-            foreach ($c4 as $valor) {
-                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
-                $result2 = mysqli_query($mysqli, $sql2);
-            }
-            unset($c4);
-        }
-        if(isset($_POST['conductas5'])){
-            $c5 = $_POST['conductas5'];
-            foreach ($c5 as $valor) {
-                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
-                $result2 = mysqli_query($mysqli, $sql2);
-            }
-            unset($c5);
-        }
-        if(isset($_POST['conductas6'])){
-            $c6 = $_POST['conductas6'];
-            foreach ($c6 as $valor) {
-                $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
-                $result2 = mysqli_query($mysqli, $sql2);
-            }
-            unset($c6);
-        }
-        
-
-        
-    // //     // Verificar si se han seleccionado conductas para cada campo
-    // //    
-        
-    header('Location: DenunciaConfirm.php');
+//         if(isset($_POST['conductas1'])){
+//             $c1 = $_POST['conductas1'];
+//             foreach ($c1 as $valor) {
+//                 $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+//                 $result2 = mysqli_query($mysqli, $sql2);           
+//             }
+//             unset($c1);
+//         }
+//         if(isset($_POST['conductas2'])){
+//             $c2 = $_POST['conductas2'];
+//             foreach ($c2 as $valor) {
+//                 $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+//                 $result2 = mysqli_query($mysqli, $sql2);
+//             }
+//             unset($c2);
+//         }
+//         if(isset($_POST['conductas3'])){
+//             $c3 = $_POST['conductas3'];
+//             foreach ($c3 as $valor) {
+//                 $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+//                 $result2 = mysqli_query($mysqli, $sql2);
+//             }
+//             unset($c3);
+//         }
+//         if(isset($_POST['conductas4'])){
+//             $c4 = $_POST['conductas4'];
+//             foreach ($c4 as $valor) {
+//                 $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+//                 $result2 = mysqli_query($mysqli, $sql2);
+//             }
+//             unset($c4);
+//         }
+//         if(isset($_POST['conductas5'])){
+//             $c5 = $_POST['conductas5'];
+//             foreach ($c5 as $valor) {
+//                 $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+//                 $result2 = mysqli_query($mysqli, $sql2);
+//             }
+//             unset($c5);
+//         }
+//         if(isset($_POST['conductas6'])){
+//             $c6 = $_POST['conductas6'];
+//             foreach ($c6 as $valor) {
+//                 $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES ($id,$valor)";
+//                 $result2 = mysqli_query($mysqli, $sql2);
+//             }
+//             unset($c6);
+//         }
         
 
- }
+        
+//     // //     // Verificar si se han seleccionado conductas para cada campo
+//     // //    
+        
+//     header('Location: DenunciaConfirm.php');
+        
 
-// // Preparar la consulta SQL para insertar los datos en la base de datos
-
-
-// // Comprobar si existe el código postal en la sesión
-// if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['explicacion'])&& isset($_POST['estados'])&& isset($_POST['municipios'])&& isset($_POST['direccion'])&& isset($_POST['nombre'])&& isset($_POST['institucion']) && isset($_POST['rol']) && isset($_POST['fecha']) && isset($_POST['hora'])) {
-//     // Si no existe, redirigir a la primera página
-//     header('Location: error.php.php');
-//     exit();
-// }
+//  }
 
 
-}
+
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -318,48 +270,35 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                 <div class="opciones-select-conductas">
 
                                 <?php
-                                $pdo = 
-							   					$pdo = Database::connect();
-							   					$query = 'SELECT * FROM marca';
-			 				   					foreach ($pdo->query($query) as $row) {
-		                      	if ($row['idmarca']==$marc)
-		                        	echo "<option selected value='" . $row['idmarca'] . "'>" . $row['nombrem'] . "</option>";
-		                        else
-		                        	echo "<option value='" . $row['idmarca'] . "'>" . $row['nombrem'] . "</option>";
-			   									}
-			   									Database::disconnect();
-			  								?>
-                                    <?php 
-                                        if ($conducta1->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta1->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
-                                            }
-                                        ?>
+                                require_once '../includes/dbh.inc.php';
+                                $query = "SELECT id, nombreCond FROM conducta WHERE tipo = 'Cualquier persona';";
+                                foreach ($pdo->query($query) as $row) {
+                                    $id = $row['id'];
+                                    $nombreCond = $row['nombreCond'];
+                                    echo '<div class="d-flex option-conducta">';
+                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
+                                    echo '</div>';
+                                }
+                               
+			  					?>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Servidor/a público:</label>
                                 <div class="opciones-select-conductas">
-                                    <?php 
-                                        if ($conducta2->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta2->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas2[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
-                                            }
-                                        ?>
+                                    <?php
+                                        require_once '../includes/dbh.inc.php';
+                                        $query = "SELECT id, nombreCond FROM conducta WHERE tipo = 'Servidor/a público';";
+                                        foreach ($pdo->query($query) as $row) {
+                                            $id = $row['id'];
+                                            $nombreCond = $row['nombreCond'];
+                                            echo '<div class="d-flex option-conducta">';
+                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                            echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
+                                            echo '</div>';
+                                        }
+                                    ?>
                                 </div>
                             </div>
                             
@@ -369,17 +308,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                             <label class="form-label">Funcionario/a electoral:</label>
                                 <div class="opciones-select-conductas">
-                                    <?php 
-                                        if ($conducta3->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta3->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
+                                    <?php
+                                            require_once '../includes/dbh.inc.php';
+                                            $query =  "SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a electoral';";
+                                            foreach ($pdo->query($query) as $row) {
+                                                $id = $row['id'];
+                                                $nombreCond = $row['nombreCond'];
+                                                echo '<div class="d-flex option-conducta">';
+                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                                echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
+                                                echo '</div>';
                                             }
                                         ?>
                                 </div>
@@ -387,17 +325,16 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Funcionario/a partidista:</label>
                                 <div class="opciones-select-conductas">
-                                    <?php 
-                                        if ($conducta4->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta4->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas3[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
+                                    <?php
+                                            require_once '../includes/dbh.inc.php';
+                                            $query =  "SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a partidista';";
+                                            foreach ($pdo->query($query) as $row) {
+                                                $id = $row['id'];
+                                                $nombreCond = $row['nombreCond'];
+                                                echo '<div class="d-flex option-conducta">';
+                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                                echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
+                                                echo '</div>';
                                             }
                                         ?>
                                 </div>
@@ -408,37 +345,35 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Ministros/as de culto religioso:</label>
                                 <div class="opciones-select-conductas">
-                                    <?php 
-                                        if ($conducta5->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta5->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
-                                            }
-                                        ?>
+                                    <?php
+                                        require_once '../includes/dbh.inc.php';
+                                        $query =  "SELECT id, nombreCond FROM conducta WHERE tipo = 'Ministros/as de culto religioso';";
+                                        foreach ($pdo->query($query) as $row) {
+                                            $id = $row['id'];
+                                            $nombreCond = $row['nombreCond'];
+                                            echo '<div class="d-flex option-conducta">';
+                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                            echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
+                                            echo '</div>';
+                                        }
+                                    ?>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Diputados/as y Senadores/as electos:</label>
                                 <div class="opciones-select-conductas">
-                                    <?php 
-                                        if ($conducta6->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta6->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas4[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
-                                            }
-                                        ?>
+                                    <?php
+                                        require_once '../includes/dbh.inc.php';
+                                        $query =  "SELECT id, nombreCond FROM conducta WHERE tipo = 'Diputados/as y Senadores/as electos';";
+                                        foreach ($pdo->query($query) as $row) {
+                                            $id = $row['id'];
+                                            $nombreCond = $row['nombreCond'];
+                                            echo '<div class="d-flex option-conducta">';
+                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                            echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
+                                            echo '</div>';
+                                        }
+                                ?>
                                 </div>
                             </div>
                             
@@ -448,78 +383,38 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Fedatarios/as públicos:</label>
                                 <div class="opciones-select-conductas">
-                                    <?php 
-                                        if ($conducta7->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta7->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas5[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
-                                            }
-                                        ?>
+                                <?php
+                                        require_once '../includes/dbh.inc.php';
+                                        $query =  "SELECT id, nombreCond FROM conducta WHERE tipo = 'Fedatarios/as públicos';";
+                                        foreach ($pdo->query($query) as $row) {
+                                            $id = $row['id'];
+                                            $nombreCond = $row['nombreCond'];
+                                            echo '<div class="d-flex option-conducta">';
+                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                            echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
+                                            echo '</div>';
+                                        }
+                                ?>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
                                 <label class="form-label">Ex magistrados electorales, Consejeros Electorales, Secretario Ejecutivo del INE:</label>
                                 <div class="opciones-select-conductas">
-                                    <?php 
-                                        if ($conducta8->num_rows > 0) {
-                                                // Mostrar cada resultado como un checkbox
-                                                while ($row = $conducta8->fetch_assoc()) {
-                                                    $id = $row['id'];
-                                                    $nombreCond = $row['nombreCond'];
-                                                    echo '<div class="d-flex option-conducta">';
-                                                    echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas6[]" value="' . $id . '">';
-                                                    echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
-                                                    echo '</div>';
-                                                }
+                                    <?php
+                                            require_once '../includes/dbh.inc.php';
+                                            $query =  "SELECT id, nombreCond FROM conducta WHERE tipo = 'Ex Mag E, Con E, Secretario INE';";
+                                            foreach ($pdo->query($query) as $row) {
+                                                $id = $row['id'];
+                                                $nombreCond = $row['nombreCond'];
+                                                echo '<div class="d-flex option-conducta">';
+                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                                echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
+                                                echo '</div>';
                                             }
-                                        ?>
+                                    ?>
                                 </div>
                             </div>
                         </div> 
-                        <!-- <div class="col-md-10 contenedor-conductas mb-5" > 
-                            <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label">Candidato/a:</label>
-                                <div>
-                                    <?php 
-                                        // if ($conducta9->num_rows > 0) {
-                                        //         // Mostrar cada resultado como un checkbox
-                                        //         while ($row = $conducta9->fetch_assoc()) {
-                                        //             $id = $row['id'];
-                                        //             $nombreCond = $row['nombreCond'];
-                                        //             echo '<div>';
-                                        //             echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                        //             echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
-                                        //             echo '</div>';
-                                        //         }
-                                        //     }
-                                        ?>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 col-md-5 me-md-5">
-                                <label class="form-label">Funcionario/a de casilla:</label>
-                                <div>
-                                    //<?php 
-                                        // if ($conducta10->num_rows > 0) {
-                                        //         // Mostrar cada resultado como un checkbox
-                                        //         while ($row = $conducta10->fetch_assoc()) {
-                                        //             $id = $row['id'];
-                                        //             $nombreCond = $row['nombreCond'];
-                                        //             echo '<div>';
-                                        //             echo '<input type="checkbox" id="' . $id . '" name="conductas[]" value="' . $id . '">';
-                                        //             echo '<label for="' . $id . '">' . $nombreCond . '</label><br>';
-                                        //             echo '</div>';
-                                        //         }
-                                        //     }
-                                        ?>
-                                </div>
-                            </div>
-                        </div>  -->
                         <div class="col-md-10 contenedor-conductas mb-5">
                             <label  class="form-label" for="imagen">Seleccionar imagen:</label>
                             <input  type="file" id="imagen" name="imagen" accept="image/jpg , image/png , image/jpeg">

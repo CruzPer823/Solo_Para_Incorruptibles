@@ -19,7 +19,7 @@ function fetchAndSetData(url, formData,targetElement){
 
 function getMunicipios(){
     let estado = cbxEstado.value
-    let url = 'includes/getMunicipios.php'
+    let url = '../includes/getMunicipios.php'
     let formData = new FormData()
     formData.append('estado', estado)
 

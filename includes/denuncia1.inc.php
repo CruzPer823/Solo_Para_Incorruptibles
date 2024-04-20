@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sexo=$_POST["sexo"];
 
     try{
-     require_once "dbh.inc.javier.php";
+     require_once "dbh.inc.php";
       require_once "denuncia1_mod.inc.php";
      require_once "denuncia1_contr.inc.php";
      //  //manejo de errores
@@ -23,10 +23,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $error["invalid_se"]="Debe de ingresar una zona electoral valida";
      }
 
-      require_once '../../includes/config_session.inc.php';
+      require_once 'config_session.inc.php';
      if($error){
           $_SESSION["errors_denuncia1"] = $error;
-          header("Location: ../Denuncia1.php");
+          header("Location: ../ESC/Denuncia1.php");
           die();
      }
      $datos=[];
@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $datos["escolaridad"] = $_POST['escolaridad'];
      }
      $_SESSION["datos_iniciales"] = $datos;
-     header("Location: ../Denuncia2.php");
+     header("Location: ../ESC/Denuncia2.php");
      $pdo=null;
      $stmt=null;
      die();

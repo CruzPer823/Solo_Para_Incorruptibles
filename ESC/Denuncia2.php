@@ -1,7 +1,7 @@
 <?php
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
-require_once './includes/denuncia2_view.inc.php';
+require_once '../includes/denuncia2_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +70,7 @@ require_once './includes/denuncia2_view.inc.php';
                     </div>
                     <p class="text-center categoria">Evento a denunciar.</p>
                     <?php check_form_errorsd2();?>
-                <form action="./includes/denuncia2.inc.php" class="col-md-7 col-lg-6 ps-5 pe-5" method="POST">
+                <form action="../includes/denuncia2.inc.php" class="col-md-7 col-lg-6 ps-5 pe-5" method="POST">
                     
                     <div class="col-12 entrada">
                         <label class="form-label " for="explicacion">¿Qué sucedío?<span class="rojo">*</span>:</label>

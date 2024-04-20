@@ -369,7 +369,7 @@ img {
     font-size: 3.5rem;
 }
 .persona{
-    background-color: var(--gris_fuente);
+    background-color:#ccbfd8;
     border-radius: 2rem;
     color: var(--blanco);
 }

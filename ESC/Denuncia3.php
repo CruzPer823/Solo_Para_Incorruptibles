@@ -1,28 +1,9 @@
 <?php
-require './includes/database.php';
-
-$estados = $mysqli->query("SELECT id, nombre FROM estados");
-
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
-
-// Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['explicacion'])) {
-    // Si no existe, redirigir a la primera página
-    header('Location: Denuncia2.php');
-    exit();
-}
-
+require_once '../includes/denuncia3_view.inc.php';
+require_once '../includes/denuncia3_contr.inc.php';
 // Recibir datos del formulario
-if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
-    // Guardar los datos en la sesión o hacer lo que necesites
-    $_SESSION['estados'] = $_POST['estados'];
-    $_SESSION['municipios'] = $_POST['municipios'];
-    $_SESSION['direccion'] = $_POST['direccion'];
-    // Redirigir a la siguiente página o hacer lo que necesites
-    header('Location: Denuncia4.php');
-    exit();
-}
 ?>
 
 
@@ -88,15 +69,22 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
                         <div class="progress-bar" style="width: 40%;">40%</div>
                     </div>
                     <p class="text-center categoria">Diganos ¿Dónde sucedio?</p>
-                <form class="col-md-6 ps-5 pe-5" action="" method="post">
+                    <?php
+                       check_form_errorsd3();
+                    ?>
+                <form class="col-md-6 ps-5 pe-5" action="../includes/denuncia3.inc.php" method="post">
                     
                     <div class="col-12 entrada">
                         <label class="form-label" for="estados">Estado<span class="rojo">*</span>:</label>
                         <select class="form-control text" id="estados" name="estados">
                             <option value="">Selecciona un estado</option>
-                            <?php while($row = $estados->fetch_assoc()){ ?>
-                              <option value="<?php echo $row['id'];?>"><?php echo $row['nombre'];?></option>
-                            <?php }  ?>
+                            <?php 
+                            require_once '../includes/dbh.inc.php';
+                            $query = 'SELECT id, nombre FROM estados';
+                            foreach ($pdo->query($query) as $row) {
+                              echo '<option value="' . $row['id'] . '">' . $row['nombre'] . '</option>';
+                            }
+                           ?>
                         </select>  
                     </div>
 
@@ -148,6 +136,6 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/peticiones.js"></script>
+    <script src="./js/peticiones.js"></script>
 </body>
 </html>

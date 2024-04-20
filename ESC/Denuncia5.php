@@ -1,23 +1,8 @@
 <?php
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
+require_once '../includes/denuncia5_view.inc.php';
 
-// Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['explicacion'])&& isset($_POST['estados'])&& isset($_POST['municipios'])&& isset($_POST['direccion'])&& isset($_POST['nombre'])&& isset($_POST['institucion']) && isset($_POST['rol'])) {
-    // Si no existe, redirigir a la primera página
-    header('Location: Denuncia4.php');
-    exit();
-}
-
-// Recibir datos del formulario
-if(isset($_POST['fecha'])&&isset($_POST['hora']) ) {
-    // Guardar los datos en la sesión o hacer lo que necesites
-    $_SESSION['fecha'] = $_POST['fecha'];
-    $_SESSION['hora'] = $_POST['hora'];
-    // Redirigir a la siguiente página o hacer lo que necesites
-    header('Location: Denuncia6.php');
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -82,15 +67,18 @@ if(isset($_POST['fecha'])&&isset($_POST['hora']) ) {
                         <div class="progress-bar" style="width: 80%;">80%</div>
                     </div>
                     <p class="categoria text-center">¿Cuándo sucedío?</p>
-                <form class="col-md-5 ps-5 pe-5" method="post">
+                    <?php
+                    check_form_errorsd5();
+                    ?>
+                <form class="col-md-5 ps-5 pe-5" method="post" action="../includes/denuncia5.inc.php">
                     
                     <div class="col-12 entrada">
                         <label class="form-label" for="fecha">Fecha<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="date"  placeholder=""  id="fecha" name="fecha" required >
+                        <input class="form-control text" type="date"  placeholder=""  id="fecha" name="fecha">
                     </div>
                     <div class="col-12 entrada">
                         <label class="form-label" for="hora">Hora aproximada<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="time"  placeholder=""  id="hora" name="hora" required >
+                        <input class="form-control text" type="time"  placeholder=""  id="hora" name="hora">
                     </div>
                     <input class="boton boton--primario" type="submit" value="Siguiente">
                 </form>

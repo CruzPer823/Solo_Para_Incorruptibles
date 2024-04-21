@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      }
      $datos=[];
      $datos["CP"]=$cp;
-     $datos["seccion_electoral"]=$seccion_electoral;
+     $datos["seccion_electoral"]=$s_e;
      $datos["sexo"]=$sexo;
      $datos["ocupacion"] = $ocupacion;
      $datos["escolaridad"] = $escolaridad;

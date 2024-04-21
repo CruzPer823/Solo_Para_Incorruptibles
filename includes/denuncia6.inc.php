@@ -7,6 +7,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $c4 = $_POST['conductas4'];
           $c5 = $_POST['conductas5'];
           $c6 = $_POST['conductas6'];
+          $c7 = $_POST['conductas7'];
+          $c8 = $_POST['conductas8'];
+
     try{
      require_once "dbh.inc.php";
      
@@ -17,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      
      // //  //manejo de errores
       $error=[];
-     echo "prueba";
+     
      if (is_input_empty($c1,$c2,$c3,$c4,$c5,$c6)){
           $error["empty_input"]="Debe seleccionar al menos un dato";
      }
@@ -27,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           header("Location: ../ESC/Denuncia6.php");
           die();
      }
-
+     
      $datos=[];
      $datos["c1"]=$c1;
      $datos["c2"]=$c2;
@@ -36,9 +39,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      $datos["c5"]=$c5;
      $datos["c6"]=$c6;
      $_SESSION["conductas"] = $datos;
+     
      if(isset($_SESSION)){
           UploadData($pdo,$_SESSION["datos_iniciales"],$_SESSION["explicacion_info"],$_SESSION["ubicacion_info"],$_SESSION["sospechoso_info"],$_SESSION["time_info"],$_SESSION["conductas"]);
      } 
+     exit();
      header("Location: ../ESC/DenunciaConfirm.php");
      $pdo=null;
      $stmt=null;

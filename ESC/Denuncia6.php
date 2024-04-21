@@ -346,7 +346,7 @@ require_once '../includes/denuncia6_view.inc.php';
                                             $id = $row['id'];
                                             $nombreCond = $row['nombreCond'];
                                             echo '<div class="d-flex option-conducta">';
-                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas7[]" value="' . $id . '">';
                                             echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                             echo '</div>';
                                         }
@@ -363,7 +363,7 @@ require_once '../includes/denuncia6_view.inc.php';
                                                 $id = $row['id'];
                                                 $nombreCond = $row['nombreCond'];
                                                 echo '<div class="d-flex option-conducta">';
-                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas8s[]" value="' . $id . '">';
                                                 echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                 echo '</div>';
                                             }

@@ -24,9 +24,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $error=[];
             $datos=[];
 
-           if (is_input_empty($RemAct,$inActInd,$remNet,$ingInd,$razSoc,$tipNeg,$ingFin,$insGan,$ingProf,$tipSer,$ingEnaj,$tipBienEnaj,$otrIng,$espIng)){
-                $error["empty_input"]="Debe llenar todos los campos!";
-           }
            
            require_once '../../includes/config_session.inc.php';
 

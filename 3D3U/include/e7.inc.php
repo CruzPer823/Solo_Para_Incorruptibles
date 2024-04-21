@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            $datos["fecEgr"]=$fecEgr;
            $datos["ubi"]=$ubi;
            $_SESSION["expLab"] = $datos;
-           header("Location: ../e9.php");
+           header("Location: ../e8.php");
            $pdo=null;
            $stmt=null;
            die();

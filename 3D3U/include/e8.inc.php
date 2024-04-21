@@ -1,4 +1,3 @@
-
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
         $bien=$_POST["bien"];
@@ -12,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $formPag=$_POST["formPag"];
         $trans=$_POST["trans"];
         $relTrans=$_POST["relTrans"];
-        $valAdq=$_POST["valAdq"];
+        $valAdqTer=$_POST["valAdqTer"];
         $docVal=$_POST["docVal"];
         $tipMon=$_POST["tipMon"];
         $adqInm=$_POST["adqInm"];
@@ -48,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            $datos["formPag"]=$formPag;
            $datos["trans"]=$trans;
            $datos["relTrans"]=$relTrans;
-           $datos["valAdq"]=$valAdq;
+           $datos["valAdqTer"]=$valAdqTer;
            $datos["docVal"]=$docVal;
            $datos["tipMon"]=$tipMon;
            $datos["adqInm"]=$adqInm;

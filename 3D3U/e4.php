@@ -63,13 +63,13 @@
                     <div class="pregunta">
                         <div class="pre"><p>Remuneración mensual neta del declarante en un cargo público<br>(por concepto de sueldos, honorarios, compensaciones, bonos y otras prestaciones) (cantidades netas después de impuestos):</p></div>
                       <div class="inpSesion">
-                        <input type="text" class="form-control" name="RemAct" id="inp" placeholder="Remuneración...">
+                        <input type="number" class="form-control" name="RemAct" id="inp" placeholder="Remuneración...">
                     </div>
                     </div>
                     <div class="pregunta">
                       <div class="pre"><p>Ingresos por actividad industrial, comercial y/o empresarial (después de impuestos):</p></div>
                     <div class="inpSesion">
-                      <input type="text" class="form-control" name="inActInd" id="inp" placeholder="Ingresos..."  >
+                      <input type="number" class="form-control" name="inActInd" id="inp" placeholder="Ingresos..."  >
                   </div>
                   </div>
                   <div class="pregunta">
@@ -87,7 +87,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Ingresos por actividad financiera (rendimientos o ganancias) (después de impuestos) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="ingActFin" id="inp" placeholder="Ingresos finacieros..."  >
+                    <input type="number" class="form-control" name="ingActFin" id="inp" placeholder="Ingresos finacieros..."  >
                 </div>
                 </div>
                 <div class="pregunta">
@@ -99,7 +99,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Ingresos por servicios profesionales, consejos, consultorías y/ o asesorías (después de impuestos) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="ingProf" id="inp" placeholder="Ingresos servicios..."  >
+                    <input type="number" class="form-control" name="ingProf" id="inp" placeholder="Ingresos servicios..."  >
                 </div>
                 </div>
                 <div class="pregunta">
@@ -111,7 +111,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Otros ingresos no considerados a los anteriores (después de impuestos) :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="otrIng" id="inp" placeholder="Otros Ingresos..."  >
+                    <input type="number" class="form-control" name="otrIng" id="inp" placeholder="Otros Ingresos..."  >
                 </div>
                 </div>
                 <div class="pregunta">

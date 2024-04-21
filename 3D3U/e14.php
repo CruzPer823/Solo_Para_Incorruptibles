@@ -98,7 +98,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Monto mensual neto :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="montMens" id="inp" placeholder="Monto mensual..."  >
+                    <input type="number" class="form-control" name="montMens" id="inp" placeholder="Monto mensual..."  >
                 </div>
                 </div>
                 <div class="pregunta">

@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $error=[];
             $datos=[];
 
-           if (is_input_empty($dec,$tipIns,$pues,$iniPart,$rem,$montMens,$ubi,$entFed)){
+           if (is_input_empty($dec,$tipIns,$pues,$iniPart,$rem,$ubi,$entFed)){
                 $error["empty_input"]="Debe llenar todos los campos!";
            }
            

@@ -104,7 +104,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Monto mensual aproximado del beneficio :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="montMnes" id="inp" placeholder="Monto..."  >
+                    <input type="number" class="form-control" name="montMnes" id="inp" placeholder="Monto..."  >
                 </div>
                 </div>
                 <div class="pregunta">

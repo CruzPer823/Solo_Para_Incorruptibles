@@ -4,6 +4,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $cp=$_POST["CP"];
     $s_e= $_POST["seccion_electoral"];
     $sexo=$_POST["sexo"];
+    $escolaridad = $_POST["escolaridad"];
+    $ocupacion = $_POST["ocupacion"];
 
     try{
      require_once "dbh.inc.php";
@@ -33,16 +35,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      $datos["CP"]=$cp;
      $datos["seccion_electoral"]=$seccion_electoral;
      $datos["sexo"]=$sexo;
-     if(!empty($_POST['ocupacion']) && !empty($_POST['escolaridad'])) {
-          $datos["ocupacion"] = $_POST['ocupacion'];
-          $datos["escolaridad"] = $_POST['escolaridad'];
-     }
-     if(!empty($_POST['ocupacion']) && empty($_POST['escolaridad'])){
-          $datos["ocupacion"] = $_POST['ocupacion'];
-     }
-     if(!empty($_POST['escolaridad']) && empty($_POST['ocupacion'])){
-          $datos["escolaridad"] = $_POST['escolaridad'];
-     }
+     $datos["ocupacion"] = $ocupacion;
+     $datos["escolaridad"] = $escolaridad;
      $_SESSION["datos_iniciales"] = $datos;
      header("Location: ../ESC/Denuncia2.php");
      $pdo=null;

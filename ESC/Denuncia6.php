@@ -1,57 +1,9 @@
 <?php
 
 require_once '../includes/config_session.inc.php';
-require_once '../includes/denuncia5_view.inc.php';
+require_once '../includes/denuncia6_view.inc.php';
 
 
-// $conducta1 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Cualquier persona';");
-// $conducta2 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Servidor/a público';");
-// $conducta3 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a electoral'");
-// $conducta4 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a partidista';");
-// $conducta5 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ministros/as de culto religioso'");
-// $conducta6 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Diputados/as y Senadores/as electos'");
-// $conducta7 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Fedatarios/as públicos'");
-// $conducta8 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Ex Mag E, Con E, Secretario INE'");
-// $conducta9 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Candidato/a'");
-// $conducta10 = $mysqli->query("SELECT id, nombreCond FROM conducta WHERE tipo = 'Funcionario/a de casilla'");
-// ECHO 'ADAD';
-// // Iniciar sesión
-// require_once '../includes/config_session.inc.php';
-//   // Si no existe, redirigir a la primera página
-//   // header('Location: error.php');
-//   // exit();
-
-
-// $id = $_SESSION['seccion_electoral'] . $_SESSION['municipios'];
-// $cp = $_SESSION['CP']; 
-// $s_e = $_SESSION['seccion_electoral'];
-// $sexo = $_SESSION['sexo']; 
-// $explicacion = $_SESSION['explicacion'];
-// $municipio = $_SESSION['municipios'];
-// $direccion = $_SESSION['direccion'];
-// $nombre = $_SESSION['nombre']; 
-// $institucion = $_SESSION['institucion']; 
-// $rol = $_SESSION['rol'];
-// $fecha = $_SESSION['fecha']; 
-// $hora = $_SESSION['hora'];
-
-
-// // echo "ID y Ubicación: $id <br>";
-// // echo "Código Postal: $cp <br>";
-// // echo "Sección Electoral: $s_e <br>";
-// // echo "Sexo: $sexo <br>";
-// // echo "Explicación: $explicacion <br>";
-// // echo "Municipio: $municipio <br>";
-// // echo "Dirección: $direccion <br>";
-// // echo "Nombre: $nombre <br>";
-// // echo "Institución: $institucion <br>";
-// // echo "Rol: $rol <br>";
-// // echo "Fecha: $fecha <br>";
-// // echo "Hora: $hora <br>";
-// // echo "Ocupacion: $ocupacion <br>";
-// // echo "esco: $escolaridad <br>";
-// // echo $_SESSION['escolaridad'];
-// // echo $_SESSION['ocupacion'];
 
 
 // if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -262,7 +214,11 @@ require_once '../includes/denuncia5_view.inc.php';
                         <div class="progress-bar" style="width: 80%;">80%</div>
                     </div>
                     <p class="categoria">¿Qué conductas considera que se cometieron?</p>
-                <form action="" class="form-6" method="post" onsubmit="return validarFormulario();" enctype="multipart/form-data">
+                    <?php
+                    check_form_errorsd6();
+                    ?>
+                <form action="../includes/denuncia6.inc.php" class="form-6" method="post">
+                <!-- onsubmit="return validarFormulario();" enctype="multipart/form-data" -->
                     <div class="formu-6">
                         <div class="col-md-10 contenedor-conductas mb-5">   
                             <div class="col-sm-12 col-md-5 me-md-5 contenedor-conducta">
@@ -294,7 +250,7 @@ require_once '../includes/denuncia5_view.inc.php';
                                             $id = $row['id'];
                                             $nombreCond = $row['nombreCond'];
                                             echo '<div class="d-flex option-conducta">';
-                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas2[]" value="' . $id . '">';
                                             echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                             echo '</div>';
                                         }
@@ -315,7 +271,7 @@ require_once '../includes/denuncia5_view.inc.php';
                                                 $id = $row['id'];
                                                 $nombreCond = $row['nombreCond'];
                                                 echo '<div class="d-flex option-conducta">';
-                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas3[]" value="' . $id . '">';
                                                 echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                 echo '</div>';
                                             }
@@ -332,7 +288,7 @@ require_once '../includes/denuncia5_view.inc.php';
                                                 $id = $row['id'];
                                                 $nombreCond = $row['nombreCond'];
                                                 echo '<div class="d-flex option-conducta">';
-                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas4[]" value="' . $id . '">';
                                                 echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                 echo '</div>';
                                             }
@@ -352,7 +308,7 @@ require_once '../includes/denuncia5_view.inc.php';
                                             $id = $row['id'];
                                             $nombreCond = $row['nombreCond'];
                                             echo '<div class="d-flex option-conducta">';
-                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas5[]" value="' . $id . '">';
                                             echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                             echo '</div>';
                                         }
@@ -369,7 +325,7 @@ require_once '../includes/denuncia5_view.inc.php';
                                             $id = $row['id'];
                                             $nombreCond = $row['nombreCond'];
                                             echo '<div class="d-flex option-conducta">';
-                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas1[]" value="' . $id . '">';
+                                            echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas6[]" value="' . $id . '">';
                                             echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                             echo '</div>';
                                         }

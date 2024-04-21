@@ -30,34 +30,27 @@ function is_email_taken(object $pdo ,string $email){
         return false;
     }
 }
-// function save_image( $_FILES["foto"] ){
-//     if($_FILES["foto"]["error"] == 4){
-//     $fileName= $_FILES["foto"]["name"];
-//     $fileSize=$_FILES["foto"]["size"];
-//     $tmpName = $_FILES["foto"]["tmp_name"];
-//     $validExtension=['jpg','jpeg','png'];
-//     $imageExtension=explode('.', $fileName);
-//     $imageExtension=strtolower(end($imageExtension));
-//     if(!in_array($imageExtension, $validExtension)){
-//         echo '<div class="alert alert-danger" style="width: 50vw; height: 5vh; display:flex; flex-direction:column; justify-content:center;" role="alert">
-//         <div>La imagen debe ser de extensión jpg, jpeg o png</div></div>';
-//         header("Location: ../e2.php");
-//         die();
-//     }else if($fileSize > 1000000){
-//         echo '<div class="alert alert-danger" style="width: 50vw; height: 5vh; display:flex; flex-direction:column; justify-content:center;" role="alert">
-//         <div>La imagen supera el tamaño soportado</div></div>';
-//         header("Location: ../e2.php");
-//         die();
-//     }
-//     else{
-//         $newImageName=uniqid();
-//         $newImageName='.'.$imageExtension;
-//         return $newImageName;
-//         }
-//     }else{
-//         echo '<div class="alert alert-danger" style="width: 50vw; height: 5vh; display:flex; flex-direction:column; justify-content:center;" role="alert">
-//         <div>La imagen supera el tamaño soportado</div></div>';
-//         header("Location: ../e2.php");
-//         die();
-//     }
-// }
+function uploadImage(string $fileName, string $fileTmp, string $fileSize, string $fileError, string $fileActualExt, array $allowed ){
+    if(in_array($fileActualExt, $allowed)){
+       if($fileError==0){
+         //tamaño en bytes
+           if($fileSize<20000000){
+               $fileNameNew = uniqid('',true).".".$fileActualExt;
+               $fileDestination='./documents/'.$fileNameNew;
+               move_uploaded_file($fileTmp,$fileDestination);
+               return $fileNameNew;
+           }else{
+               echo "Archivo muy pesado";
+           }
+ 
+       }else{
+           echo "Hubo un error";
+       }
+   }else{
+       echo "Extension no permitida";
+   }
+}
+
+function deleteImage(string $filename){
+        unlink('./documents/'.$filename);
+}

@@ -47,7 +47,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            $datos["formAdq"]=$formAdq;
            $datos["formPag"]=$formPag;
            $datos["valAdq"]=$valAdq;
-           $datos["docVal"]=$docVal;
            $datos["tipMo"]=$tipMo;
            $datos["adqVeh"]=$adqVeh;
            $_SESSION["vehiculos"] = $datos;

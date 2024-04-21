@@ -15,28 +15,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $fileExt=explode('.',$fileName);
         $fileActualExt=strtolower(end($fileExt));
         $allowed=array('jpg','jpeg','png','pdf');
-        if(in_array($fileActualExt, $allowed)){
-            if($fileError==0){
-                if($fileSize<10000000){
-                    $fileNameNew = uniqid('',true).".".$fileActualExt;
-                    $fileDestination='uploads/'.$fileNameNew;
-                    move_uploaded_file($fileTmp,$fileDestination);
-                    header("Location: e3.php?success");
-                    die();
-                }else{
-                    echo "Pesado";
-                }
-
-            }else{
-                echo "Hubo un error";
-            }
-        }else{
-            echo "Extension no permitida";
-        }
         try{
             require_once "../../includes/dbh.inc.php";
             require_once "e3_mod.inc.php";
             require_once "e3_contr.inc.php";
+
+            $fileFinalName=uploadImage( $fileName,  $fileTmp,  $fileSize,  $fileError,  $fileActualExt, $allowed );
+
+
             //manejo de errores
 
             $error=[];
@@ -59,10 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            $datos["estatus"]=$estatus;
            $datos["fecha"]=$fecha;
            $datos["ubiIns"]=$ubiIns;
-           $datos["fileName"]=$fileName;
-           $datos["fileTmp"]=$fileTmp;
-           $datos["fileSize"]=$fileSize;
-           $datos["fileError"]=$fileError;
+           $datos["fileName"]=$fileFinalName;
            $_SESSION["curriculares"] = $datos;
            header("Location: ../e4.php");
            $pdo=null;

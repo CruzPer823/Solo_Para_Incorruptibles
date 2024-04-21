@@ -73,7 +73,7 @@
                 <div class="pregunta">
                     <div class="pre"><p>Monto original del adeudo/pasivo :</p></div>
                   <div class="inpSesion">
-                    <input type="text" class="form-control" name="montAde" id="inp" placeholder="Monto..."     >
+                    <input type="number" class="form-control" name="montAde" id="inp" placeholder="Monto..."     >
                 </div>
                 </div>
                 <div class="pregunta">

@@ -369,7 +369,11 @@ img {
     font-size: 3.5rem;
 }
 .persona{
+<<<<<<< HEAD
     background-color:#ccbfd8;
+=======
+    background-color: #23274C;
+>>>>>>> cb3fbd9e2408a27aa1edfdc970a485b40a340020
     border-radius: 2rem;
     color: var(--blanco);
 }

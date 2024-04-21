@@ -1,5 +1,7 @@
 <?php
    require_once '../includes/config_session.inc.php';
+   require_once 'include/e7_view.inc.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +49,8 @@
         <div class="tarjetaPrin container shadow-lg">
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
-                <form  action="include/e21.inc.php" method="post">
+                <?php check_form_errors(); ?>
+                <form  action="include/e21.inc.php" method="post"enctype="multipart/form-data">
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>
@@ -60,13 +63,13 @@
                   <div class="pregunta">
                     <div class="pre"><p>Cargar opinión de cumplimiento fiscal emitida por el SAT</p></div>
                   <div class="inpSesion">
-                    <input type="file" class="form-control" name="opiSat" id="inp"  required>
+                    <input type="file" class="form-control" name="opiSat" id="inp">
                 </div>
                 </div>
                 <div class="pregunta">
                   <div class="pre"><p>En caso de no estar sujeto a presentar la declaración fiscal, deberá cargar un documento PDF en el que se señale que no está obligado a presentar la declaración fiscal del año 2019.</p></div>
                 <div class="inpSesion">
-                  <input type="file" class="form-control" name="opiNoSat" id="inp"  required>
+                  <input type="file" class="form-control" name="opiNoSat" id="inp">
               </div>
               </div>
                 </div>

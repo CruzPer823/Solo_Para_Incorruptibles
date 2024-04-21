@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $error=[];
             $datos=[];
 
-           if (is_input_empty($benPro,$nomPro,$insApo,$nivGob,$tipApo,$recApo,$montApro,$espApo)){
+           if (is_input_empty($benPro,$nomPro,$insApo,$nivGob,$tipApo,$recApo,$espApo)){
                 $error["empty_input"]="Debe llenar todos los campos!";
            }
            

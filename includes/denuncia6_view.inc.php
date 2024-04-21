@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-function check_form_errorsd5(){
+function check_form_errorsd6(){
 
     if(isset($_SESSION["errors_denuncia6"])){
         $errors = $_SESSION["errors_denuncia6"];

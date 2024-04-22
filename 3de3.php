@@ -1,3 +1,6 @@
+<?php
+require_once './includes/3d3_view.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,17 +67,14 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Cargo</th>
                     <th scope="col">Partido</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Municipio</th>
+                    <th scope="col">Detalles</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row"><a href="3D3/3d3show.html">Enrique Padilla</a></th>
-                    <td>Gobernador estatal</td>
-                    <td>PartidoX</td>
-                    <td>Puebla</td>
-                    <td>Acatzingo</td>
+                  <?php
+                    mostrar3d3();
+                    ?>
                 </tr>
             </tbody>
         </table>

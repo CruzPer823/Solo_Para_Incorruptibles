@@ -1,3 +1,6 @@
+<?php
+require_once '../includes/3de3Admin_view.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,32 +60,25 @@
     <!-- Tabla de candidatos -->
    <div class="contenedord">
     <div class="table-responsive">
-        <table class="table table-hover border-black tabla">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">Partido</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Municipio</th>
-                    <th scope="col">Publicar</th>
-                    <th scope="col">Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row"><a href="3d3show.html">Enrique Padilla</a></th>
-                    <td>Gobernador estatal</td>
-                    <td>PartidoX</td>
-                    <td>Puebla</td>
-                    <td>Acatzingo</td>
-                    <td> <input type="button" name="pub" class="btnPub" value="Publicar"></td>
-                    <td> <input type="button" name="Erase" class="btnEra" value="Eliminar"></td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
+      <table class="table table-hover border-black tabla">
+          <thead>
+              <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Cargo</th>
+                  <th scope="col">Partido</th>
+                  <th scope="col">Detalles</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+              </tr>
+          </thead>
+          <tbody>
+
+              <?php
+              mostrar3de3Admin();
+          ?>
+          </tbody>
+      </table>
+  </div>
 </div>
     <!-- Footer -->
 
@@ -115,5 +111,45 @@
                                             
       </div>
   </footer>
+
+  <script>
+function eliminarRegistro(id) {
+    if (confirm('¿Estás seguro de que quieres eliminar este registro?')) {
+        // Si el usuario confirma, realiza la eliminación mediante AJAX
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+                // Por ejemplo, puedes recargar la página para mostrar la tabla actualizada
+                location.reload();
+            }
+        };
+        xhttp.open('GET', '../includes/eliminar_registro_candidato.php?id=' + id, true);
+        xhttp.send();
+    }
+}
+</script>
+
+<script>
+function confirmarReporte(id) {
+    if (confirm('¿Estás seguro de que quieres publicar la "3 de 3" de esta candidato?')) {
+        reportarRegistro(id);
+    }
+}
+
+function reportarRegistro(id) {
+    var denunciaId = id;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText); // Muestra la respuesta del servidor (puede ser un mensaje de éxito o error)
+        }
+    };
+    xhttp.open('GET', '../includes/publicar_candidato.php?id=' + denunciaId, true);
+    xhttp.send();
+}
+</script>
+
 </body>
 </html>

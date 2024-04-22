@@ -24,37 +24,37 @@ require_once '../includes/denuncia6_view.inc.php';
     <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
     
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="nv collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link " href="../creditos.html">Créditos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="../index.html">Acerca de</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../recursos.html">Recursos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../3de3.html">Iniciativa 3 de 3</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../login.php">Iniciar Sesión</a>
-            </li>
-          </ul>
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="nv collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link " href="../creditos.html">Créditos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="../index.php">Acerca de</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Estadísticas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../recursos.html">Recursos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="../login.php">Iniciar Sesión</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
     <main>
         <div class="container formulario">

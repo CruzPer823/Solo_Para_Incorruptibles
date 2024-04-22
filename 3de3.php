@@ -82,7 +82,7 @@ require_once './includes/3d3_view.inc.php';
 </div>
     <!-- Botón agregar 3 de 3 -->
 
-    <div class="b1"> <a href="login.php".html"><button class="btnGen">Agregar tu 3 de 3</button></a></div>
+    <div class="b1"> <a href="login.php"><button class="btnGen">Agregar tu 3 de 3</button></a></div>
 
     <!-- Footer -->
 

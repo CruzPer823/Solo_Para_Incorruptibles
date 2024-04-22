@@ -25,25 +25,25 @@ require_once '../includes/detallesDenuncia_view.inc.php';
           <div class="nv collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link " href="/Solo_Para_Incorruptibles/VistasJavi/creditos.html">Créditos</a>
+                <a class="nav-link " href="../creditos.html">Créditos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link"  href="index.html">Acerca de</a>
+                <a class="nav-link"  href="../index.php">Acerca de</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Estadísticas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Solo_Para_Incorruptibles/VistasJavi/recursos.html">Recursos</a>
+                <a class="nav-link" href="../recursos.html">Recursos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Iniciativa 3 de 3</a>
+                <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/Solo_Para_Incorruptibles/VistasCruz/denuncia.html">Denunciar</a>
+                <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link"  href="/Solo_Para_Incorruptibles/VistasCruz/login.html">Iniciar Sesión</a>
+                <a class="nav-link"  href="../login.php">Iniciar Sesión</a>
               </li>
             </ul>
           </div>

@@ -61,7 +61,7 @@ require_once '../includes/demandasReportadas_view.inc.php';
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Estado</th>
-                    <th scope="col">Municipio</thd>
+                    <th scope="col">Municipio</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
@@ -114,12 +114,11 @@ function eliminarRegistro(id) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                // Aquí puedes manejar la respuesta si es necesario
-                // Por ejemplo, puedes recargar la página para mostrar la tabla actualizada
+              alert(this.responseText);
                 location.reload();
             }
         };
-        xhttp.open('GET', 'eliminar_registro.php?id=' + id, true);
+        xhttp.open('GET', '../includes/eliminar_registro.php?id=' + id, true);
         xhttp.send();
     }
 }
@@ -139,9 +138,10 @@ function reportarRegistro(id) {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText); // Muestra la respuesta del servidor (puede ser un mensaje de éxito o error)
+            location.reload();
         }
     };
-    xhttp.open('GET', 'enviar_correo.php?id=' + denunciaId, true);
+    xhttp.open('GET', '../incluides/enviar_correo.php?id=' + denunciaId, true);
     xhttp.send();
 }
 </script>

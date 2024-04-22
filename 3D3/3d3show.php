@@ -51,7 +51,21 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <div class="contenedor">
-        <p>loco</p>
+        <div class="dos-columnas">
+          <div>
+            <div><img src="../3D3U/include/documents/66257da863d843.82578827.jpeg" alt=""></div>
+            <div>NOMBRE DEL ASPIRANTE</div>
+            <div>PARTIDO POLITICO</div>
+            <div>ESTADO</div>
+            <div>MUNICIPIO</div>
+          </div>
+          <div>
+            <div>PATRIMONIO (Bienes muebles e inmuebles)</div>
+            <div>Declaración de intereses</div>
+            <div>Declaración fiscal</div>
+            <div>Propuestas de integridad pública</div>
+          </div>
+        </div>
     </div>
     <!-- Footer -->
 

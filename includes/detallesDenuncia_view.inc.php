@@ -105,9 +105,10 @@ function mostrarDenuncia(){
                                 <div class='dato'>
                                     <h4 class='titulo'>
                                         Evidencia
-                                    </h4>
-                                    <div class='datos'>
-                                    </div>
+                                    </h4>";
+                                    echo "<div class='datos'>";
+                                    echo "<img src='../includes/documents/" . $fila['evidencia'] . "'>";
+                                    echo "</div>
                                 </div>
                             </div>";
 } 

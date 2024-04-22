@@ -369,11 +369,7 @@ img {
     font-size: 3.5rem;
 }
 .persona{
-<<<<<<< HEAD
     background-color:#ccbfd8;
-=======
-    background-color: #23274C;
->>>>>>> cb3fbd9e2408a27aa1edfdc970a485b40a340020
     border-radius: 2rem;
     color: var(--blanco);
 }
@@ -453,8 +449,9 @@ img {
     .tres-columnas2{
         display: grid;
             grid-template-columns: 30% 35% 35%;
-            column-gap: 1rem;
             padding-left: 7rem;
+            padding-right: 7rem;
+    column-gap: 1rem;
     }
 }
 @media (max-width: 768px){

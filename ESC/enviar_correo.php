@@ -71,63 +71,63 @@ if ($resultado->num_rows > 0) {
         // Configuración del remitente y destinatario
         $mail->setFrom('javicuatehdez@hotmail.com', 'Remitente');
         $mail->addAddress('jcuatepotzo58@gmail.com', 'Destinatario');
-        $mail->addAddress('dani.quique.bryan@gmail.com', 'Destinatario2');
+        //$mail->addAddress('dani.quique.bryan@gmail.com', 'Destinatario2');
 
 
-        $sql1 = "SELECT conducta.nombreCond, conducta.tipo
-        FROM conducta
-        INNER JOIN denunciaconducta ON conducta.id = denunciaconducta.id_conducta
-        WHERE denunciaconducta.id_denuncia = $id
-        ORDER BY conducta.tipo";
-        $resultado2 = mysqli_query($mysqli, $sql1);
+        // $sql1 = "SELECT conducta.nombreCond, conducta.tipo
+        // FROM conducta
+        // INNER JOIN denunciaconducta ON conducta.id = denunciaconducta.id_conducta
+        // WHERE denunciaconducta.id_denuncia = $id
+        // ORDER BY conducta.tipo";
+        // $resultado2 = mysqli_query($mysqli, $sql1);
 
-        $conductas = ''; // Variable para almacenar las conductas
+        // $conductas = ''; // Variable para almacenar las conductas
 
-        if ($resultado2) {
-            if (mysqli_num_rows($resultado2) > 0) {
-                // Output data of each row
-                while($row = $resultado2->fetch_assoc()) {
-                    // Concatenar las conductas en la variable $conductas
-                    $conductas .= '<p><strong>' . $row["nombreCond"] . '</strong> - Tipo: ' . $row["tipo"] . '</p>';
-                }
-            } 
-        }
+        // if ($resultado2) {
+        //     if (mysqli_num_rows($resultado2) > 0) {
+        //         // Output data of each row
+        //         while($row = $resultado2->fetch_assoc()) {
+        //             // Concatenar las conductas en la variable $conductas
+        //             $conductas .= '<p><strong>' . $row["nombreCond"] . '</strong> - Tipo: ' . $row["tipo"] . '</p>';
+        //         }
+        //     } 
+        // }
 
 
         // Contenido del correo electrónico
         $mail->isHTML(true);
         $mail->Subject = 'Reporte de Denuncia';
         $mail->CharSet = 'UTF-8'; // Establecer la codificación UTF-8
-        $mail->Body    = "Se ha reportado la denuncia con ID: $denunciaId.<br><br>
-        <strong><----DETALLES DE LA DENUNCIA----> <br></strong>
-        Fecha: $fecha <br>
-        Hora: $hora <br>
-        Sección electoral: $seccionElectoral <br><br>
-        <strong><----DATOS DE DENUNCIANTE----> <br></strong>
-        Sexo: $sexo <br>
-        Ocupacion: $ocupacion <br>
-        Escolaridad: $escolaridad <br>
-        Descripcion: $descripcion <br><br>
-        <strong><----UBICACIÓN----></strong> <br>
-        CP: $cp <br>
-        Municipio: $nombreMunicipio <br>
-        Estado: $nombreEstado <br>
-        Dirección: $direccion <br><br>
-        <strong><----DATOS DE PERSONA DENUNCIADA----> </strong><br>
-        Nombre de la persona involucrada: $nombreSosp <br>
-        Institución donde trabaja la persona involucrada: $instSosp <br>
-        Rol de la persona involucrada: $rolSosp <br><br>
-        <strong><----CONDUCTAS REPORTADAS----></strong>
-        $conductas";
+        $mail->Body    = "Se ha reportado la denuncia con ID:";// $denunciaId.<br><br>
+        // <strong><----DETALLES DE LA DENUNCIA----> <br></strong>
+        // Fecha: $fecha <br>
+        // Hora: $hora <br>
+        // Sección electoral: $seccionElectoral <br><br>
+        // <strong><----DATOS DE DENUNCIANTE----> <br></strong>
+        // Sexo: $sexo <br>
+        // Ocupacion: $ocupacion <br>
+        // Escolaridad: $escolaridad <br>
+        // Descripcion: $descripcion <br><br>
+        // <strong><----UBICACIÓN----></strong> <br>
+        // CP: $cp <br>
+        // Municipio: $nombreMunicipio <br>
+        // Estado: $nombreEstado <br>
+        // Dirección: $direccion <br><br>
+        // <strong><----DATOS DE PERSONA DENUNCIADA----> </strong><br>
+        // Nombre de la persona involucrada: $nombreSosp <br>
+        // Institución donde trabaja la persona involucrada: $instSosp <br>
+        // Rol de la persona involucrada: $rolSosp <br><br>
+        // <strong><----CONDUCTAS REPORTADAS----></strong>
+        // $conductas";
        
 
         // Envía el correo electrónico
         $mail->send();
         echo 'Correo electrónico enviado correctamente';
-        $sql= "UPDATE denuncia
-        SET Estado =1
-        WHERE id = $denunciaId";
-        $resultado2 = mysqli_query($mysqli, $sql);
+        // $sql= "UPDATE denuncia
+        // SET Estado =1
+        // WHERE id = $denunciaId";
+        // $resultado2 = mysqli_query($mysqli, $sql);
         
     } catch (Exception $e) {
         echo "Error al enviar el correo electrónico: {$mail->ErrorInfo}";
@@ -138,4 +138,3 @@ if ($resultado->num_rows > 0) {
 
 
 $mysqli->close();
-?>

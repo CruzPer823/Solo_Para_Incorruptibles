@@ -43,7 +43,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      if(isset($_SESSION)){
           UploadData($pdo,$_SESSION["datos_iniciales"],$_SESSION["explicacion_info"],$_SESSION["ubicacion_info"],$_SESSION["sospechoso_info"],$_SESSION["time_info"],$_SESSION["conductas"]);
      } 
-     exit();
      header("Location: ../ESC/DenunciaConfirm.php");
      $pdo=null;
      $stmt=null;

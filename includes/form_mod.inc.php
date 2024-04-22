@@ -36,6 +36,7 @@ declare(strict_types=1);
     //     }
 function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicacion_info, array $ubicacion_info, array $sospechoso_info,array $time_info){
     $query = "INSERT INTO denuncia(id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) VALUES (:id, :cp, :seccionElectoral, :sexo, :ocupacion, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora);";
+    
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":id", $id);
     $stmt->bindParam(":cp",$datos_iniciales ["CP"]);
@@ -54,14 +55,20 @@ function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicaci
     $stmt->execute();
 }
 
+
 function uploadConductas(object $pdo, array $conductas, $id){
     $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES (:id_denuncia, :id_conducta);";
+    
         foreach($conductas as $dato){
-            $valor = $dato["valor"];
+            
+            $valor = $dato;
+            
             // Prepara y ejecuta la consulta SQL
             $stmt = $pdo->prepare($sql2);
             $stmt->bindParam(":id_denuncia", $id); 
             $stmt->bindParam(":id_conducta", $valor); 
             $stmt->execute();
+            echo"ok";
         }
+        
 }

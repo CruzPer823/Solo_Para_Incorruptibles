@@ -4,8 +4,8 @@ declare(strict_types=1);
 function denunciaEstado(){
     require '../includes/dbh.inc.php';
     require_once '../includes/config_session.inc.php';
-    if(isset($_SESSION['folioBusq'])){
-        $id =$_SESSION['folioBusq'];
+    if(isset($_SESSION["idFolioBusqueda"])){
+        $id =$_SESSION["idFolioBusqueda"];
         require '../includes/dbh.inc.php';
         $consulta = "SELECT id,Estado FROM denuncia WHERE id = :id";
         $stmt = $pdo->prepare($consulta);

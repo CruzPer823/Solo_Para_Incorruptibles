@@ -68,7 +68,7 @@ require_once '../includes/denuncia6_view.inc.php';
                     <?php
                     check_form_errorsd6();
                     ?>
-                <form action="../includes/denuncia6.inc.php" class="form-6" method="post">
+                <form action="../includes/denuncia6.inc.php" class="form-6" method="post" enctype="multipart/form-data">
                 <!-- onsubmit="return validarFormulario();" enctype="multipart/form-data" -->
                     <div class="formu-6">
                         <div class="col-md-10 contenedor-conductas mb-5">   
@@ -224,7 +224,7 @@ require_once '../includes/denuncia6_view.inc.php';
                         </div> 
                         <div class="col-md-10 contenedor-conductas mb-5">
                             <label  class="form-label" for="imagen">Seleccionar imagen:</label>
-                            <input  type="file" id="imagen" name="imagen" accept="image/jpg , image/png , image/jpeg">
+                            <input  type="file" id="imagen" name="imagen" accept=".jpg , .png , .jpeg">
                         </div>
                         <div class="col-md-12">
                         <input type="submit" class="boton boton--secundario" name="validate" value="Enviar">

@@ -34,8 +34,8 @@ declare(strict_types=1);
     //         $stmt = $pdo->prepare($sql1);
             
     //     }
-function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicacion_info, array $ubicacion_info, array $sospechoso_info,array $time_info){
-    $query = "INSERT INTO denuncia(id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) VALUES (:id, :cp, :seccionElectoral, :sexo, :ocupacion, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora);";
+function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicacion_info, array $ubicacion_info, array $sospechoso_info,array $time_info,string $evidencia){
+    $query = "INSERT INTO denuncia(id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora,evidencia) VALUES (:id, :cp, :seccionElectoral, :sexo, :ocupacion, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora,:evidencia);";
     
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":id", $id);
@@ -52,6 +52,7 @@ function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicaci
     $stmt->bindParam(":rolSosp",$sospechoso_info["rolSosp"]);
     $stmt->bindParam(":fecha",$time_info["fecha"]);
     $stmt->bindParam(":hora",$time_info["hora"]);
+    $stmt->bindParam(":evidencia",$evidencia);
     $stmt->execute();
 }
 

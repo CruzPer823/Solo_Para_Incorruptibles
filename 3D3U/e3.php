@@ -88,7 +88,7 @@
                 <div class="pre"><p>Documento obtenido<br>(Boleta, Certificado, Constancia, Título)<span>*</span>:</p></div>
 
               <div class="inpSesion">
-                <input type="file" class="form-control" name="docEdu" id="inp" placeholder="Documento..." required>
+                <input type="file" class="form-control" name="docEdu" id="inp" placeholder="Documento..." accept=".pdf" required>
             </div>
             </div>
             <div class="pregunta">

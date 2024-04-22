@@ -235,7 +235,7 @@ function uploadRep(object $pdo, array $representacion){
 }
 
 function uploadCli(object $pdo, array $clientesPrin){
-    $query = "INSERT INTO clientes(actLuc,decl,rfc,cliPrin,razSoc,rfcCli,sectProd,montApro,ubi,entFed,nomEmp) VALUES (:actLuc,:decl,:rfc,;cliPrin,:razSoc,:rfcCli,:sectProd,:montApro,:ubi,:entFed,:nomEmp);";
+    $query = "INSERT INTO clientes(actLuc,decl,rfc,cliPrin,razSoc,rfcCli,sectProd,montApro,ubi,entFed,nomEmp) VALUES (:actLuc,:decl,:rfc,:cliPrin,:razSoc,:rfcCli,:sectProd,:montApro,:ubi,:entFed,:nomEmp);";
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":actLuc",$clientesPrin["actLuc"]);
     $stmt->bindParam(":decl",$clientesPrin["dec"]);
@@ -308,15 +308,62 @@ function uploadProp(object $pdo, array $adi){
     $stmt->execute();
 }
 //COMIENZA A PARTIR DEL 14, NO OLVIDES QUITAR EL NULL POR DEFAULT
-
+function get_id(object $pdo, string $tabla){
+    $query = "SELECT COUNT(*) as cuenta FROM ".$tabla.";";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $results = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    return ($results["cuenta"]);
+}
 
 function uploadAll(object $pdo, array $inicio){
-    $query = "INSERT INTO candidatos(nombre, partido, correo, picName) VALUES (:nombre,:partido,:correo,:picName);";
+    $query = "INSERT INTO candidatos(nombre, partido, correo, picName,id_curriculo, id_ingresosActuales,id_servicioPublico,id_datosEmpleo,id_experienciaLaboral
+    ,id_bienesInmuebles,id_vehiculos,id_bienesMuebles,id_inversiones,id_adeudos,id_prestamos,id_participacionEmp,id_decisionesInst,id_apoyosPub,id_representacion,id_clientesPrincipales, id_beneficiosPriv, id_fideicomisos,id_declaracionFiscal,id_adicionales) VALUES (:nombre,:partido,:correo,:picName,:id_curriculo,:id_ingresosActuales,:id_servicioPublico,:id_datosEmpleo,:id_experienciaLaboral,:id_bienesInmuebles,:id_vehiculos,:id_bienesMuebles,:id_inversiones,:id_adeudos,:id_prestamos,:id_participacionEmp,:id_decisionesInst,:id_apoyosPub,:id_representacion,:id_clientesPrincipales,:id_beneficiosPriv,:id_fideicomisos,:id_declaracionFiscal,:id_adicionales);";
+    $curr=get_id($pdo,"curriculo");
+    $curr2=get_id($pdo,"ingresos");
+    $curr3=get_id($pdo,"serviciopublico");
+    $curr4=get_id($pdo,"aspiracion");
+    $curr5=get_id($pdo,"experiencialaboral");
+    $curr6=get_id($pdo,"bienesinmuebles");
+    $curr7=get_id($pdo,"vehiculos");
+    $curr8=get_id($pdo,"bienesmuebles");
+    $curr9=get_id($pdo,"inversiones");
+    $curr10=get_id($pdo,"adeudos");
+    $curr11=get_id($pdo,"prestamos");
+    $curr12=get_id($pdo,"participacionempresas");
+    $curr13=get_id($pdo,"desicionesinst");
+    $currr=get_id($pdo,"apoyos");
+    $curr14=get_id($pdo,"representacion");
+    $curr15=get_id($pdo,"clientes");
+    $curr16=get_id($pdo,"beneficiosprivados");
+    $curr17=get_id($pdo,"fideicomisos");
+    $curr18=get_id($pdo,"declaracionfiscal");
+    $curr19=get_id($pdo,"propuestas");
     $stmt = $pdo->prepare($query);
-    
     $stmt->bindParam(":nombre",$inicio["nombre"]);
     $stmt->bindParam(":partido",$inicio["partido"]);
     $stmt->bindParam(":correo",$inicio["correo"]);
     $stmt->bindParam(":picName",$inicio["picName"]);
+    $stmt->bindParam(":id_curriculo", $curr );
+    $stmt->bindParam(":id_ingresosActuales",$curr2);
+    $stmt->bindParam(":id_servicioPublico",$curr3);
+    $stmt->bindParam(":id_datosEmpleo",$curr4);
+    $stmt->bindParam(":id_experienciaLaboral",$curr5);
+    $stmt->bindParam(":id_bienesInmuebles",$curr6);
+    $stmt->bindParam(":id_vehiculos",$curr7);
+    $stmt->bindParam(":id_bienesMuebles",$curr8);
+    $stmt->bindParam(":id_inversiones",$curr9);
+    $stmt->bindParam(":id_adeudos",$curr10);
+    $stmt->bindParam(":id_prestamos",$curr11);
+    $stmt->bindParam(":id_participacionEmp",$curr12);
+    $stmt->bindParam(":id_decisionesInst",$curr13);
+    $stmt->bindParam(":id_apoyosPub",$currr);
+    $stmt->bindParam(":id_representacion",$curr14);
+    $stmt->bindParam(":id_clientesPrincipales",$curr15);
+    $stmt->bindParam(":id_beneficiosPriv",$curr16);
+    $stmt->bindParam(":id_fideicomisos",$curr17);
+    $stmt->bindParam(":id_declaracionFiscal",$curr18);
+    $stmt->bindParam(":id_adicionales",$curr19);
     $stmt->execute();
 }

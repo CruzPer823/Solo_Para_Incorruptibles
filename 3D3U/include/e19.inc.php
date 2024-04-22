@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("Location: ../e19.php");
                 die();
            }
-           $datos["tipBen"]=$acttipBenuc;
+           $datos["tipBen"]=$tipBen;
            $datos["benef"]=$benef;
            $datos["oto"]=$oto;
            $datos["razSoc"]=$razSoc;

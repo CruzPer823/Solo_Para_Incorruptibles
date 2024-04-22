@@ -13,9 +13,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $error=[];
             $datos=[];
 
-            if(!isset($_FILES['opiSat'])){
-                $error["empty_input"]="Debes subir al menos un documento";
-            }
             // var_dump(is_empty($_FILES));
             // exit;
             if (!empty($_FILES['opiSat'])){

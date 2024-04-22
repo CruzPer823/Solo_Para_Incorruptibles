@@ -7,6 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
       
         try{
             require_once "../../includes/dbh.inc.php";
+            require_once "e21_contr.inc.php";
             require_once "formulario_contr.inc.php";
             require_once "formulario_mod.inc.php";
             require_once '../../includes/config_session.inc.php';
@@ -14,8 +15,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $error=[];
             $datos=[];
 
-           $datos["prop"]=$prop;
-           $datos["extra"]=$extra;
+            if (!empty($_FILES['prop'])){
+                $fileName=$_FILES['prop']['name'];
+                $fileTmp=$_FILES['prop']['tmp_name'];
+                $fileSize=$_FILES['prop']['size'];
+                $fileError=$_FILES['prop']['error'];
+                $fileExt=explode('.',$fileName);
+                $fileActualExt=strtolower(end($fileExt));
+                $allowed=array('pdf'); 
+                $opSatFinalName=uploadImage( $fileName,  $fileTmp,  $fileSize,  $fileError,  $fileActualExt, $allowed );
+                $datos["prop"]=$opSatFinalName;
+            }
+            if (!empty($_FILES['extra'])){
+                $fileName=$_FILES['extra']['name'];
+                $fileTmp=$_FILES['extra']['tmp_name'];
+                $fileSize=$_FILES['extra']['size'];
+                $fileError=$_FILES['extra']['error'];
+                $fileExt=explode('.',$fileName);
+                $fileActualExt=strtolower(end($fileExt));
+                $allowed=array('pdf'); 
+                $opNoSatFinalName=uploadImage( $fileName,  $fileTmp,  $fileSize,  $fileError,  $fileActualExt, $allowed );
+                $datos["extra"]=$opNoSatFinalName;
+            }
         //    var_dump($_SESSION);
         //    exit;
            $_SESSION["extras"] = $datos;

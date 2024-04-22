@@ -36,7 +36,7 @@ function UploadData(object $pdo, array $curriculo
         return true;
     }elseif(uploadRep($pdo, $representacion)){
         return true;
-    }elseif(uploadcli($pdo, $clientesPrin)){
+    }elseif(uploadCli($pdo, $clientesPrin)){
         return true;
     }elseif(uploadBenfPri($pdo, $benefPriv)){
         return true;

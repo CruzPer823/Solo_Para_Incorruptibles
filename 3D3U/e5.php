@@ -59,7 +59,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="seccion"><p>¿Te desmpeñaste como servidor público en el año inmediato anterior?</p></div>
+                  <div class="seccion"><p>¿Te desmpeñaste como servidor público en el año inmediato anterior?<br/>Si no lo fuiste, puedes saltar la pregunta</p></div>
                     <div class="pregunta">
                         <div class="pre"><p>Fecha de inicio :</p></div>
                       <div class="inpSesion">

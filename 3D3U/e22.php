@@ -47,7 +47,7 @@
         <div class="tarjetaPrin container shadow-lg">
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
-                <form  action="include/e22.inc.php" method="post">
+                <form  action="include/e22.inc.php" method="post" enctype="multipart/form-data">
                 <div class="cont">
                     <div class="barra">
                       <p>Progreso</p>

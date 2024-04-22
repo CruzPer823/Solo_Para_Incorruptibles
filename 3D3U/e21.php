@@ -63,13 +63,13 @@
                   <div class="pregunta">
                     <div class="pre"><p>Cargar opinión de cumplimiento fiscal emitida por el SAT</p></div>
                   <div class="inpSesion">
-                    <input type="file" class="form-control" name="opiSat" id="inp">
+                    <input type="file" class="form-control" name="opiSat" id="inp" accept=".pdf">
                 </div>
                 </div>
                 <div class="pregunta">
                   <div class="pre"><p>En caso de no estar sujeto a presentar la declaración fiscal, deberá cargar un documento PDF en el que se señale que no está obligado a presentar la declaración fiscal del año 2019.</p></div>
                 <div class="inpSesion">
-                  <input type="file" class="form-control" name="opiNoSat" id="inp">
+                  <input type="file" class="form-control" name="opiNoSat" id="inp" accept=".pdf">
               </div>
               </div>
                 </div>

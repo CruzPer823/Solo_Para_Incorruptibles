@@ -1,10 +1,8 @@
 <?php
 // Iniciar sesión
 // Conexión a la base de datos (asumiendo que tienes un archivo database.php con esta configuración)
-require './includes/database.php';
 
-require_once '../includes/config_session.inc.php';
-
+require_once '../includes/DenunciaConfirm_view.inc.php';
 // Comprobar si existen todos los datos necesarios en la sesión
 // if(!isset($_SESSION['CP']) || !isset($_SESSION['otro_dato'])) {
 //     // Si falta algún dato, redirigir a la página correspondiente para completarlo
@@ -85,7 +83,7 @@ require_once '../includes/config_session.inc.php';
             <div class="row justify-content-center">
                 <h2 class="text-center titulo">DENUNCIA “ELECCIÓN SIN CORRUPCIÓN”</h2>
                 <p class="msj-gracias">¡Muchas gracias por contribuir con tu denuncia!</p>
-                <p class="folio">Folio de denuncia: 01</p>
+                <p class="folio">Folio de denuncia:<?php echo getId();?> </p>
                 <p class="info-consulta">Puedes saber el estado de tu denuncia utilizando tu folio al presionar el botón “consulta el estado de denuncia”</p>                
             </div>
         </div>

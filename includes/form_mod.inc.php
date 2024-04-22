@@ -34,6 +34,14 @@ declare(strict_types=1);
     //         $stmt = $pdo->prepare($sql1);
             
     //     }
+
+    function contador(object $pdo){
+        $query = "SELECT COUNT(*) AS CONTADOR FROM denuncia;";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result["CONTADOR"];
+    }
 function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicacion_info, array $ubicacion_info, array $sospechoso_info,array $time_info,string $evidencia){
     $query = "INSERT INTO denuncia(id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora,evidencia) VALUES (:id, :cp, :seccionElectoral, :sexo, :ocupacion, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora,:evidencia);";
     
@@ -69,7 +77,6 @@ function uploadConductas(object $pdo, array $conductas, $id){
             $stmt->bindParam(":id_denuncia", $id); 
             $stmt->bindParam(":id_conducta", $valor); 
             $stmt->execute();
-            echo"ok";
+            
         }
-        
 }

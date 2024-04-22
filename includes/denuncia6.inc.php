@@ -47,11 +47,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      $datos["c4"]=$c4;
      $datos["c5"]=$c5;
      $datos["c6"]=$c6;
+     $datos["c7"]=$c7;
+     $datos["c8"]=$c8;
      $_SESSION["conductas"] = $datos;
      $_SESSION["evidencia"]=$picFinalName;
+     $_SESSION["id"] = $_SESSION["datos_iniciales"]["seccion_electoral"].contador($pdo);
      
      if(isset($_SESSION)){
-          UploadData($pdo,$_SESSION["datos_iniciales"],$_SESSION["explicacion_info"],$_SESSION["ubicacion_info"],$_SESSION["sospechoso_info"],$_SESSION["time_info"],$_SESSION["conductas"],$picFinalName);
+          UploadData($pdo,$_SESSION["datos_iniciales"],$_SESSION["explicacion_info"],$_SESSION["ubicacion_info"],$_SESSION["sospechoso_info"],$_SESSION["time_info"],$_SESSION["conductas"],$_SESSION["evidencia"]);
      } 
      header("Location: ../ESC/DenunciaConfirm.php");
      $pdo=null;

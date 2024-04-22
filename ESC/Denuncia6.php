@@ -214,7 +214,7 @@ require_once '../includes/denuncia6_view.inc.php';
                                                 $id = $row['id'];
                                                 $nombreCond = $row['nombreCond'];
                                                 echo '<div class="d-flex option-conducta">';
-                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas8s[]" value="' . $id . '">';
+                                                echo '<input class="option-conducta-input" type="checkbox" id="' . $id . '" name="conductas8[]" value="' . $id . '">';
                                                 echo '<label for="' . $id . '">&nbsp;&nbsp;' . $nombreCond . '</label><br>';
                                                 echo '</div>';
                                             }

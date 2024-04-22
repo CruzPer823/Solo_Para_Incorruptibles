@@ -1,23 +1,5 @@
 <?php
-require './includes/database.php';
-require_once '../includes/config_session.inc.php';
-  
-
-    $id =$_SESSION['folioBusq'];
-
-
-    $consulta = "SELECT id,Estado FROM denuncia WHERE id = $id";
-    $result1 = mysqli_query($mysqli, $consulta);
-
-    $fila = mysqli_fetch_array($result1);
-
-    if ($fila["Estado"] == 0){
-      $estadoA = 'En revisión';
-    }
-    else{
-      $estadoA = 'Autoridades notificadas';
-    }
-
+require_once '../includes/folioResul_view.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,8 +59,9 @@ require_once '../includes/config_session.inc.php';
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
           <div class="contenido col-lg p-1 p-lg-5 pt-lg-3">
             <div class="Titulo"> <h1>Información de la Denuncia</h1></div>
-            <div class="cont1"><p>Folio:</p> <p id="noFolio" style="font-weight: 600;"><?php echo $id;?></p></div>
-            <div class="cont2 mb-5"><p style="margin-right: 25px;">Estado de demanda:</p> <p id="estadoDem" style="margin-left:  font-weight:600"><?php echo $estadoA;?></p></div>
+            <?php
+              denunciaEstado();
+            ?>
             <div class="cont3"><p>(En revisión / Autoridades notificadas)</p></div>
             <div class="b1"><a href="denunciaFolio.php"><button class="btnGen">Buscar otro folio</button></a></div>
           </div>

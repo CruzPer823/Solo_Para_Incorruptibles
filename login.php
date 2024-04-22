@@ -21,8 +21,8 @@
 <?php  is_logged();?>
     <!-- Header -->
     <header class="Logo"> <a href="index.php"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
-    <!-- Barra de navegacion -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -36,7 +36,7 @@
               <a class="nav-link"  href="index.php">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="recursos.html">Recursos</a>
@@ -45,7 +45,7 @@
               <a class="nav-link" href="3de3.php">Iniciativa 3 de 3</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="denuncia.html">Denunciar</a>
+              <a class="nav-link" aria-current="page" href="denuncia.html">Denunciar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="login.php">Iniciar Sesión</a>
@@ -54,7 +54,8 @@
         </div>
       </div>
     </nav>
-    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
     <!-- Tarjeta login -->
@@ -74,7 +75,6 @@
                 <div class="inpSesion">
                     <input type="password" class="form-control" name="pass" id="inp" placeholder="Contraseña" >
                 </div>
-                <div class="cont"><a href="#">¿Olvidaste tu Contraseña?</a></div>
                 <div class="b1"><input type="submit" class="btnGen" value="Iniciar Sesión"/></div>
               </form>
                 <div class="b1"><a href="registro.php"><button class="btnGen2"> Regístrate</button></a></div>

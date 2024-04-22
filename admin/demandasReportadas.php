@@ -17,8 +17,8 @@ require_once '../includes/demandasReportadas_view.inc.php';
 </head>
 <body>
 
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
-    
+<header class="Logo"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></header>
+    <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,31 +27,20 @@ require_once '../includes/demandasReportadas_view.inc.php';
         <div class="nv collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link " href="../creditos.html">Créditos</a>
+              <a class="nav-link active" href="3de3Admin.php">Iniciativa 3 de 3</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../index.html">Acerca de</a>
+              <a class="nav-link active" href="demandasReportadas.php"> Denuncias Reportadas</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../recursos.html">Recursos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="3de3Admin.html">Iniciativa 3 de 3</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="demandasReportadas.html">Denuncias</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Cerrar Sesión</a>
+            <li class="nav-item cerrar">
+              <a class="nav-link"><form action="../includes/logout.inc.php" method="post"> <button class="boton-tabla boton--eliminar no-margin" >Cerrar Sesión</button></form></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <main>
     <div class="contenedor formulario mt-5 pe-5 ps-5">
     <h2 class="titulo ">Denuncias reportadas</h2>

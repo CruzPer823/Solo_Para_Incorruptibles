@@ -35,7 +35,7 @@
               <a class="nav-link active"  href="index.php">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="recursos.html">Recursos</a>
@@ -69,7 +69,7 @@
                 <a href="ESC/Denuncia1.php"><button type="button" class="btnGen" >Comienza tu denuncia aquí</button></a>
             </div>
             <div class="b2">
-                <a href="ESC/DenunciaFolio.php"><button type="button" class="btnGen">Conoce el status de tu denuncia aquí</button></a>
+                <a href="ESC/denunciaFolio.php"><button type="button" class="btnGen">Conoce el status de tu denuncia aquí</button></a>
             </div>
           </div>
         </div>

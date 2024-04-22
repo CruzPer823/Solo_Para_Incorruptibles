@@ -16,41 +16,30 @@ require_once '../includes/3de3Admin_view.inc.php';
     integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
+
     <!-- Header -->
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+    <header class="Logo"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></header>
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="nv collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link " href="../creditos.html">Créditos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="../index.html">Acerca de</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Estadísticas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../recursos.html">Recursos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="3de3Admin.html">Iniciativa 3 de 3</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="demandasReportadas.html">Denuncias</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Cerrar Sesión</a>
-              </li>
-            </ul>
-          </div>
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="nv collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="3de3Admin.php">Iniciativa 3 de 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="demandasReportadas.php"> Denuncias Reportadas</a>
+            </li>
+            <li class="nav-item cerrar">
+              <a class="nav-link"><form action="../includes/logout.inc.php" method="post"> <button class="btnEra" >Cerrar Sesión</button></form></a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Tarjeta 3 de 3 -->

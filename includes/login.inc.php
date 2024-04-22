@@ -10,11 +10,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
          $error=[];
 
+
+
          if (is_input_empty($email,$pass)){
               $error["empty_input"]="Debe llenar todos los campos!";
          }
          
         $result=get_user($pdo, $email);
+        // var_dump($result);
+        // exit;
 
 
          if(is_mail_wrong($result)){
@@ -37,6 +41,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          $newSessionId= session_create_id();
          $sessionId=$newSessionId."_".$result["id"];
          session_id($sessionId);
+         if(admin($result["email"])){
+            header("Location:../admin/3de3Admin.php");
+            $_SESSION["user_id"] = $result["id"];
+         $_SESSION["user_username"] = htmlspecialchars($result["nombre"]);
+         $_SESSION["last_regeneration"] = time();
+         $pdo=null;
+         $stmt=null;
+
+         die();
+         }
          header("Location: ../3D3U/e1.php");
          $_SESSION["user_id"] = $result["id"];
          $_SESSION["user_username"] = htmlspecialchars($result["nombre"]);

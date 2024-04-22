@@ -53,6 +53,12 @@
                     <p>Se le informa a las y los candidatos que en el siguiente formulario podrá llenar la información que se solicita, y hacer las modificaciones que requieran conforme van avanzando en el llenado. Sin embargo, una vez enviado el formulario ya no está permitido hacer cambios. Por favor rellene los siguientes campos:
                     </p>
                 </div>
+                <div class="cont">
+                <p><a class="cont" href="../Files/AvisoSimplificado.pdf">Aviso de privacidad simplificado</a></p>
+                </div>
+                <div class="cont">
+                <p><a class="cont" href="../Files/AvisoPrivacidad.pdf">Aviso de privacidad </a></p>
+                </div>
                 <div class="b1">
                     <a href="e2.php"><button class="btnGen">Siguiente</button></a>
                 </div>

@@ -9,6 +9,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $c6 = $_POST['conductas6'];
           $c7 = $_POST['conductas7'];
           $c8 = $_POST['conductas8'];
+          $fileName=$_FILES['imagen']['name'];
+          $fileTmp=$_FILES['imagen']['tmp_name'];
+          $fileSize=$_FILES['imagen']['size'];
+          $fileError=$_FILES['imagen']['error'];
+          $fileExt=explode('.',$fileName);
+          $fileActualExt=strtolower(end($fileExt));
+          $allowed=array('jpg','jpeg','png'); 
 
     try{
      require_once "dbh.inc.php";
@@ -18,6 +25,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      require_once "form_contr.inc.php";
      require_once "form_mod.inc.php";
      
+
+     $picFinalName=uploadImage( $fileName,  $fileTmp,  $fileSize,  $fileError,  $fileActualExt, $allowed );
      // //  //manejo de errores
       $error=[];
      
@@ -39,9 +48,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      $datos["c5"]=$c5;
      $datos["c6"]=$c6;
      $_SESSION["conductas"] = $datos;
+     $_SESSION["evidencia"]=$picFinalName;
      
      if(isset($_SESSION)){
-          UploadData($pdo,$_SESSION["datos_iniciales"],$_SESSION["explicacion_info"],$_SESSION["ubicacion_info"],$_SESSION["sospechoso_info"],$_SESSION["time_info"],$_SESSION["conductas"]);
+          UploadData($pdo,$_SESSION["datos_iniciales"],$_SESSION["explicacion_info"],$_SESSION["ubicacion_info"],$_SESSION["sospechoso_info"],$_SESSION["time_info"],$_SESSION["conductas"],$picFinalName);
      } 
      header("Location: ../ESC/DenunciaConfirm.php");
      $pdo=null;

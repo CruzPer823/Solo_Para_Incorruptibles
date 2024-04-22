@@ -67,7 +67,7 @@ require_once '../includes/denuncia4_view.inc.php';
                     <div class="progress">
                         <div class="progress-bar" style="width: 60%;">60%</div>
                     </div>
-                    <p class="text-center categoria">Información inicial.</p>
+                    <p class="text-center categoria">Información inicial. (acusado)</p>
                     <?php 
                       check_form_errorsd4();
                     ?>

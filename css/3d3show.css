@@ -84,6 +84,20 @@ html{
     margin-bottom: 10vh;
     flex-shrink: 1;
 }
+.btnEra{
+    border: none;
+    border-radius: 10px;
+    background-color: #FD0B0B;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #FFFF;
+    height: 30px;
+    width:100px;
+}
+.btnEra:hover{
+    background-color: #8b0505;
+}
 thead{
     background-color: #7D7097;
     text-align: center;

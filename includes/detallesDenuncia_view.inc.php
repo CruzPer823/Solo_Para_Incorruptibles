@@ -107,7 +107,11 @@ function mostrarDenuncia(){
                                         Evidencia
                                     </h4>";
                                     echo "<div class='datos'>";
-                                    echo "<img src='../includes/documents/" . $fila['evidencia'] . "'>";
+                                    if($fila['evidencia'] != NULL){
+                                        echo "<img src='../includes/documents/" . $fila['evidencia'] . "'>";
+                                    }else{
+                                        echo '<p><strong>No se subió evidencia</strong></p>';
+                                    }
                                     echo "</div>
                                 </div>
                             </div>";

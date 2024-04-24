@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="CSS/login.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -63,6 +63,7 @@
         <div class="tarjetaPrin container shadow-lg">
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIA SESIÓN</h1></div>
+                <div class="Titulo"><h2>Inicie sesión para subir su 3 DE 3</h2></div>
                 <?php
                 check_login_errors();
                 check_registro_errors();
@@ -112,6 +113,7 @@
                             </svg></a>
                                               
         </div>
+        <div class="footer">Copyright© Sólo para incorruptibles 2024</div>
     </footer>
 </body>
 </html>

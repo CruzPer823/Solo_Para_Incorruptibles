@@ -7,7 +7,10 @@ function change3d3(){
     }
 }
 function is_logged(){
-    if(isset($_SESSION["user_id"])){
+    if(isset($_SESSION["user_id"] )&& ($_SESSION["user_username"] == "Administrador")){
+        header("Location: ./admin/3de3Admin.php");
+        
+    }elseif(isset($_SESSION["user_id"])){
         header("Location: ./3D3U/e1.php");
     }
 }

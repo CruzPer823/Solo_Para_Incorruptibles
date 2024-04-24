@@ -2,30 +2,8 @@
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
 require_once '../includes/denunciaFolio_view.inc.php';
-// if($_SERVER['REQUEST_METHOD'] === 'POST'){
-//   if(isset($_POST['folioBusq'])) {
-//     $id =$_POST['folioBusq'];
-//     echo $id;
 
-//     $consulta = "SELECT id FROM denuncia WHERE id = $id";
-//     $result1 = mysqli_query($mysqli, $consulta);
-
-//     // Verificar si se encontró algún resultado
-//     if ($result1->num_rows > 0) {
-//         // Guardar el ID en la sesión
-//         $_SESSION['folioBusq'] = $_POST['folioBusq'];
-//         // Redirigir a la siguiente página
-//         header('Location: folioResul.php');
-//         exit();
-//     } else {
-//         // Mostrar una alerta JavaScript si el ID no existe
-//         echo "<script>alert('El folio no existe en la base de datos') </script>";
-//         echo " window.location.reload();";
-//     }
-// }
-//}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -129,15 +107,5 @@ require_once '../includes/denunciaFolio_view.inc.php';
                                             
       </div>
   </footer>
-  
-  <!-- <script>
-    function validarFolio() {
-        var folio = document.getElementById("folioBusq").value;
-        if (folio === "") {
-            alert("El campo de folio está vacío. Por favor, introdúcelo.");
-            event.preventDefault(); // Evitar que se envíe el formulario
-        }
-    }
-</script> -->
 </body>
 </html>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/e1.css"/>
+    <link rel="stylesheet" href="../css/e1.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
                   change3d3();
                 ?>
                 <div class="cont">
-                    <p>Se le informa a las y los candidatos que en el siguiente formulario podrá llenar la información que se solicita, y hacer las modificaciones que requieran conforme van avanzando en el llenado. Sin embargo, una vez enviado el formulario ya no está permitido hacer cambios. Por favor rellene los siguientes campos:
+                    <p>Se le informa a las y los candidatos que en el siguiente formulario podrá llenar la información que se solicita, y hacer las modificaciones que requieran conforme van avanzando en el llenado. Sin embargo, una vez enviado el formulario ya no está permitido hacer cambios.<br/> Por favor antes de continuar lea los siguiente avisos de privacidad para que conozca el manejo que le daremos a la información que nos provea:
                     </p>
                 </div>
                 <div class="cont">

@@ -8,7 +8,7 @@ require_once './includes/3d3_view.inc.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="CSS/3d3.css"/>
+    <link rel="stylesheet" href="css/3d3.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -114,6 +114,7 @@ require_once './includes/3d3_view.inc.php';
                             </svg></a>
                                               
         </div>
+        <div class="footer">Copyright© Sólo para incorruptibles 2024</div>
     </footer>
 </body>
 </html>

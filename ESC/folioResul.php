@@ -8,7 +8,7 @@ require_once '../includes/folioResul_view.inc.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="../assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/folioResul.css"/>
+    <link rel="stylesheet" href="../css/folioResul.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -63,7 +63,6 @@ require_once '../includes/folioResul_view.inc.php';
             <?php
               denunciaEstado();
             ?>
-            <div class="cont3"><p>(En revisión / Autoridades notificadas)</p></div>
             <div class="b1"><a href="denunciaFolio.php"><button class="btnGen">Buscar otro folio</button></a></div>
           </div>
         </div>

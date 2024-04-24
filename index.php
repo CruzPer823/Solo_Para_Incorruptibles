@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="CSS/index.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -104,8 +104,8 @@
         <!-- Mision y vision -->
     <div class="misvis">
         <!-- Tarjeta 1 -->
-        <div class="contenedor mv">
-            <div class="tarjeta container shadow-lg" style="margin: 20px; margin-bottom:150px;">
+        
+            <div class="tarjeta mis container shadow-lg" style="margin: 20px; margin-bottom:150px;">
                 <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                     <div class="icono">
                    <p> <svg width="76" height="79" viewBox="0 0 76 79" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -123,10 +123,8 @@
                   <p class="cont" style="text-align:justify;">Posicionar al grupo estudiantil como un modelo diferenciador incluyente, efectivo, abierto y participativo en la obtención de conocimiento colectivo en materia anticorrupción, involucrando positivamente a todas las carreras del Tecnológico de Monterrey, para lograr el compromiso social de impactar en la vida pública de México.</p>
                 </div>
               </div>
-            </div>
         <!-- Tarjeta 2 -->
-        <div class="contenedor mv">
-            <div class="tarjeta container shadow-lg" style="margin: 20px; margin-bottom:150px;">
+            <div class="tarjeta vis container shadow-lg" style="margin: 20px; margin-bottom:150px;">
                 <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="icono">
                     <svg width="76" height="80" viewBox="0 0 76 80" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -144,7 +142,6 @@
                 </div>
               </div>
             </div>
-    </div>
 
     <!-- Footer -->
 
@@ -175,6 +172,7 @@
                             </svg></a>
                                               
         </div>
+        <div class="footer">Copyright© Sólo para incorruptibles 2024</div>
     </footer>
 </body>
 </html>

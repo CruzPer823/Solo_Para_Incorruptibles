@@ -91,7 +91,7 @@ require_once '../includes/denuncia1_view.inc.php';
                         <input class="form-control text" type="text" placeholder="" id="ocupacion" name="ocupacion">
                     </div>
                     <div class="col-12 entrada ">
-                        <label class="form-label" for="escolaridad">Escolaridad<span class="rojo">*</span>:</label>
+                        <label class="form-label" for="escolaridad">Escolaridad:</label>
                         <select class="form-control text" id="escolaridad" name="escolaridad">
                             <option value="">Seleccionar</option>
                             <option value="1">Primaria</option>

@@ -56,8 +56,8 @@ require_once '../includes/3de3Admin_view.inc.php';
           <thead>
               <tr>
                   <th scope="col">Nombre</th>
-                  <th scope="col">Cargo</th>
                   <th scope="col">Partido</th>
+                  <th scope="col">Cargo</th>
                   <th scope="col">Detalles</th>
                   <th scope="col"></th>
                   <th scope="col"></th>
@@ -124,7 +124,7 @@ function eliminarRegistro(id) {
 
 <script>
 function confirmarReporte(id) {
-    if (confirm('¿Estás seguro de que quieres publicar la "3 de 3" de esta candidato?')) {
+    if (confirm('¿Estás seguro de que quieres publicar el "3 de 3" del candidato?')) {
         reportarRegistro(id);
     }
 }

@@ -60,13 +60,13 @@
                   <div class="pregunta">
                     <div class="pre"><p>En este espacio, de forma libre, podrán compartir su propuesta de integridad pública en un formato PDF con extensión máxima de una cuartilla.</p></div>
                   <div class="inpSesion">
-                    <input type="file" class="form-control" name="prop" id="inp" required>
+                    <input type="file" class="form-control" name="prop" id="inp" accept=".pdf" required>
                 </div>
                 </div>
                 <div class="pregunta">
                   <div class="pre"><p>En este espacio, puede agregar cualquier campo (bienes, inmuebles, vehículos) que no se hayan podido agregar al formulario</p></div>
                 <div class="inpSesion">
-                  <input type="file" class="form-control" name="extra" id="inp" required>
+                  <input type="file" class="form-control" name="extra" id="inp" accept=".pdf" required>
               </div>
               </div>
                 </div>

@@ -28,14 +28,51 @@ html{
     margin-right: 5vh;
 
 }
+h1{
+    font-family: "Dosis", sans-serif;
+    color: #E4E5EB;
+    line-height: 1.2;
+    margin-top: 4vh;
+    text-align: center;
+}
 .contenedor{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     flex-shrink: 1;
     flex-grow: 1;
     background-color: #E4E5EB;
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+    background-color: #E4E5EB;
+}
+.infoPrin{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5vw;
+    align-items: center;
+    justify-content: center;
+}
+.infoPrin img{
+    border-radius: 5px;
+    border: 6px solid #353753 ;
+}
+.infoPrin h3{
+    align-items: flex-start;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    color: black;
+    margin-top: 2vh;
+    text-align:center;
+    width: 8vw;
+}
+.infoPrin p{
+    font-family: "Dosis", sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+}
+.infoPrin a{
+    color: black;
 }
 .I3{
     margin-top: 10vh;
@@ -73,17 +110,7 @@ html{
 .btnGen:hover{
     background-color: #353753;
 }
-.contenedord{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #E4E5EB;
-}
-.contenedord table{
-    width: 70vw;
-    margin-bottom: 10vh;
-    flex-shrink: 1;
-}
+
 .btnEra{
     border: none;
     border-radius: 10px;
@@ -98,18 +125,7 @@ html{
 .btnEra:hover{
     background-color: #8b0505;
 }
-thead{
-    background-color: #7D7097;
-    text-align: center;
-    color: black;
-}
-th > a{
-    color: black;
-}
-tbody{
-    background-color: #b5a9cf;
-    text-align: center;
-}
+
 .footer{
     clear: both;
     display: flex;
@@ -144,18 +160,3 @@ tbody{
         align-items: center;
     }
   }
-
-.dos-columnas{
-    display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 1rem;
-        padding: 0rem 0.5rem;
-}
- 
-@media (max-width: 768px){
-    .dos-columnas{
-        display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            padding: 0rem 0.5rem;
-    }
- }

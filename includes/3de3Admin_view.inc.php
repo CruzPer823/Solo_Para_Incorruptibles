@@ -13,7 +13,7 @@ function mostrar3de3Admin(){
             echo "<td>" . $fila['partido'] . "</td>";
             echo "<td>". $fila["cargo"] . "</td>";
             echo "<td>". $fila["detalles"] . "</td>";
-            echo "<td> <input type='button' name='pub' class='btnPub' value='Reportar' onclick='confirmarReporte(" . $fila['id'] . ")'></td>";
+            echo "<td> <input type='button' name='pub' class='btnPub' value='Publicar' onclick='confirmarReporte(" . $fila['id'] . ")'></td>";
             echo "<td> <input type='button' name='pub' class='btnEra' value='Eliminar' onclick='eliminarRegistro(" . $fila['id'] . ")'></td>";
             echo "</tr>";
     }

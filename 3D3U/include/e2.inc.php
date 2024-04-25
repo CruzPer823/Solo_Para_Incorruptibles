@@ -39,7 +39,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            if($error){
                 $_SESSION["errors_e2"] = $error;
                 //agregar funcion que elimina la imagen subida
-                deleteImage($picFinalName);
+                if($picFinalName!=NULL){
+                    deleteImage($picFinalName);
+                }
                 header("Location: ../e2.php");
                 die();
            }
@@ -54,7 +56,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
            $stmt=null;
            die();
         }catch(PDOException $e){
-          deleteImage($picFinalName);
           die("Process failed: ".$e->getMessage());
         }
 }else{

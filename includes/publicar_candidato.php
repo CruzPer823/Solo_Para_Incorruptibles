@@ -11,7 +11,7 @@ $sql = "UPDATE candidatos
         $stmt4 = $pdo->prepare($sql);
         $datos = array(':candidatoId'=> $id);
         if($stmt4->execute($datos)){
-            echo '3 de 3 publicada correctamente';
+            echo '3 de 3 publicado correctamente';
         }
         else{
             echo 'ERROR AL PUBLICAR 3 de 3';

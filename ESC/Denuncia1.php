@@ -63,7 +63,7 @@ require_once '../includes/denuncia1_view.inc.php';
                     <p class="text-center indicaciones">Favor de llenar el siguiente formulario con los datos correspondientes</p>
                     <p class="text-center no-margin progress__text">Progreso</p>
                     <div class="progress">
-                        <div class="progress-bar" style="width: 100%;">0%</div>
+                        <div class="progress-bar" style="width: 0%;">0%</div>
                     </div>
                     <p class="text-center categoria">Información inicial.</p>
                     <?php check_form_errorsd1();?>
@@ -71,15 +71,15 @@ require_once '../includes/denuncia1_view.inc.php';
                     
                     <div class="col-12  entrada">
                         <label class="form-label" for="CP">Código Postal<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="Ejemplo. 92312" id="CP" name="CP" required>
+                        <input class="form-control text" type="text" placeholder="Ejemplo. 92312" id="CP" name="CP" >
                     </div>
                     <div class="col-12 entrada ">
                         <label class="form-label" for="seccion_electoral">Sección electoral<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="" id="seccion_electoral" name="seccion_electoral" required>
+                        <input class="form-control text" type="text" placeholder="" id="seccion_electoral" name="seccion_electoral" >
                     </div>
                     <div class="col-12 entrada ">
                         <label class="form-label" for="sexo">Sexo<span class="rojo">*</span>:</label>
-                        <select class="form-control text" id="sexo" name="sexo" required>
+                        <select class="form-control text" id="sexo" name="sexo" >
                             <option value="">Seleccionar</option>
                             <option value="masculino">Masculino</option>
                             <option value="femenino">Femenino</option>

@@ -57,10 +57,6 @@ require_once '../includes/denuncia2_view.inc.php';
   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <?php
-    $ocupacion = $_SESSION['ocupacion'];
-    $escolaridad = $_SESSION['escolaridad'];
-    ?>
     <main>
         <div class="container formulario">
             <div class="row justify-content-center">
@@ -72,7 +68,8 @@ require_once '../includes/denuncia2_view.inc.php';
                         <div class="progress-bar" style="width: 20%;">20%</div>
                     </div>
                     <p class="text-center categoria">Evento a denunciar.</p>
-                    <?php check_form_errorsd2();?>
+                    <?php
+                    check_form_errorsd2();?>
                 <form action="../includes/denuncia2.inc.php" class="col-md-7 col-lg-6 ps-5 pe-5" method="POST">
                     
                     <div class="col-12 entrada">
@@ -83,7 +80,6 @@ require_once '../includes/denuncia2_view.inc.php';
                         placeholder="Escribe tu explicación aquí..."
                         id="explicacion"
                         name="explicacion"
-                        required
                     ></textarea>
                     </div>
                     <input type="submit" class="boton boton--primario" value="Siguiente">

@@ -70,15 +70,15 @@ require_once '../includes/denuncia4_view.inc.php';
                     <div class="progress">
                         <div class="progress-bar" style="width: 60%;">60%</div>
                     </div>
-                    <p class="text-center categoria">Información inicial. (acusado)</p>
+                    <p class="text-center categoria">Información inicial. (Acusado)</p>
                     <?php 
-                      check_form_errorsd4();
+                     check_form_errorsd4();
                     ?>
                 <form class="col-md-6 ps-5 pe-5" action="../includes/denuncia4.inc.php" method="post">
                     
                     <div class="col-12  entrada">
                         <label class="form-label" for="nombre">Nombre<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="ej.92312" id="nombre" name="nombre">
+                        <input class="form-control text" type="text" placeholder="Nombre del acusado" id="nombre" name="nombre">
                     </div>
                     <div class="col-12 entrada ">
                         <label class="form-label" for="institucion">Institución en la que labora<span class="rojo">*</span>:</label>

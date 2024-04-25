@@ -99,7 +99,7 @@ require_once '../includes/denuncia3_contr.inc.php';
                     </div>
                     <div class="col-12  entrada">
                         <label class="form-label" for="CP">Dirección<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="Ejemplo. Av. 16 de septiembre" id="direccion" name="direccion" required>
+                        <input class="form-control text" type="text" placeholder="Ejemplo. Av. 16 de septiembre" id="direccion" name="direccion" >
                     </div>
                     <input type="submit" class="boton boton--primario" value="Siguiente">
                 </form>

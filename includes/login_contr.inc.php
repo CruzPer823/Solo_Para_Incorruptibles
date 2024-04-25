@@ -24,3 +24,11 @@ function is_pass_wrong(string $pass, string $hashedPass){
         return false;
     }
 }
+
+function admin(string $email){
+    if($email == "spiAdmin@tec.mx"){
+        return true;
+    }else{
+        return false;
+    }
+}

@@ -1,4 +1,5 @@
 <?php
+require_once '../includes/config_session.inc.php';
 require_once '../includes/demandasReportadas_view.inc.php';
 ?>
 <!DOCTYPE html>
@@ -7,6 +8,7 @@ require_once '../includes/demandasReportadas_view.inc.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -16,9 +18,11 @@ require_once '../includes/demandasReportadas_view.inc.php';
     <link rel="stylesheet" href="../css/normalize.css">
 </head>
 <body>
-
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
-    
+<?php if(!isset($_SESSION["user_id"])){
+        header("Location: ../index.php");
+    } ?>
+<header class="Logo"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></header>
+    <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,32 +30,21 @@ require_once '../includes/demandasReportadas_view.inc.php';
         </button>
         <div class="nv collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link " href="../creditos.html">Créditos</a>
+          <li class="nav-item">
+              <a class="nav-link active" href="demandasReportadas.php"> Denuncias Reportadas</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../index.html">Acerca de</a>
+              <a class="nav-link " href="3de3Admin.php">Iniciativa 3 de 3</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../recursos.html">Recursos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="3de3Admin.html">Iniciativa 3 de 3</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="demandasReportadas.html">Denuncias</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">Cerrar Sesión</a>
+            <li class="nav-item cerrar">
+              <a class="nav-link"><form action="../includes/logout.inc.php" method="post"> <button class="boton-tabla boton--eliminar no-margin" >Cerrar Sesión</button></form></a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <main>
     <div class="contenedor formulario mt-5 pe-5 ps-5" style="overflow-y: auto">
     <h2 class="titulo ">Denuncias reportadas</h2>

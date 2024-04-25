@@ -55,7 +55,12 @@ html{
     margin-bottom: 50px;
     text-align: center;
 }
-.cont,p{
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cont, p{
     display: flex;
     flex-shrink: 1;
     font-family: "Dosis", sans-serif;
@@ -133,7 +138,7 @@ html{
     #folioBusq{
         width: 200px;
     }
-    .cont{
+    .cont p{
         font-size: 1em;
         display: flex;
         align-items: center;

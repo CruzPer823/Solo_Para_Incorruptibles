@@ -19,9 +19,9 @@
 </head>
 <body>
 
-    <header class="Logo"> <a href="index.php"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
-    
-    <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
+<header class="Logo"> <a href="index.php"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
               <a class="nav-link"  href="index.php">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="recursos.html">Recursos</a>
@@ -53,7 +53,9 @@
         </div>
       </div>
     </nav>
-
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <main>
         <div class="container formulario">
             <div class="row justify-content-center">
@@ -80,7 +82,7 @@
                     </div>
                     <div class="d-flex entrada aviso-priv">
                         <input class="" type="checkbox" id="aviso_privacidad" name="aviso_privacidad">
-                        <label class="form-label" for="aviso_privacidad">Acepto el aviso de privacidad</label>
+                        <label class="form-label" for="aviso_privacidad"><a href="./Files/AvisoPrivacidad.pdf">Acepto el aviso de privacidad</a></label>
                     </div>
 
                     <input class="boton boton--primario" type="submit" value="Enviar">
@@ -110,6 +112,7 @@
                 </div>
             </div>
         </div>
+        <div class="footer">Copyright© Sólo para incorruptibles 2024</div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

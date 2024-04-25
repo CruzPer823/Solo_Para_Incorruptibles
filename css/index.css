@@ -36,16 +36,17 @@ html, body{
 }
 .misvis{
     display: grid;
-    grid-template: 1fr/ 1fr 1fr;
+    justify-content: center;
+    grid-template: 1fr/ 40vw 40vw;
+    gap: 5vw;
+    background-color: #E4E5EB;
 }
 .contenedor{
     display: flex;
     justify-content: center;
     background-color: #E4E5EB;
 }
-.mv{
-    height: 70vh;
-}
+
 .tarjetaPrin{
     margin-top: 50px;
     display: flex;
@@ -57,7 +58,7 @@ html, body{
 .tarjeta{
     margin-top: 50px;
     display: flex;
-    background-color: #FFFF;
+    background-color: #FFF;
     border-radius: 12px;
     justify-content: center;
     align-items: center;
@@ -106,6 +107,7 @@ html, body{
     background-color: #7D7097;
     justify-content: space-evenly;
     padding: 10px;
+    color: #FFF;
 }
 .footer svg{
     width: 45px;
@@ -143,6 +145,13 @@ html, body{
     }
     .misvis{
         display: flex;
+        align-items: center;
         flex-direction: column;
+        gap:1vh;
+    }
+    .contenedor .mv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
   }

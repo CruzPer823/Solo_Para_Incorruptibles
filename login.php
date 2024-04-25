@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SPI</title>
     <link rel="icon" href="assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="CSS/login.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
@@ -21,8 +21,8 @@
 <?php  is_logged();?>
     <!-- Header -->
     <header class="Logo"> <a href="index.php"> <img src="assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
-    <!-- Barra de navegacion -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -36,7 +36,7 @@
               <a class="nav-link"  href="index.php">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="recursos.html">Recursos</a>
@@ -45,7 +45,7 @@
               <a class="nav-link" href="3de3.php">Iniciativa 3 de 3</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="denuncia.html">Denunciar</a>
+              <a class="nav-link" aria-current="page" href="denuncia.html">Denunciar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="login.php">Iniciar Sesión</a>
@@ -54,7 +54,8 @@
         </div>
       </div>
     </nav>
-    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
     <!-- Tarjeta login -->
@@ -62,6 +63,7 @@
         <div class="tarjetaPrin container shadow-lg">
             <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
                 <div class="Titulo"> <h1>INICIA SESIÓN</h1></div>
+                <div class="Titulo"><h2>Inicie sesión para subir su 3 DE 3</h2></div>
                 <?php
                 check_login_errors();
                 check_registro_errors();
@@ -74,7 +76,6 @@
                 <div class="inpSesion">
                     <input type="password" class="form-control" name="pass" id="inp" placeholder="Contraseña" >
                 </div>
-                <div class="cont"><a href="#">¿Olvidaste tu Contraseña?</a></div>
                 <div class="b1"><input type="submit" class="btnGen" value="Iniciar Sesión"/></div>
               </form>
                 <div class="b1"><a href="registro.php"><button class="btnGen2"> Regístrate</button></a></div>
@@ -112,6 +113,7 @@
                             </svg></a>
                                               
         </div>
+        <div class="footer">Copyright© Sólo para incorruptibles 2024</div>
     </footer>
 </body>
 </html>

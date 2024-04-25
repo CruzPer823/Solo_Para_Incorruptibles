@@ -100,6 +100,7 @@ html{
     background-color: #353753;
 }
 
+
 thead{
     background-color: #7D7097;
     text-align: center;
@@ -150,6 +151,10 @@ tbody{
     }
     .b1{
         align-items: center;
+    }
+    iframe{
+        width: 65vw;
+        height: 20vh;
     }
   }
  

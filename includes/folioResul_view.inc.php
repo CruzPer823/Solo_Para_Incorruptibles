@@ -14,13 +14,13 @@ function denunciaEstado(){
     $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($fila["Estado"] == 0){
-      $estadoA = 'En revisión';
+      $estadoA = 'En proceso de canalización a las autoridades correspondientes';
     }
     else{
-      $estadoA = 'Autoridades notificadas';
+      $estadoA = 'Las autoridades han sido notificadas de su denuncia, ¡Agradecemos su cooperación!';
     }
     
     echo "<div class='cont1'><p>Folio:</p> <p id='noFolio' style='font-weight: 600;'>". $id."</p></div>";
-    echo " <div class='cont2 mb-5'><p style='margin-right: 25px;'>Estado de demanda:</p> <p id='estadoDem' style='margin-left:  font-weight:600'>".$estadoA."</p></div>";
+    echo " <div class='cont2 mb-5'><p style='margin-right: 25px; align-items:center;'>Estado de demanda:</p> <p id='estadoDem' style='text-align:center; justify-content:center;  font-weight:600;color:red;width:30vw;margin-bottom:20vh;'>".$estadoA."</p></div>";
     }
 } 

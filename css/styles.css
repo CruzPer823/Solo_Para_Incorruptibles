@@ -130,7 +130,9 @@ img {
     background-color: #7D7097;
     justify-content: space-evenly;
     padding: 10px;
+    color: #fff;
 }
+
 .footer svg{
     width: 45px;
     height: 43px;
@@ -221,11 +223,15 @@ img {
 .entrada{
     margin-bottom: 4rem;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 @media (max-width: 821px) {
     .entrada {
         display: inline-block; /* Cambia el display de flex a block */
+    }
+    .entrada a{
+        margin-left: 20px;
     }
 }
 .contenedor-conductas{
@@ -383,6 +389,8 @@ img {
     }
 }
 .persona-creditos{
+    color: var(--negro);
+    font-weight:550;
     text-align: center;
     font-size: 3.5rem;
 }

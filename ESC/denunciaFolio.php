@@ -2,30 +2,8 @@
 // Iniciar sesión
 require_once '../includes/config_session.inc.php';
 require_once '../includes/denunciaFolio_view.inc.php';
-// if($_SERVER['REQUEST_METHOD'] === 'POST'){
-//   if(isset($_POST['folioBusq'])) {
-//     $id =$_POST['folioBusq'];
-//     echo $id;
 
-//     $consulta = "SELECT id FROM denuncia WHERE id = $id";
-//     $result1 = mysqli_query($mysqli, $consulta);
-
-//     // Verificar si se encontró algún resultado
-//     if ($result1->num_rows > 0) {
-//         // Guardar el ID en la sesión
-//         $_SESSION['folioBusq'] = $_POST['folioBusq'];
-//         // Redirigir a la siguiente página
-//         header('Location: folioResul.php');
-//         exit();
-//     } else {
-//         // Mostrar una alerta JavaScript si el ID no existe
-//         echo "<script>alert('El folio no existe en la base de datos') </script>";
-//         echo " window.location.reload();";
-//     }
-// }
-//}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,43 +21,43 @@ require_once '../includes/denunciaFolio_view.inc.php';
 </head>
 <body>
 
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
-    
-    <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="nv collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link " href="../creditos.html">Créditos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="../index.php">Acerca de</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Estadísticas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../recursos.html">Recursos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="../login.php">Iniciar Sesión</a>
-              </li>
-            </ul>
-          </div>
+<header class="Logo"> <a href="../index.php"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="nv collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link " href="../creditos.html">Créditos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="../index.php">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../recursos.html">Recursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../login.php">Iniciar Sesión</a>
+            </li>
+          </ul>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
+  </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Tarjeta denuncia -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script><!-- Tarjeta denuncia -->
     <div class="contenedor">
     <div class="tarjetaPrin container shadow-lg">
         <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
@@ -129,15 +107,5 @@ require_once '../includes/denunciaFolio_view.inc.php';
                                             
       </div>
   </footer>
-  
-  <!-- <script>
-    function validarFolio() {
-        var folio = document.getElementById("folioBusq").value;
-        if (folio === "") {
-            alert("El campo de folio está vacío. Por favor, introdúcelo.");
-            event.preventDefault(); // Evitar que se envíe el formulario
-        }
-    }
-</script> -->
 </body>
 </html>

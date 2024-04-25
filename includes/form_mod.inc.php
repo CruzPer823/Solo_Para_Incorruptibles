@@ -42,7 +42,7 @@ declare(strict_types=1);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result["CONTADOR"];
     }
-function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicacion_info, array $ubicacion_info, array $sospechoso_info,array $time_info,string $evidencia){
+function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicacion_info, array $ubicacion_info, array $sospechoso_info,array $time_info,string|null $evidencia){
     $query = "INSERT INTO denuncia(id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora,evidencia) VALUES (:id, :cp, :seccionElectoral, :sexo, :ocupacion, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora,:evidencia);";
     
     $stmt = $pdo->prepare($query);

@@ -23,40 +23,43 @@ require_once '../includes/denuncia4_view.inc.php';
 </head>
 <body>
 
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
-    
-    <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="nv collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link " href="../creditos.html">Créditos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="../index.php">Acerca de</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Estadísticas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../recursos.html">Recursos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="../login.php">Iniciar Sesión</a>
-              </li>
-            </ul>
-          </div>
+<header class="Logo"> <a href="../index.php"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="nv collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link " href="../creditos.html">Créditos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="../index.php">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../recursos.html">Recursos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../login.php">Iniciar Sesión</a>
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <main>
         <div class="container formulario">
@@ -67,15 +70,15 @@ require_once '../includes/denuncia4_view.inc.php';
                     <div class="progress">
                         <div class="progress-bar" style="width: 60%;">60%</div>
                     </div>
-                    <p class="text-center categoria">Información inicial. (acusado)</p>
+                    <p class="text-center categoria">Información inicial. (Acusado)</p>
                     <?php 
-                      check_form_errorsd4();
+                     check_form_errorsd4();
                     ?>
                 <form class="col-md-6 ps-5 pe-5" action="../includes/denuncia4.inc.php" method="post">
                     
                     <div class="col-12  entrada">
                         <label class="form-label" for="nombre">Nombre<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="text" placeholder="ej.92312" id="nombre" name="nombre">
+                        <input class="form-control text" type="text" placeholder="Nombre del acusado" id="nombre" name="nombre">
                     </div>
                     <div class="col-12 entrada ">
                         <label class="form-label" for="institucion">Institución en la que labora<span class="rojo">*</span>:</label>

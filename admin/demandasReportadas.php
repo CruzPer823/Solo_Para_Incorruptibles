@@ -46,27 +46,28 @@ require_once '../includes/demandasReportadas_view.inc.php';
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <main>
-    <div class="contenedor formulario mt-5 pe-5 ps-5">
+    <div class="contenedor formulario mt-5 pe-5 ps-5" style="overflow-y: auto">
     <h2 class="titulo ">Denuncias reportadas</h2>
     <div class="table-responsive">
-        <table class="table table-hover border-black tabla">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Municipio</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <?php
-                mostrarDenuncias();
+    <table class="table table-hover border-black tabla">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Municipio</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            mostrarDenuncias();
             ?>
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
+</div>
+
+    
 </div>
     </main>
     

@@ -537,3 +537,7 @@ th,td{
 .boton--eliminar{
     background-color: red;
 }
+
+.table-responsive {
+    overflow-x: auto;
+}

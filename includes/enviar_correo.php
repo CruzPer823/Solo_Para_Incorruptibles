@@ -3,15 +3,13 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require 'vendor/phpmailer/phpmailer/src/Exception.php';
-require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-
+require '../ESC/vendor/phpmailer/phpmailer/src/Exception.php';
+require '../ESC/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../ESC/vendor/phpmailer/phpmailer/src/SMTP.php';
 //Load Composer's autoloader
 
-
 // Conecta a la base de datos
-require '../includes/dbh.inc.php';
+require 'dbh.inc.php';
 $id = $_GET['id'];
 
 $consulta = "SELECT 
@@ -62,7 +60,7 @@ $stmt->execute(array(':id' => $id));
         // Concatenar las conductas en la variable $conductas
         $conductas .= 'v' . $row["nombreCond"] . ' - Tipo: ' . $row["tipo"] . 'g';
     }
-    
+
 
     // Crea una nueva instancia de PHPMailer
     $mail = new PHPMailer(true);

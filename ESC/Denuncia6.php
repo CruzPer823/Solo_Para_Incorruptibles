@@ -225,9 +225,10 @@ require_once '../includes/denuncia6_view.inc.php';
                             </div>
                         </div> 
                         <div class="col-md-10 contenedor-conductas mb-5">
-                            <label  class="form-label" for="imagen">Seleccionar imagen:</label>
-                            <input  type="file" id="imagen" name="imagen" accept=".jpg , .png , .jpeg">
+                            <label  class="form-label" for="imagen">Suba su evidencia (si cuenta con alguna):</label>
+                            
                         </div>
+                        <input  type="file" id="imagen" class="inp" name="imagen" accept=".jpg , .png , .jpeg">
                         <div class="col-md-12">
                         <input type="submit" class="boton boton--secundario" name="validate" value="Enviar">
 

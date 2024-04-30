@@ -18,16 +18,9 @@ function uploadImage(string $fileName, string $fileTmp, string $fileSize, string
               $fileDestination='./documents/'.$fileNameNew;
               move_uploaded_file($fileTmp,$fileDestination);
               return $fileNameNew;
-          }else{
-              echo "Archivo muy pesado";
           }
-
-      }else{
-          echo "Hubo un error";
-      }
-  }else{
-      echo "Extension no permitida";
-  }
+        }
+   }
 }
 
 function deleteImage(string $filename){

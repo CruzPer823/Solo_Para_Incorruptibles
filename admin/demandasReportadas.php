@@ -135,7 +135,7 @@ function reportarRegistro(id) {
             location.reload();
         }
     };
-    xhttp.open('GET', '../incluides/enviar_correo.php?id=' + denunciaId, true);
+    xhttp.open('GET', '../includes/enviar_correo.php?id=' + denunciaId, true);
     xhttp.send();
 }
 </script>

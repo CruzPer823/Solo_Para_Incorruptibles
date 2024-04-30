@@ -51,10 +51,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      $datos["c8"]=$c8;
      $_SESSION["conductas"] = $datos;
      $_SESSION["evidencia"]=$picFinalName;
-     $_SESSION["id"] = $_SESSION["datos_iniciales"]["seccion_electoral"].contador($pdo);
-     
+     $random=random_int(1,10000);
+     $_SESSION["idDenuncia"] = $_SESSION["datos_iniciales"]["seccion_electoral"].contador($pdo).$random;  
      if(isset($_SESSION)){
-          UploadData($pdo,$_SESSION["datos_iniciales"],$_SESSION["explicacion_info"],$_SESSION["ubicacion_info"],$_SESSION["sospechoso_info"],$_SESSION["time_info"],$_SESSION["conductas"],$_SESSION["evidencia"]);
+          UploadData($pdo,$_SESSION["datos_iniciales"],$_SESSION["explicacion_info"],$_SESSION["ubicacion_info"],$_SESSION["sospechoso_info"],$_SESSION["time_info"],$_SESSION["conductas"],$_SESSION["evidencia"],$_SESSION["idDenuncia"]);
      } 
      header("Location: ../ESC/DenunciaConfirm.php");
      $pdo=null;

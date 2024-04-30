@@ -28,6 +28,14 @@ html{
     margin-right: 5vh;
 
 }
+.mensaje{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .contenedor{
     display: flex;
     justify-content: center;

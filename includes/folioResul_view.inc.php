@@ -21,6 +21,6 @@ function denunciaEstado(){
     }
     
     echo "<div class='cont1'><p>Folio:</p> <p id='noFolio' style='font-weight: 600;'>". $id."</p></div>";
-    echo " <div class='cont2 mb-5'><p style='margin-right: 25px; align-items:center;'>Estado de demanda:</p> <p id='estadoDem' style='text-align:center; justify-content:center;  font-weight:600;color:red;width:30vw;margin-bottom:20vh;'>".$estadoA."</p></div>";
+    echo " <div class='cont2 mb-5 mensaje'><p style='margin-right: 25px; align-items:center;'>Estado de demanda:</p> <p id='estadoDem' style='text-align:center; justify-content:center;  font-weight:600;color:red;width:30vw;margin-bottom:20vh;'>".$estadoA."</p></div>";
     }
 } 

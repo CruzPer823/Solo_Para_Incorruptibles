@@ -238,7 +238,21 @@ img {
     display: inline-flex;
     justify-content: center;
 }
-
+.contenedor-conductas label{
+    font-weight: bold;
+}
+.inp{
+    padding: 1vh;
+    font-family: "Dosis", sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 30px;
+    border: #23274C solid 1px;
+    border-radius: 20px;
+    height: 50px;
+    width: 340px;
+    margin-bottom: 2vh;;
+}
 @media (max-width: 767px) {
     .contenedor-conductas{
         display: block;

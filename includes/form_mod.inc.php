@@ -1,39 +1,6 @@
 <?php
 declare(strict_types=1);
-// if(isset($_SESSION['escolaridad'])&& !isset($_SESSION['ocupacion'])){
-    //         echo'1';
-    //         $escolaridad = $_SESSION['escolaridad'];
-    //         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-    //         VALUES (:id, :cp, :seccionElectoral, :sexo, NULL, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora)";
-    //         $stmt = $pdo->prepare($sql1);
-    //         $stmt->bindParam(':escolaridad', $escolaridad);
-    //     }
-    //     else if(isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
-    //         echo'<br>2';
-    //         $ocupacion = $_SESSION['ocupacion'];
-    //         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-    //         VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-    //         $stmt = $pdo->prepare($sql1);
-    //         $stmt->bindParam(':ocupacion', $ocupacion);
-    //     }
-    //     else if(isset($_SESSION['ocupacion']) && isset($_SESSION['escolaridad'])){
-    //         echo'3';
-    //         $ocupacion = $_SESSION['ocupacion'];
-    //         $escolaridad = $_SESSION['escolaridad'];
-    //         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-    //         VALUES ($id, $cp, $s_e, '$sexo', '$ocupacion',$escolaridad  , '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-    //         $stmt = $pdo->prepare($sql1);
-    //         $stmt->bindParam(':ocupacion', $ocupacion);
-    //         $stmt->bindParam(':escolaridad', $escolaridad);
-    
-    //     }
-    //     else if(!isset($_SESSION['ocupacion']) && !isset($_SESSION['escolaridad'])){
-    //         echo'4';
-    //         $sql1 = "INSERT INTO denuncia (id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora) 
-    //         VALUES ($id, $cp, $s_e, '$sexo', null, null, '$explicacion', $municipio, '$direccion', '$nombre', '$institucion', '$rol', '$fecha', '$hora')";
-    //         $stmt = $pdo->prepare($sql1);
-            
-    //     }
+
 
     function contador(object $pdo){
         $query = "SELECT COUNT(*) AS CONTADOR FROM denuncia;";
@@ -42,9 +9,8 @@ declare(strict_types=1);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result["CONTADOR"];
     }
-function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicacion_info, array $ubicacion_info, array $sospechoso_info,array $time_info,string|null $evidencia){
+function uploadDatosD(object $pdo, int $id, array $datos_iniciales, array $explicacion_info, array $ubicacion_info, array $sospechoso_info,array $time_info,string|null $evidencia){
     $query = "INSERT INTO denuncia(id, cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, direccion, nombreSosp, instSosp, rolSosp, fecha, hora,evidencia) VALUES (:id, :cp, :seccionElectoral, :sexo, :ocupacion, :escolaridad, :descripcion, :ubicacion, :direccion, :nombreSosp, :instSosp, :rolSosp, :fecha, :hora,:evidencia);";
-    
     $stmt = $pdo->prepare($query);
     $stmt->bindParam(":id", $id);
     $stmt->bindParam(":cp",$datos_iniciales ["CP"]);
@@ -65,7 +31,7 @@ function uploadDatosD(object $pdo, $id, array $datos_iniciales, array $explicaci
 }
 
 
-function uploadConductas(object $pdo, array $conductas, $id){
+function uploadConductas(object $pdo, array $conductas, int $id){
     $sql2 = "INSERT INTO denunciaconducta (id_denuncia, id_conducta) VALUES (:id_denuncia, :id_conducta);";
     
         foreach($conductas as $dato){

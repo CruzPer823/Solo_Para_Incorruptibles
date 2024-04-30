@@ -1,30 +1,9 @@
 <?php
 // Iniciar sesión
 // Conexión a la base de datos (asumiendo que tienes un archivo database.php con esta configuración)
-
+require_once '../includes/config_session.inc.php';
 require_once '../includes/DenunciaConfirm_view.inc.php';
-// Comprobar si existen todos los datos necesarios en la sesión
-// if(!isset($_SESSION['CP']) || !isset($_SESSION['otro_dato'])) {
-//     // Si falta algún dato, redirigir a la página correspondiente para completarlo
-//     header('Location: Denuncia1.php');
-//     exit();
-// }
 
-
-// // Ejecutar la consulta
-// if ($stmt->execute()) {
-//     // Si la inserción fue exitosa, redirigir a una página de éxito o mostrar un mensaje
-//     header('Location: exito.php');
-//     exit();
-// } else {
-//     // Si hubo un error en la inserción, mostrar un mensaje de error o redirigir a una página de error
-//     header('Location: error.php');
-//     exit();
-// }
-
-// // // Cerrar la sentencia y la conexión
-// $stmt->close();
-// $conexion->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,8 +65,10 @@ require_once '../includes/DenunciaConfirm_view.inc.php';
             <div class="row justify-content-center">
                 <h2 class="text-center titulo">DENUNCIA “ELECCIÓN SIN CORRUPCIÓN”</h2>
                 <p class="msj-gracias">¡Muchas gracias por contribuir con tu denuncia!</p>
-                <p class="folio">Folio de denuncia:<?php echo getId();?> </p>
-                <p class="info-consulta">Puedes saber el estado de tu denuncia utilizando tu folio al presionar el botón “consulta el estado de denuncia”</p>                
+                <p class="folio">Folio de denuncia: <span style="color:red;"><?php echo getId();?></span> </p>
+                <p class="info-consulta">Esta será la única vez en la que podrá saber el folio de su denuncia.
+                  <br/>Puedes saber el estado de tu denuncia utilizando tu folio al presionar el botón “consulta el estado de denuncia”
+                </p>                
             </div>
         </div>
     </main>

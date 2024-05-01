@@ -18,9 +18,9 @@ require_once '../includes/demandasReportadas_view.inc.php';
     <link rel="stylesheet" href="../css/normalize.css">
 </head>
 <body>
-<?php //if(!isset($_SESSION["user_id"])){
-      //  header("Location: ../index.php");
-   // } ?>
+<?php if(!isset($_SESSION["user_id"])){
+        header("Location: ../index.php");
+   } ?>
 <header class="Logo"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></header>
     <!-- Barra de navegacion -->
     <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">

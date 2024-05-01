@@ -77,8 +77,8 @@ $stmt->execute(array(':id' => $id));
 
         // Configuración del remitente y destinatario
         $mail->setFrom('denuncias@spincorruptibles.com', 'Solo Para Incorruptibles');
-        $mail->addAddress('jcuatepotzo58@gmail.com');
-        //$mail->addAddress('dani.quique.bryan@gmail.com', 'Destinatario2');
+        //$mail->addAddress('jcuatepotzo58@gmail.com');
+        $mail->addAddress('dani.quique.bryan@gmail.com');
 
         // Contenido del correo electrónico
         $mail->isHTML(true);

@@ -1,5 +1,6 @@
 <?php
  require_once '../../includes/config_session.inc.php';
+ require_once '../../includes/detalles3D3_view.inc.php';
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,67 +45,8 @@
     </nav>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <div class="titulo"><h1>3 DE 3</h1></div>
-    <div class="contenedor">
-           <div class="infoPrin">
-           <img src="../../3D3U/include/documents/66257b041cb202.85159990.jpeg" height="350" alt="Imagen del candidato"/>
-           <h3>Nombre:</h3>
-           <p>Cruz Daniel Pérez Jiménez</p>
-           <h3>Partido:</h3>
-           <p>Locos Por Mexico</p>
-           <h3>Cargo:</h3>
-           <p>Diputado</p>
-          </div>
-          <div class="infoPrin">
-           <h3>Detalles del cargo:</h3>
-           <p>Aqui van los detalles del cargo</p>
-           <h3>Ingresos actuales:</h3>
-           <p><a href="#">Ver información</a></p>
-          <h3>Currículo:</h3>
-          <p><a href="#">Ver información</a></p>
-           <h3>¿Ha tenido algun cargo Público?</h3>
-           <p><a href="#">Ver información</a></p>
-          </div>
-          <div class="infoPrin">
-           <h3>Experiencia Laboral:</h3>
-           <p><a href="#">Ver información</a></p>
-           <h3>Bienes Inmuebles:</h3>
-           <p><a href="#">Ver información</a></p>
-          <h3>Vehículo:</h3>
-           <p><a href="#">Ver información</a></p>
-           <h3>Bienes Muebles</h3>
-           <p><a href="#">Ver información</a></p>
-          </div>
-          <div class="infoPrin">
-           <h3>Inversiones:</h3>
-           <p><a href="#">Ver información</a></p>
-           <h3>Adeudos/ Pasivos:</h3>
-           <p><a href="#">Ver información</a></p>
-          <h3>Préstamos:</h3>
-           <p><a href="#">Ver información</a></p>
-           <h3>Participación empresarial</h3>
-           <p><a href="#">Ver información</a></p>
-          </div>
-          <div class="infoPrin">
-          <h3>Desiciones en instituciones:</h3>
-           <p><a href="#">Ver información</a></p>
-           <h3>Apoyos Públicos:</h3>
-           <p><a href="#">Ver información</a></p>
-          <h3>Representación:</h3>
-           <p><a href="#">Ver información</a></p>
-           <h3>Clientes principales</h3>
-           <p><a href="#">Ver información</a></p>
-          </div>
-          <div class="infoPrin">
-          <h3>Beneficios Privados:</h3>
-           <p><a href="#">Ver información</a></p>
-           <h3>Fideicomisos:</h3>
-           <p><a href="#">Ver información</a></p>
-          <h3>Declaración fiscal:</h3>
-           <p><a href="#">Ver información</a></p>
-           <h3>Propuestas/ Información adicional</h3>
-           <p><a href="#">Ver información</a></p>
-          </div>
+    <div class="contenedor2">
+      <?php mostrarCandidato(); ?>
     </div>
     <!-- Footer -->
 

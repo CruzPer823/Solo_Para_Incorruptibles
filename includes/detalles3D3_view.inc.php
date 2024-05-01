@@ -42,7 +42,7 @@ function mostrarCandidato(){
            </div>
            <div class="categoria">
            <h3>Currículo:</h3>
-             <p><a href="#">Ver información</a></p>
+             <p><a href="e3.php?id='.$id.'">Ver información</a></p>
            </div>
            <div class="categoria">
            <h3>¿Ha tenido algun cargo Público?</h3>

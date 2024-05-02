@@ -38,7 +38,7 @@ function mostrarCandidato(){
          <div class="info">
            <div class="categoria">
            <h3>Ingresos actuales:</h3>
-             <p><a href="#">Ver información</a></p>
+             <p><a href="e4.php?id='.$id.'">Ver información</a></p>
            </div>
            <div class="categoria">
            <h3>Currículo:</h3>
@@ -46,15 +46,15 @@ function mostrarCandidato(){
            </div>
            <div class="categoria">
            <h3>¿Ha tenido algun cargo Público?</h3>
-             <p><a href="#">Ver información</a></p>
+             <p><a href="e5.php?id='.$id.'">Ver información</a></p>
            </div>
            <div class="categoria">
            <h3>Experiencia Laboral:</h3>
-             <p><a href="#">Ver información</a></p>
+             <p><a href="e7.php?id='.$id.'">Ver información</a></p>
            </div>
            <div class="categoria">
            <h3>Bienes Inmuebles:</h3>
-             <p><a href="#">Ver información</a></p>
+             <p><a href="e8.php?id='.$id.'">Ver información</a></p>
            </div>
          </div>
 

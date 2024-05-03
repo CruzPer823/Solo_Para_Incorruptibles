@@ -201,6 +201,20 @@ span{
     justify-content: space-evenly;
     padding: 10px;
 }
+.btnEra{
+    border: none;
+    border-radius: 10px;
+    background-color: #FD0B0B;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #FFFF;
+    height: 30px;
+    width:100px;
+}
+.btnEra:hover{
+    background-color: #8b0505;
+}
 .footer svg{
     width: 45px;
     height: 43px;

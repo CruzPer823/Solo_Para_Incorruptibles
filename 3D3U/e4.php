@@ -56,6 +56,7 @@
                       <p>Progreso</p>
                       <div class="progress">
                           <div class="progress-bar loco" style="width: 10%;">10%</div>
+                          
                       </div>
                     </div>
                   </div>

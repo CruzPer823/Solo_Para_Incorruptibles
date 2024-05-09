@@ -19,9 +19,9 @@
 </head>
 <body>
     <!-- Header -->
-    <?php if(!isset($_SESSION["user_id"])){
-        header('Location: ../index.php');
-    } ?>
+    <?php //if(!isset($_SESSION["user_id"])){
+       // header('Location: ../index.php');
+    //} ?>
     <!-- Header -->
     <header class="Logo"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></header>
     <!-- Barra de navegacion -->

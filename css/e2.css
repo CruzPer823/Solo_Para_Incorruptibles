@@ -56,7 +56,7 @@ html{
     justify-content: center;
 }
 .barra > .progress{
-    width: 60vw;
+    width: 40vw;
     height: 2rem;
     background-color: #ddd;
     overflow: hidden;

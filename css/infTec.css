@@ -1,0 +1,160 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+html{
+    background-color: #E4E5EB;
+}
+.Logo{
+    display: flex;
+    justify-content: center;
+    background-color: #23274C;
+    padding: 5px;
+}
+.nv{
+    display: flex;
+    justify-content: center;
+    flex-shrink: 1;
+}
+.nav-item > a{
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    color: #FFFF;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 5vh;
+
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+    flex-grow: 1;
+    background-color: #E4E5EB;
+}
+.contenedorV{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2vw;
+    
+}
+.contenedorV .card{
+    padding: 5vh;
+    border-radius: 15px;
+    background-color: #7D7097;
+    margin: 2vw;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.I3{
+    margin-top: 10vh;
+    height: 45vh;
+    width: 70vw;
+    margin-bottom: 5vw;
+}
+.b1{
+    background-color: #E4E5EB;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+.card h3{
+    font-family: "Dosis", sans-serif;
+    font-weight: bolder;
+    width: 18vw;
+    text-align: center;
+    color: #E4E5EB;
+    margin-top: 2vh;
+}
+.card>p{
+    font-family: "Dosis", sans-serif;
+    font-weight: bolder;
+    width: 18vw;
+    font-size: 1.7em;
+    text-align: center;
+    color: #E4E5EB;
+    margin-top: 2vh;
+}
+.btnGen{
+    border: none;
+    border-radius: 12px;
+    background-color: #23274C;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #FFFF;
+    height: 50px;
+    width: 250px;
+    margin-bottom: 50px;
+}
+.btnGen:hover{
+    background-color: #353753;
+}
+
+
+thead{
+    background-color: #7D7097;
+    text-align: center;
+    color: black;
+}
+th > a{
+    color: black;
+}
+tbody{
+    background-color: #b5a9cf;
+    text-align: center;
+}
+.footer{
+    clear: both;
+    display: flex;
+    background-color: #7D7097;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+.footer svg{
+    width: 45px;
+    height: 43px;
+}
+@media (max-width: 1024px) {
+    .nav-item > a{
+        margin: 0%;
+    }
+   .I3{
+    margin-top: 5vh;
+    height: 15vh;
+    width: 85vw;
+   }
+   .card h3{
+    width: 70vw;
+}
+   .card p{
+        width: 70vw;
+   }
+    .logoTarjeta{
+        height: 20px;
+    }
+    .btnGen{
+        width: 230px;
+        height: 40px;
+    }
+    .cont>p{
+        font-size: 1em;
+    }
+    .b1{
+        align-items: center;
+    }
+    iframe{
+        width: 65vw;
+        height: 20vh;
+    }
+  }
+ 

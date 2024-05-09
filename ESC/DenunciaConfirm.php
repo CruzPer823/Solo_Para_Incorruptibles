@@ -1,51 +1,9 @@
 <?php
 // Iniciar sesión
-session_start();
-
-// Comprobar si existen todos los datos necesarios en la sesión
-// if(!isset($_SESSION['CP']) || !isset($_SESSION['otro_dato'])) {
-//     // Si falta algún dato, redirigir a la página correspondiente para completarlo
-//     header('Location: Denuncia1.php');
-//     exit();
-// }
-
 // Conexión a la base de datos (asumiendo que tienes un archivo database.php con esta configuración)
-require './includes/database.php';
+require_once '../includes/config_session.inc.php';
+require_once '../includes/DenunciaConfirm_view.inc.php';
 
-// Recuperar los datos de la sesión
-$cp = $_SESSION['CP']; 
-$s_e = $_SESSION['seccion_electoral'] ;
-$sexo = $_SESSION['sexo']; 
-$ocupacion = $_SESSION['ocupacion']; 
-$escolaridad = $_SESSION['escolaridad'] ;
-$explicacion = $_SESSION['explicacion'];
-$estado = $_SESSION['estados'];
-$municipio = $_SESSION['municipios'];
-$nombre = $_SESSION['nombre'] ;
-$institucion = $_SESSION['institucion'] ;
-$rol = $_SESSION['rol'];
-$fecha = $_SESSION['fecha'] ;
-$hora = $_SESSION['hora'];
-$conducta = $_SESSION['campo1'];
-
-// // Preparar la consulta SQL para insertar los datos en la base de datos
-$sql = "INSERT INTO denuncia (cp, seccionElectoral, sexo, ocupacion, escolaridad, descripcion, ubicacion, nombreSosp, instSosp, rolSosp, fecha, hora, conducta) VALUES ($cp, $s_e,'$sexo','$ocupacion', $escolaridad, '$explicacion', $municipio, '$nombre', '$institucion','$rol', '$fecha', '$hora', 1)";
-$result = mysqli_query($mysqli,$sql);
-
-// // Ejecutar la consulta
-// if ($stmt->execute()) {
-//     // Si la inserción fue exitosa, redirigir a una página de éxito o mostrar un mensaje
-//     header('Location: exito.php');
-//     exit();
-// } else {
-//     // Si hubo un error en la inserción, mostrar un mensaje de error o redirigir a una página de error
-//     header('Location: error.php');
-//     exit();
-// }
-
-// // // Cerrar la sentencia y la conexión
-// $stmt->close();
-// $conexion->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,9 +22,9 @@ $result = mysqli_query($mysqli,$sql);
 </head>
 <body>
 
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
-    
-    <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
+<header class="Logo"> <a href="../index.php"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -77,16 +35,16 @@ $result = mysqli_query($mysqli,$sql);
               <a class="nav-link " href="../creditos.html">Créditos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../index.html">Acerca de</a>
+              <a class="nav-link"  href="../index.php">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../recursos.html">Recursos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../3de3.html">Iniciativa 3 de 3</a>
+              <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
@@ -98,14 +56,19 @@ $result = mysqli_query($mysqli,$sql);
         </div>
       </div>
     </nav>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <main>
         <div class="container formulario">
             <div class="row justify-content-center">
                 <h2 class="text-center titulo">DENUNCIA “ELECCIÓN SIN CORRUPCIÓN”</h2>
                 <p class="msj-gracias">¡Muchas gracias por contribuir con tu denuncia!</p>
-                <p class="folio">Folio de denuncia: 01</p>
-                <p class="info-consulta">Puedes saber el estado de tu denuncia utilizando tu folio al presionar el botón “consulta el estado de denuncia”</p>                
+                <p class="folio">Folio de denuncia: <span style="color:red;"><?php echo getId();?></span> </p>
+                <p class="info-consulta">Esta será la única vez en la que podrá saber el folio de su denuncia.
+                  <br/>Puedes saber el estado de tu denuncia utilizando tu folio al presionar el botón “consulta el estado de denuncia”
+                </p>                
             </div>
         </div>
     </main>

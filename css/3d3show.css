@@ -2,6 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #E4E5EB;
 }
 
 html{
@@ -28,6 +29,13 @@ html{
     margin-right: 5vh;
 
 }
+h1{
+    font-family: "Dosis", sans-serif;
+    color: #E4E5EB;
+    line-height: 1.2;
+    margin-top: 4vh;
+    text-align: center;
+}
 .contenedor{
     display: flex;
     flex-direction: column;
@@ -36,6 +44,71 @@ html{
     flex-shrink: 1;
     flex-grow: 1;
     background-color: #E4E5EB;
+}
+.contenedor2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+    flex-grow: 1;
+    background-color: #E4E5EB;
+}
+.contenedor3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+    flex-grow: 1;
+    background-color: #bbacbd;
+    padding: 5%;
+    margin-bottom: 5vh;
+    border-radius: 12px;
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+    background-color: #E4E5EB;
+    margin-bottom: 5vh;
+}
+.infoPrin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5vh;
+}
+.infoPrin img{
+    border-radius: 5px;
+    border: 6px solid #353753 ;
+}
+
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
+    margin-bottom: 5vh;
+    width: 50vw;
+    background-color: #bbacbd;
+    border-radius: 12px;
+}
+
+.info h3{
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    color: black;
+    text-align:center;
+    width: 8vw;
+}
+.info p{
+    font-family: "Dosis", sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+}
+.info a{
+    color: black;
 }
 .I3{
     margin-top: 10vh;
@@ -73,29 +146,22 @@ html{
 .btnGen:hover{
     background-color: #353753;
 }
-.contenedord{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #E4E5EB;
+
+.btnEra{
+    border: none;
+    border-radius: 10px;
+    background-color: #FD0B0B;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #FFFF;
+    height: 30px;
+    width:100px;
 }
-.contenedord table{
-    width: 70vw;
-    margin-bottom: 10vh;
-    flex-shrink: 1;
+.btnEra:hover{
+    background-color: #8b0505;
 }
-thead{
-    background-color: #7D7097;
-    text-align: center;
-    color: black;
-}
-th > a{
-    color: black;
-}
-tbody{
-    background-color: #b5a9cf;
-    text-align: center;
-}
+
 .footer{
     clear: both;
     display: flex;
@@ -107,7 +173,7 @@ tbody{
     width: 45px;
     height: 43px;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
     .nav-item > a{
         margin: 0%;
     }
@@ -129,5 +195,10 @@ tbody{
     .b1{
         align-items: center;
     }
+    .categoria, .info{
+        flex-direction: column;
+    }
+    .info h3{
+        width: auto;
+    }
   }
- 

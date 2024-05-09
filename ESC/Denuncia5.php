@@ -1,23 +1,8 @@
 <?php
 // Iniciar sesión
-session_start();
+require_once '../includes/config_session.inc.php';
+require_once '../includes/denuncia5_view.inc.php';
 
-// Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])&& isset($_POST['explicacion'])&&isset($_POST['estados'])&&isset($_POST['municipios'])&&isset($_POST['nombre'])&&isset($_POST['institucion']) && isset($_POST['rol'])) {
-    // Si no existe, redirigir a la primera página
-    header('Location: Denuncia4.php');
-    exit();
-}
-
-// Recibir datos del formulario
-if(isset($_POST['fecha'])&&isset($_POST['hora']) ) {
-    // Guardar los datos en la sesión o hacer lo que necesites
-    $_SESSION['fecha'] = $_POST['fecha'];
-    $_SESSION['hora'] = $_POST['hora'];
-    // Redirigir a la siguiente página o hacer lo que necesites
-    header('Location: Denuncia6.php');
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +22,9 @@ if(isset($_POST['fecha'])&&isset($_POST['hora']) ) {
 </head>
 <body>
 
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
-    
-    <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
+<header class="Logo"> <a href="../index.php"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -50,16 +35,16 @@ if(isset($_POST['fecha'])&&isset($_POST['hora']) ) {
               <a class="nav-link " href="../creditos.html">Créditos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../index.html">Acerca de</a>
+              <a class="nav-link"  href="../index.php">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../recursos.html">Recursos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../3de3.html">Iniciativa 3 de 3</a>
+              <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
@@ -71,7 +56,9 @@ if(isset($_POST['fecha'])&&isset($_POST['hora']) ) {
         </div>
       </div>
     </nav>
-
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <main>
         <div class="container formulario">
             <div class="row justify-content-center">
@@ -82,15 +69,18 @@ if(isset($_POST['fecha'])&&isset($_POST['hora']) ) {
                         <div class="progress-bar" style="width: 80%;">80%</div>
                     </div>
                     <p class="categoria text-center">¿Cuándo sucedío?</p>
-                <form class="col-md-5 ps-5 pe-5" method="post">
+                    <?php
+                    check_form_errorsd5();
+                    ?>
+                <form class="col-md-5 ps-5 pe-5" method="post" action="../includes/denuncia5.inc.php">
                     
                     <div class="col-12 entrada">
                         <label class="form-label" for="fecha">Fecha<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="date"  placeholder=""  id="fecha" name="fecha" required >
+                        <input class="form-control text" type="date"  placeholder=""  id="fecha" name="fecha">
                     </div>
                     <div class="col-12 entrada">
                         <label class="form-label" for="hora">Hora aproximada<span class="rojo">*</span>:</label>
-                        <input class="form-control text" type="time"  placeholder=""  id="hora" name="hora" required >
+                        <input class="form-control text" type="time"  placeholder=""  id="hora" name="hora">
                     </div>
                     <input class="boton boton--primario" type="submit" value="Siguiente">
                 </form>

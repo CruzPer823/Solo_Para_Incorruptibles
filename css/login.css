@@ -56,6 +56,15 @@ html{
     margin-bottom: 50px;
     text-align: center;
 }
+.Titulo h2{
+    font-family: "Dosis", sans-serif;
+    color: #5B5B5B;
+    font-weight: bolder;;
+    font-size: 1.9em;
+    margin-bottom: 50px;
+    text-align: center;
+
+}
 .cont {
     display: flex;
     justify-content: center;

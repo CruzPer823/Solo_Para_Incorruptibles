@@ -1,27 +1,9 @@
 <?php
-require './includes/database.php';
-
-$estados = $mysqli->query("SELECT id, nombre FROM estados");
-
 // Iniciar sesión
-session_start();
-
-// Comprobar si existe el código postal en la sesión
-if(isset($_POST['CP'])&& isset($_POST['seccion_electoral']) && isset($_POST['sexo'])&& isset($_POST['ocupacion']) && isset($_POST['escolaridad'])&& isset($_POST['explicacion'])) {
-    // Si no existe, redirigir a la primera página
-    header('Location: Denuncia2.php');
-    exit();
-}
-
+require_once '../includes/config_session.inc.php';
+require_once '../includes/denuncia3_view.inc.php';
+require_once '../includes/denuncia3_contr.inc.php';
 // Recibir datos del formulario
-if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
-    // Guardar los datos en la sesión o hacer lo que necesites
-    $_SESSION['estados'] = $_POST['estados'];
-    $_SESSION['municipios'] = $_POST['municipios'];
-    // Redirigir a la siguiente página o hacer lo que necesites
-    header('Location: Denuncia4.php');
-    exit();
-}
 ?>
 
 
@@ -42,9 +24,9 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
 </head>
 <body>
 
-    <header class="Logo"> <a href="../index.html"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>    
-    
-    <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
+<header class="Logo"> <a href="../index.php"> <img src="../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></a></header>
+  <!-- Barra de navegacion -->
+  <nav class="navbar navbar-expand-lg" style="background-color: #7D7097;">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -55,16 +37,16 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
               <a class="nav-link " href="../creditos.html">Créditos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link"  href="../index.html">Acerca de</a>
+              <a class="nav-link"  href="../index.php">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Estadísticas</a>
+              <a class="nav-link" href="#" hidden="true">Estadísticas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../recursos.html">Recursos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../3de3.html">Iniciativa 3 de 3</a>
+              <a class="nav-link" href="../3de3.php">Iniciativa 3 de 3</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="../denuncia.html">Denunciar</a>
@@ -76,6 +58,9 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
         </div>
       </div>
     </nav>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <main>
         <div class="container formulario">
@@ -87,15 +72,22 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
                         <div class="progress-bar" style="width: 40%;">40%</div>
                     </div>
                     <p class="text-center categoria">Diganos ¿Dónde sucedio?</p>
-                <form class="col-md-6 ps-5 pe-5" action="" method="post">
+                    <?php
+                       check_form_errorsd3();
+                    ?>
+                <form class="col-md-6 ps-5 pe-5" action="../includes/denuncia3.inc.php" method="post">
                     
                     <div class="col-12 entrada">
                         <label class="form-label" for="estados">Estado<span class="rojo">*</span>:</label>
                         <select class="form-control text" id="estados" name="estados">
                             <option value="">Selecciona un estado</option>
-                            <?php while($row = $estados->fetch_assoc()){ ?>
-                              <option value="<?php echo $row['id'];?>"><?php echo $row['nombre'];?></option>
-                            <?php }  ?>
+                            <?php 
+                            require_once '../includes/dbh.inc.php';
+                            $query = 'SELECT id, nombre FROM estados';
+                            foreach ($pdo->query($query) as $row) {
+                              echo '<option value="' . $row['id'] . '">' . $row['nombre'] . '</option>';
+                            }
+                           ?>
                         </select>  
                     </div>
 
@@ -104,6 +96,10 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
                         <select  class="form-control text" id="municipios" name="municipios">
                             <option value="">Selecciona un municipio</option>
                         </select>
+                    </div>
+                    <div class="col-12  entrada">
+                        <label class="form-label" for="CP">Dirección<span class="rojo">*</span>:</label>
+                        <input class="form-control text" type="text" placeholder="Ejemplo. Av. 16 de septiembre" id="direccion" name="direccion" >
                     </div>
                     <input type="submit" class="boton boton--primario" value="Siguiente">
                 </form>
@@ -143,6 +139,6 @@ if(isset($_POST['estados'])&&isset($_POST['municipios'])) {
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/peticiones.js"></script>
+    <script src="./js/peticiones.js"></script>
 </body>
 </html>

@@ -178,12 +178,50 @@ span{
     background-color: #353753;
 }
 
+.btnCS{
+    border: none;
+    border-radius: 12px;
+    background-color: #7D7097;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    vertical-align: middle;
+    font-size: 20px;
+    color: #FFFF;
+    height: 30px;
+    width: 150px;
+}
+.btnCS:hover{
+    background-color: #580505;
+}
+p{
+    margin-top: 5vh;
+    font-family: "Dosis", sans-serif;
+    font-weight: bolder;
+    font-size: 1.5em;
+    text-align: center;
+    color: #23274C;
+    margin-bottom: 5vh;
+}
 .footer{
     clear: both;
     display: flex;
     background-color: #7D7097;
     justify-content: space-evenly;
     padding: 10px;
+}
+.btnEra{
+    border: none;
+    border-radius: 10px;
+    background-color: #FD0B0B;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #FFFF;
+    height: 30px;
+    width:100px;
+}
+.btnEra:hover{
+    background-color: #8b0505;
 }
 .footer svg{
     width: 45px;
@@ -215,10 +253,12 @@ span{
         justify-content: center;
         gap: 0%;
         margin: 0%;
+        flex-direction: column;
     }
     .pre p{
         text-align: center;
         font-size: 1rem;
+        justify-content: center;
     }
     .inpSesion{
         justify-content: center;

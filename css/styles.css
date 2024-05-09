@@ -130,7 +130,9 @@ img {
     background-color: #7D7097;
     justify-content: space-evenly;
     padding: 10px;
+    color: #fff;
 }
+
 .footer svg{
     width: 45px;
     height: 43px;
@@ -221,18 +223,36 @@ img {
 .entrada{
     margin-bottom: 4rem;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 @media (max-width: 821px) {
     .entrada {
         display: inline-block; /* Cambia el display de flex a block */
     }
+    .entrada a{
+        margin-left: 20px;
+    }
 }
 .contenedor-conductas{
     display: inline-flex;
     justify-content: center;
 }
-
+.contenedor-conductas label{
+    font-weight: bold;
+}
+.inp{
+    padding: 1vh;
+    font-family: "Dosis", sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-left: 30px;
+    border: #23274C solid 1px;
+    border-radius: 20px;
+    height: 50px;
+    width: 340px;
+    margin-bottom: 2vh;;
+}
 @media (max-width: 767px) {
     .contenedor-conductas{
         display: block;
@@ -354,6 +374,8 @@ img {
     .recursos-row{
         margin-top: 10rem;
         margin-bottom: 15rem;
+        display: flex;
+        justify-content: space-evenly;
     }
 }
 @media (max-width: 768px) {
@@ -362,10 +384,29 @@ img {
         margin-bottom: 2rem;
     }
 }
+.creditos{
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+.persona{
+    background-color:#ccbfd8;
+    border-radius: 2rem;
+    color: var(--blanco);
+}
+@media (min-width: 769px) {
+    .recursos-row{
+        margin-top: 10rem;
+        margin-bottom: 15rem;
+    }
+    .persona{
+        margin: 0rem 2rem;
+    }
+}
 .persona-creditos{
+    color: var(--negro);
+    font-weight:550;
     text-align: center;
     font-size: 3.5rem;
-    font-weight: 600;
 }
 .descripcion-persona{
     text-align: center;
@@ -374,6 +415,9 @@ img {
 @media (max-width: 768px) {
     .persona-creditos{
         font-size: 3rem;
+    }
+    .recursos-row{
+        padding: 0rem 1.5rem;
     }
 }
 
@@ -401,9 +445,17 @@ img {
     margin: 0 auto;
     height: 80vh;
 }
+.c-denuncia{
+    background-color: var(--blanco);
+    border-radius: 2rem;
+    margin-top: 3rem;
+    height: auto;
+    padding-bottom: 3rem
+}
 .denuncia{
     margin-top: 2rem;
     text-align: center;
+    padding: 2rem;
 }
 @media (min-width: 769px){
     .tres-columnas{
@@ -412,13 +464,16 @@ img {
             column-gap: 1rem;
             margin-bottom: 8rem;
             margin-top: 6rem;
+            padding-left: 7rem;
     }
 }
 @media (min-width: 769px){
     .tres-columnas2{
         display: grid;
-            grid-template-columns: 30% 30% 40%;
-            column-gap: 1rem;
+            grid-template-columns: 30% 35% 35%;
+            padding-left: 7rem;
+            padding-right: 7rem;
+    column-gap: 1rem;
     }
 }
 @media (max-width: 768px){
@@ -433,6 +488,7 @@ img {
         column-gap: 1rem;
         padding: 0rem 0.5rem;
 }
+
 
 .datos{
     font-weight: 600;
@@ -477,4 +533,33 @@ th:nth-child(4), td:nth-child(4) {
 }
 th,td{
     align-items: center;
+}
+.opciones-select-conductas{
+    width: 90%;
+    margin: 0 auto;
+}
+.option-conducta{
+    font-size: 1.8rem;
+    align-items: center;
+}
+@media(min-width: 769px){
+
+    .option-conducta{
+        font-size: 1.9rem;
+}
+}
+
+
+@media(max-width: 768px){
+
+    .contenedor-conducta{
+        margin-bottom: 3rem;
+    }
+}
+.boton--eliminar{
+    background-color: red;
+}
+
+.table-responsive {
+    overflow-x: auto;
 }

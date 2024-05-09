@@ -177,6 +177,22 @@ span{
     background-color: #353753;
 }
 
+.btnCS{
+    border: none;
+    border-radius: 12px;
+    background-color: #7D7097;
+    font-family: "Dosis", sans-serif;
+    font-weight: bold;
+    vertical-align: middle;
+    font-size: 20px;
+    color: #FFFF;
+    height: 30px;
+    width: 150px;
+}
+.btnCS:hover{
+    background-color: #580505;
+}
+
 .footer{
     clear: both;
     display: flex;

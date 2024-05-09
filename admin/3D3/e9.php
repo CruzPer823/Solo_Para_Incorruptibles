@@ -1,6 +1,6 @@
 <?php
 require_once '../../includes/config_session.inc.php';
-   require_once 'includes/e13_view.inc.php';
+   require_once 'includes/e9_view.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ require_once '../../includes/config_session.inc.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Tarjeta principal -->
     <div class="contenedor">
-    <?php mostrare13() ?>
+    <?php mostrare9() ?>
     
     </div>
 

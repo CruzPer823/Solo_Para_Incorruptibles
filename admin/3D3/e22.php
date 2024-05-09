@@ -1,8 +1,7 @@
 <?php
-require_once '../../includes/config_session.inc.php';
-   require_once 'includes/e13_view.inc.php';
+   require_once '../../includes/config_session.inc.php';
+   require_once 'includes/e22_view.inc.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,9 +19,9 @@ require_once '../../includes/config_session.inc.php';
 </head>
 <body>
     <!-- Header -->
-    <?php //if(!isset($_SESSION["user_id"])){
-      //  header("Location: ../../index.php");
-   // } ?>
+    <?php if(!isset($_SESSION["user_id"])){
+        header('Location: ../index.php');
+    } ?>
     <!-- Header -->
     <header class="Logo"> <img src="../../assets/logo.png" alt="Logo solo para incorruptibles" height="65px"></header>
     <!-- Barra de navegacion -->
@@ -50,9 +49,18 @@ require_once '../../includes/config_session.inc.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Tarjeta principal -->
     <div class="contenedor">
-    <?php mostrare13() ?>
+        <div class="tarjetaPrin container shadow-lg">
+            <div class=" row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3">
+                <div class="Titulo"> <h1>INICIATIVA 3 DE 3</h1></div>
+                
+                
+                
+               <?php mostrare22();?>
     
-    </div>
+              
+            </div>
+        </div>
+        </div>
 
     <!-- Footer -->
 
